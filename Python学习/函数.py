@@ -53,3 +53,39 @@ print(x,y)
 
 # print(quadratic(2,3,1))
 # print(quadratic(1,3,-4))
+
+
+
+#不定长参数
+def sum_num(*args):
+    print(args,type(args))
+    result = 0
+    for value in args:
+        result += value
+    return result
+
+print(sum_num(10,20,30,40))
+
+#函数四种类型
+#无返回值，返回为None
+#无参数无返回值
+def show():
+    print('hello')
+show()
+
+#有参数无返回值
+def show(name, age):
+    print('name = %s,age = %d' % (name,age))
+show('白江',18)
+
+#无参数有返回值
+def show():
+    msg = '好好学习，天天向上'
+    return msg
+print(show())
+
+#有参数有返回值
+def show_msg(name, age):
+    msg = '我叫：%s 年龄:%d' % (name,age)
+    return msg
+print(show_msg('马小',20))
