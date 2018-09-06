@@ -80,3 +80,29 @@ def show(**kwargs):
     show_msg(**kwargs)
 
 show(a = 1,b=2)
+
+def show_msg(*args):
+    print(args)
+
+def show(*args):
+    show_msg(*args)
+
+show(10,20)
+
+#复杂的函数
+def show(name, age, *args, **kwargs):
+    print(name, age,args,kwargs)
+
+#不能使用这种方式，因为前面使用关键字方式调用了 TypeError: show() got multiple values for argument 'name'
+#show(name='李四',age=18,1,2,3,aa=1,bb=2)
+#show(1,2,3,name='李四',age=18,aa=1,bb=2)
+show('李四',18,12,13,aa=1,bb=2)
+
+#必须使用关键字调用
+def show(*,name,age):
+    print(name,age)
+show(name=12,age=13)
+
+def show(address,sex,*,name,age):
+    print(address,sex,name,age)
+show('北京',18,name=12,age=13)
