@@ -15,3 +15,10 @@ def decorator(new_func):
 
 show = decorator(show)
 show()
+
+#语法糖修饰   
+@decorator   #等价于show = decorator(show)
+def show():
+    print('BBB')
+
+show()
