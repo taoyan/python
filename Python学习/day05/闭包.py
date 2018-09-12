@@ -5,6 +5,8 @@ def show(msg):
     num = 10
     def inner():
         #打印外部参数
+        nonlocal num
+        num += 1
         print(num,msg)
     #inner就是闭包
     return inner

@@ -18,6 +18,8 @@ print('函数外',id(g_list))
 
 def modify():
     #可变类型，不用global，地址不会变
+    global g_list
+    g_list = ['1']
     g_list.append('4')
     print('函数内',id(g_list))
 
