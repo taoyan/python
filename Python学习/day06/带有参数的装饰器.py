@@ -18,7 +18,7 @@ def show():
 
 show()
 
-#带有参数的装饰器（给装饰器加装饰器）
+#带有参数的装饰器
 def get_decorator(char):
     def decorator(func):
         def inner():
