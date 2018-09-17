@@ -15,11 +15,10 @@ def decorator(new_func):
     return inner
 
 
-
 @decorator
 def helloWrold():
-    print("helloworld")
-helloWrold()
+    print("hello world")
+# helloWrold()
 
 # 练习2:
 # 要以读文件的模式打开一个文件对象，使用Python内置的open()函数，传入文件名和标示符。
@@ -54,9 +53,24 @@ a = '''1 一张褪色的照片，
 #
 # 请打开file1 文件，并逐字符读取所有文件内容并输出，然后关闭文件file1:
 
+file = open('file1.txt','w')
+file.write(a)
+file.close()
+
+file = open('file1.txt','r')
+print(file.read())
+file.close()
+
 # 练习1.2
 # 请打开file1 文件，并读取文件第一行内容并输出，然后关闭文件file1:
+
+file = open('file1.txt','r')
+print(file.readline())
+file.close()
 
 # 练习1.3
 # 请打开file1 文件，并读取所有行并以列表形式输出，然后关闭文件file1:
 
+file = open('file1.txt','r')
+print(file.readlines())
+file.close()
