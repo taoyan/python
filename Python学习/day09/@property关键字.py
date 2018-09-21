@@ -1,21 +1,23 @@
 class Student():
-    def __init__(self):
-        self.__score = 100
 
     #将方法改成对应属性值
     @property
-    def get_score(self):
+    def score(self):
         return self.__score
 
-    @property
-    def set_score(self,score):
-        self.__score = score
+    @score.setter
+    def score(self,value):
+        self.__score = value
 
 
 stu = Student()
-print(stu.get_score())
-stu.set_score(99)
-print(stu.get_score())
+# print(stu.score)
+stu.score = 99
+print(stu.score)
 
-stu.set_score = 90
-print(stu.get_score)
+stu.score = 90
+print(stu.score)
+
+#私有属性
+print(stu._Student__score)
+
