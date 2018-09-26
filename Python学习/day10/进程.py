@@ -2,8 +2,17 @@
 #一个进程默认一个线程（主线程）
 #真正干活的是线程，进程提供资源
 
+import os
 import multiprocessing
 import time
+
+# print('process (%s) start...' % os.getpid())
+# pid = os.fork()
+# if pid == 0:
+#     print('I am child process (%s) and my parent is %s.' % (os.getpid(),os.getppid()))
+# else:
+#     print('I (%s) just created a child process (%s).' % (os.getpid(),pid))
+
 def show():
     for i in range(5):
         print('show')

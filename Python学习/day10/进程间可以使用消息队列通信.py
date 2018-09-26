@@ -31,3 +31,5 @@ if __name__ == '__main__':
 
 #代码稳定性：多进程比多线程稳定性强
 #因为进程挂掉，不会影响其他进程
+
+print(multiprocessing.cpu_count())
