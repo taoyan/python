@@ -1,0 +1,46 @@
+css:让网页变得漂亮
+
+1.行内式
+<div style = background:>
+2.嵌入式
+div{
+	background:red;
+}
+3.外链式(最常用)
+link href
+
+
+css选择器
+1.标签选择器
+div{}
+2.类选择器
+.类名{}
+3.id选择器
+#id名称{}
+4.伪类选择器
+:hover{}
+5.后代选择器
+父标签 子标签{}
+
+
+样式属性：
+background
+width
+height
+color
+font-size
+text-decoration去掉下划线
+line-height
+
+margin
+padding
+float
+
+改变标签类型
+display: inline-block
+去掉input text的边框   outline = none
+边框 border
+font-weight: bold粗体  
+font-style =itlic 斜体
+
+

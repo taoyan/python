@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>疫苗的惊魂</title>
+		<meta http-equiv="Content-Type" content = "text/html;charset=utf-8">
+		<style type="text/css">
+			/*默认margin有8像素*/
+			body{
+				margin: 0px
+			}
+			header{
+				background: rgb(140,121,94);
+				/*设置高度*/
+				height: 30px;
+				/*设置居中*/
+				line-height: 30px;
+			}
+			header a{
+				color: white;
+				font-size: 14px;
+				text-decoration: none;
+				padding-left: 5px;
+				padding-right: 5px;
+				height: 30px;
+				/*正常不能改变a标签的大小，需要类型改变*/
+				display: inline-block;
+			}
+			header span{
+				font-size: 4px;
+				color: white;
+			}
+			header a:hover{
+				background: rgb(122,106,83);
+			}
+			.headerright{
+				float: right;
+				height: 30px;
+				width: 100px;
+			}
+			.headerright button{
+				float: left;
+				margin-top: 4px;
+				color: blue;
+			}
+			.headerright button:hover{
+				background: rgb(253,247,97)
+			}
+			.headerright img{
+				width: 13px;
+				height: 13px;
+				margin-left: 20px;
+			}
+			.ad{
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-top: 10px;
+			}
+			.ad image1{
+				width: 1000px;
+				height: 80px;
+			}
+			.ad image2{
+				width: 200px;
+				height: 80px;
+				margin-left: 10px;
+			}
+			.smallnews{
+				margin-left: 20px;
+				margin-right: 20px;
+				height: 50px;
+				/*边框*/
+				border-bottom: 2px solid rgb(140,121,94);
+			}
+			.smallnews img{
+				width: 125px;
+				height: 30px;
+				float: left;
+				margin-left: 12px;
+			}
+			.smallnews .newscontent a{
+				float: left;
+				color: black;
+				text-decoration: none;
+				margin-left: 5px;
+				padding-left: 3px;
+				padding-right: 3px;
+				font-size: 12px;
+			}
+			.smallnews .newscontent .last{
+				color: rgb(139,120,95);
+			}
+			.smallnews .newscontent a:hover{
+				background: rgb(139,120,95);
+				color: white;
+			}
+			.smallnews form{
+				float: right;
+			}
+			.smallnews form input{
+				float: left;
+				/*去掉蓝色边框*/
+				outline: none;
+			}
+			.smallnews form button{
+				float: right;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 头部导航条 -->
+		<header>
+			<!-- 链接的标签:a -->
+			<!-- href:a标签的属性 -->
+			<!-- #代表空链接 -->
+			<a href="http://www.baidu.com" target = "_blank">首页</a>
+			<span>|</span>
+			<a href="#">新闻</a>
+			<span>|</span>
+			<a href="#">体育</a>
+			<span>|</span>
+			<a href="#">娱乐</a>
+			<div class="headerright">
+				<!-- 按钮标签 h5新增 -->
+				<button >一键登录</button>
+				<img src="images/start.png">
+			</div>
+		</header>
+		<!-- 广告条部分 -->
+		<div class="ad">
+			<img class="image1" src="images/ad1.png"/>
+			<img class="image2" src="images/ad2.png">
+		</div>
+		<!-- 新闻分类 -->
+		<div class="smallnews">
+			<img src="images/logo.png">
+			<div class="newscontent">
+				<a href="http://stock.qq.com" target = "_blank">证券</a>
+				<a href="#">金融</a>
+				<a href="#">国际</a>
+				<a class="last" href="#">财经资讯</a>
+			</div>
+			<!-- form 表单-->
+			<form>
+			<input type = "text" value = "长生" name="username">
+			<input type = "button" value = "搜索">
+		</form>
+		</div>
+
+		<!-- 新闻列表 -->
+		<!-- 无需列表 -->
+		<ul>
+			<li>财经要闻</li>
+			<li>
+				<a href="#">11家基金公司发布300多份公告下调ST长生估值</a>
+			</li>
+			<li>
+				<a href="#">11家基金公司发布300多份公告下调ST长生估值</a>
+			</li>
+			<li>
+				<a href="#">11家基金公司发布300多份公告下调ST长生估值</a>
+			</li>
+			<li>
+				<a href="#">11家基金公司发布300多份公告下调ST长生估值</a>
+			</li>
+		</ul>
+		<!-- 正文 -->
+		<div>
+			<!-- h标签  h1-h6 -->
+			<h1>疫苗股惊魂一周：ST长生离公司最低估值还有19个跌停</h1>
+			<!-- <h2>疫苗股惊魂一周：ST长生离公司最低估值还有19个跌停</h2>
+			<h3>疫苗股惊魂一周：ST长生离公司最低估值还有19个跌停</h3>
+			<h4>疫苗股惊魂一周：ST长生离公司最低估值还有19个跌停</h4>
+			<h5>疫苗股惊魂一周：ST长生离公司最低估值还有19个跌停</h5>
+			<h6>疫苗股惊魂一周：ST长生离公司最低估值还有19个跌停</h6>
+			<h7>疫苗股惊魂一周：ST长生离公司最低估值还有19个跌停</h7> -->
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;“疫苗事件”惊魂一周：11家基金公司发布300多份公告下调ST长生估值 离公司最低估值还有19个跌停
+			</p>
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;随着ST长生疫苗案件的不断深入调查，上周生物疫苗股也迎来了“惊魂一周”。
+				截至7月29日，已有11家基金公司发布超过300份下调ST长生估值的公告，其最低估值也已降至3.96元/股。
+			</p>
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;除了处在风口浪尖之上的ST长生持续跌停外，康泰生物、智飞生物等个股也受到牵连，股价遭遇年初以来最大跌幅。
+				与此同时，在二季度重仓疫苗股的基金也难免“躺枪”，遭遇业绩滑铁卢。
+			</p>
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;事实上，就近期基金二季报披露的业绩情况来看，医药主题基金业绩表现领跑全行业。
+				而在近期市场情绪的推动下，原本赚得“盆满钵盈”的医药主题基金可能将迎来一段阵痛期。
+			</p>
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;7月15日晚间，ST长生首次披露其子公司存在疫苗生产记录造假情况，至今尚不足半月。
+				此后，ST长生陆续传出被证监会调查、子公司停产、董事长及部分高管无法正常履职、银行账户被冻结等一系列负面信息。
+				7月26日，ST长生被实施其他风险警示，公司股票简称由“长生生物”变更为“ST长生”。
+			</p>
+		</div>
+		<!-- 有序列表 ol-->
+		<div>
+			<div>
+				<span>精华推荐</span>
+			</div>
+			<ol>
+				<li>
+					<!-- ./当前文件夹的路径，不写一样 -->
+					<img src="./images/tui1.png">
+					<a href="#">杨望:贬值加速，人名币汇率稳定</a>
+				</li>
+				<li>
+					<img src="./images/tui1.png">
+					<a href="#">杨望:贬值加速，人名币汇率稳定</a>
+				</li>
+				<li>
+					<img src="./images/tui2(1).png">
+					<a href="#">英国女王到底有多少地产？</a>
+				</li>
+				<li>
+					<img src="./images/tui2(1).png">
+					<a href="#">英国女王到底有多少地产？</a>
+				</li>
+			</ol>
+		</div>
+
+	</body>
+</html>
+
+
+
+
+

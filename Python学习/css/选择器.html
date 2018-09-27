@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>selector选择器</title>
+	<!-- css嵌入式的写法 -->
+
+	<style type="text/css">
+		/*<!-- 1.标签选择器 -->*/
+		span{
+			color: red;
+		}
+		/*<!-- 2.类选择器 用得最多 -->*/
+		.third{
+			color: green;
+		}
+		/*<!-- 3.ID选择器 一般结合js使用-->*/
+		#one{
+			color: blue;
+		}
+		/*<!-- 4.伪类选择器 -->	*/
+		/*改变悬浮的颜色*/
+		div{
+			background: red;
+		}
+		div:hover{
+			background: green;
+			color: white;
+		}
+		/*  后代选择器  */
+		div a{
+			color: red;
+		}
+	</style>
+	
+</head>
+<body>
+	<div>
+		div
+		<a href="#">后代选择器</a>
+	</div>
+	<a href="#">aaaaaa</a>
+	<span id = "one">span444</span>
+	<span class = "third">span333</span>
+	<span>span222</span>
+
+</body>
+</html>
