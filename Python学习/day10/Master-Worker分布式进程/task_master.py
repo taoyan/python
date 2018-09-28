@@ -1,4 +1,4 @@
-import random,time,queue
+import random,queue
 from multiprocessing.managers import BaseManager
 
 #发送任务的队列:

@@ -1,4 +1,4 @@
-import time,sys,queue
+import time
 from multiprocessing.managers import BaseManager
 
 #创建类似的QueueManager:
@@ -11,7 +11,7 @@ QueueManager.register('get_result_queue')
 
 #连接到服务器,也就是运行task_master.py的机器
 server_addr = '127.0.0.1'
-print('Connect to server %s...',server_addr)
+print('Connect to server %s...' % server_addr)
 #端口和验证码注意保持与task_master.py完全一致
 m = QueueManager(address=(server_addr,5000),authkey=b'yant')
 #从网络链接
@@ -28,7 +28,7 @@ for i in range(10):
         r = '%d * %d = %d' % (n, n, n*n)
         time.sleep(1)
         result.put(r)
-    except Queue.Empty:
+    except task.empty():
         print('task queue is empty.')
 
 #处理结束
