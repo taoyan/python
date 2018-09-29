@@ -32,4 +32,16 @@
 <ol>有序列表
 
 
+表单元素
+下拉：select  option
+文本框: textarea
+button
+input type
+
+
+布局：
+frame框架,一个浏览器窗口显示多个页面
+iframe内联框架，网页内显示网页
+
+
 
