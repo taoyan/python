@@ -136,6 +136,12 @@ def has_request_arg(fn):
     return found
 
 
+def add_static(app):
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)),'static')
+    app.router.add_static('/static/',path)
+    logging.info('add static %s => %s' % ('/static/',path))
+
+
 #注册一个url处理函数
 def add_route(app,fn):
     method = getattr(fn,'__method__', None)

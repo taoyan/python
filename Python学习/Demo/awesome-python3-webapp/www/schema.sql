@@ -5,6 +5,7 @@ create database awesome;
 
 use awesome;
 
+-- 授权用户名www-data，密码www-data
 grant select, insert, update, delete on awesome.* to 'www-data'@'localhost' identified by 'www-data';
 
 create table users(
