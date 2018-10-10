@@ -78,7 +78,7 @@ async def response_factory(app,handler):
                 return resp
             else:
                 resp = web.Response(body=app['__templating__'].get_template(template).render(**r).encode('utf-8'))
-                resp.content_type = 'text/html,charset=utf-8'
+                resp.content_type = 'text/html;charset=utf-8'
                 return resp
         if isinstance(r, int) and r >=100 and r < 600:
             return web.Response(r)
@@ -107,8 +107,8 @@ def datetime_filter(t):
     return u'%s年%s月%s日' % (dt.year, dt.month, dt.day)
 
 
-def index(request):
-    return web.Response(body=b'<h1>Awesome</h1>',content_type='text/html')
+# def index(request):
+#     return web.Response(body=b'<h1>Awesome</h1>',content_type='text/html')
 
 
 async def init(loop):

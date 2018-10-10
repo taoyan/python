@@ -35,16 +35,17 @@ def post(path):
 class RequestHandler(object):
     def __init__(self,app,fn):
         self._app = app
-        self._fn = fn
+        self._func = fn
         self._has_request_arg = has_request_arg(fn)
         self._has_var_kw_arg = has_var_kw_arg(fn)
-        self._has_named_kw_arg = has_named_kw_args(fn)
+        self._has_named_kw_args = has_named_kw_args(fn)
         self._named_kw_args = get_named_kw_args(fn)
         self._required_kw_args = get_required_kw_args(fn)
 
-        async def __call__(self,request):
-            kw = None
-            if self._has_var_kw_arg or self._has_named_kw_args or self._required_kw_args:
+    async def __call__(self,request):
+        kw = None
+        if self._has_var_kw_arg or self._has_named_kw_args or self._required_kw_args:
+            if request.method == 'POST':
                 if not request.content_type:
                     return web.HTTPBadRequest('Missing Content-Type.')
                 ct = request.content_type.lower()
@@ -64,31 +65,34 @@ class RequestHandler(object):
                     kw = dict()
                     for k,v in parse.parse_qs(qs,True).items():
                         kw[k] = v[0]
-            if kw is None:
-                kw = dict(**request.match_info)
-            else:
-                if not self._has_var_kw_arg and self._named_kw_args:
-                    # remove all unamed kw:
-                    copy = dict()
-                    for name in self._name_kw_args:
-                        if name in kw:
-                            copy[name] = kw[name]
-                    kw = copy
-                # check named arg:
-                for k,v in request.match_info.item():
-                    if k in kw:
-                        logging.warning('Duplicate arg name in named arg and kw args: %s' % k)
-                    kw[k] = v
-            if self._has_required_kw_args:
-                for name in self._required_kw_args:
-                    if not name in kw:
-                        return web.HTTPBadRequest('Missing argument: %s' % name)
-            logging.info('call with args: %s' % str(kw))
-            try:
-                r = await self._func(**kw)
-                return r
-            except APIError as e:
-                return dict(error=e.error,data=e.data,message=e.message)
+        if kw is None:
+            kw = dict(**request.match_info)
+        else:
+            if not self._has_var_kw_arg and self._named_kw_args:
+                # remove all unamed kw:
+                copy = dict()
+                for name in self._name_kw_args:
+                    if name in kw:
+                        copy[name] = kw[name]
+                kw = copy
+            # check named arg:
+            for k,v in request.match_info.item():
+                if k in kw:
+                    logging.warning('Duplicate arg name in named arg and kw args: %s' % k)
+                kw[k] = v
+        if self._has_request_arg:
+            kw['request'] = request
+        # check required kw:
+        if self._required_kw_args:
+            for name in self._required_kw_args:
+                if not name in kw:
+                    return web.HTTPBadRequest('Missing argument: %s' % name)
+        logging.info('call with args: %s' % str(kw))
+        try:
+            r = await self._func(**kw)
+            return r
+        except APIError as e:
+            return dict(error=e.error,data=e.data,message=e.message)
 
 
 
@@ -150,7 +154,7 @@ def add_route(app,fn):
         raise ValueError('@get or @post not defined in %s.' % str(fn))
     if not asyncio.iscoroutinefunction(fn) and not inspect.isgeneratorfunction(fn):
         fn = asyncio.coroutine(fn)
-    logging.info('add route %s %s => %s(%s)' % method, path, fn.__name__, ','.join(inspect.signature(fn).parameters.keys()))
+    logging.info('add route %s %s => %s(%s)' % (method, path, fn.__name__, ','.join(inspect.signature(fn).parameters.keys())))
     app.router.add_route(method,path, RequestHandler(app,fn))
 
 #自动扫描handler模块，注册符合条件函数

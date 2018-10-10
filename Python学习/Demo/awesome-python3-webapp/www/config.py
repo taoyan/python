@@ -4,16 +4,6 @@ Configuration
 
 import www.config_default
 
-configs = www.config_default.configs
-try:
-    import www.config_override
-    configs = merge(configs, www.config_override.configs)
-except ImportError:
-    pass
-
-configs = toDict(configs)
-
-
 
 def merge(defaults, override):
     r = {}
@@ -52,3 +42,14 @@ class Dict(dict):
 
     def __setattr__(self, key, value):
         self[key] = value
+
+
+
+configs = www.config_default.configs
+try:
+    import www.config_override
+    configs = merge(configs, www.config_override.configs)
+except ImportError:
+    pass
+
+configs = toDict(configs)
