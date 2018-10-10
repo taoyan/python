@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>操作标签的属性</title>
+	<style type="text/css">
+		.green{
+			color: green;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var input = document.getElementById("first");
+			//修改背景颜色
+			input.style.background = 'red';
+			//font-size -> fontSize
+			input.style.fontSize = '50px';
+			//利用js修改类民称
+			input.className = "green"
+			//修改内容
+			input.value = "新的内容"
+			//获取类型type
+			// alert(input.type)
+			//读取标签包裹的内容
+			var content = document.getElementById("content")
+			alert(content.innerHTML);
+			content.innerHTML = "new内容";
+			alert(content.innerHTML);
+		}
+	</script>
+</head>
+<body>
+	<!-- 输入框 name:给服务器提交数据使用 value:内容 -->
+	<input class="inputone" id = "first" type="text" name="username" value="输入框内容">
+	<div id="content">
+		contentcontentndlsamlkdmsa
+	</div>
+</body>
+</html>

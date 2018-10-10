@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>变量</title>
+	<script type="text/javascript">
+		//ES5.0语法
+		// 关键字修饰 变量名 = 赋值
+		var one = 10;
+		var two = 20,three = 30
+		console.log(one, two, three)
+
+		// ES6.0语法
+		//let 不允许先试用后声明，会报错, var不会报错,undifined
+		// console.log(four)
+		let four = 50;
+		console.log(four)
+
+		//变量类型
+		// int float list tuple set dict bool (python)
+		//数字类型 number(小数和整数)
+		var numberone = 1
+		var numbertwo = 2
+		console.log(typeof(numberone), typeof(numbertwo))
+		//布尔类型 boolean
+		var isTrue = false;
+		console.log(typeof(isTrue))
+		//字符串
+		var stringone = "hello"
+		console.log(typeof(stringone))
+		//null是object
+		var nullone = null
+		console.log(typeof(nullone))
+		//undefined
+		var undefinedone = undefined
+		console.log(typeof(undefinedone))
+		//object
+		//name是属性，后面要加,
+		var objectone = {
+			name:"章三",
+			eat:function(){
+				console.log("今天吃饭了")
+			}
+		}
+		console.log(typeof(objectone.name),typeof(objectone))
+		objectone.eat()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

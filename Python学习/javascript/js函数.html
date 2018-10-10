@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>js函数</title>
+	<script type="text/javascript">
+		//函数定义
+		//关键字 函数名字 函数参数
+		function oneFunc(){
+			console.log("函数没有参数")
+		};
+		//函数调用
+		oneFunc();
+
+		//有参数函数
+		function twoFunc(one , two){
+			console.log("参数是", one, two)
+		};
+		twoFunc(100, 200);
+
+
+		//返回值函数
+		function threeFunc(one){
+			return one + 100;
+		};
+		console.log(threeFunc(20));
+
+		//匿名函数
+		// function(){
+		// 	console.log("匿名函数")
+		// }
+
+		//js预编译功能
+		console.log(chengfaFunc(10,20))
+		function chengfaFunc(a, b){ return a * b}
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

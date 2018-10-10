@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>js数组</title>
+	<script type="text/javascript">
+		//数组定义 
+		var arrayOne = ["a", "b", "c", "d"]
+		for(var i in arrayOne){
+			console.log(i)
+		}
+
+		arrayOne[0] = "yant"
+		arrayOne[10] = "aaa"
+		arrayOne.push("eee",123)
+		console.log(arrayOne)
+		arrayOne.pop()
+		console.log(arrayOne)
+
+		//splice()可以在任意指定位置增加删除
+		// arrayOne.splice(3)
+		// console.log(arrayOne)
+
+		//splice(a,b) 从a下标开始删除，删除长度为b
+		arrayOne.splice(3,4)
+		console.log(arrayOne)
+
+		arrayOne.splice(3,1,"aaa","bbb","ccc")
+		console.log(arrayOne)
+
+		//数组转字符串
+		result = arrayOne.join('');
+		console.log(result)
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

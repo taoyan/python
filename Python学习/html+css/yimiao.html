@@ -185,20 +185,50 @@
 				text-decoration: underline;
 			}
 		</style>
+
+
+
+		<script type="text/javascript">
+			// var first = document.getElementById("first");
+			// console.log("-----" + first);
+			// 需要等待所有标签加载完毕，获取标签才有结果，或者js放到最下面
+			window.onload = function(){
+				var first = document.getElementById("first");
+				console.log("-----" + first);
+				// a标签返回链接
+				var second = document.getElementById("second");
+				console.log("-----" + second);
+
+				//根据标签类型获取，返回一个集合
+				var tagAel = document.getElementsByTagName("a")
+				console.log(tagAel)
+
+				//点击更多，改变导航栏背景
+				var headerNav = document.getElementById("one")
+				//点击事件
+				second.onclick = function(){
+					console.log("点击...")
+					headerNav.style.background = "red";
+				}
+
+			}
+			
+		</script>
+
 	</head>
 	<body>
 		<!-- 头部导航条 -->
-		<header>
+		<header id= "one">
 			<!-- 链接的标签:a -->
 			<!-- href:a标签的属性 -->
 			<!-- #代表空链接 -->
 			<a href="http://www.baidu.com" target = "_blank">首页</a>
-			<span>|</span>
+			<span id = "first">|</span>
 			<a href="#">新闻</a>
 			<span>|</span>
 			<a href="#">体育</a>
 			<span>|</span>
-			<a href="#">娱乐</a>
+			<a href="#" id = "second">更多</a>
 			<div class="headerright">
 				<!-- 按钮标签 h5新增 -->
 				<button >一键登录</button>

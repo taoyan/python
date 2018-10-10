@@ -1,0 +1,34 @@
+javascript
+
+1.介绍
+
+2.写法
+(1)行内式
+(2)内链式
+(3)外链式
+
+3.变量
+number, boolean, string, null, undefined, object
+
+4.函数:方法
+function，参数，返回值，匿名函数，支持预解析
+
+5.条件语句
+if(){}
+else if(){}
+else{}
+
+6.循环语句
+
+7.获取标签
+document.getElementById()
+document.getElementsByTagName()
+
+8.操作标签的属性
+headerNav.style.background = "red";
+className
+value
+innerHTML
+
+9.交互(和用户/服务端)
+onclick
