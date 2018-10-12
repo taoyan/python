@@ -73,6 +73,7 @@ def user2cookie(user, max_age):
 
 
 @post('/api/users')
+@asyncio.coroutine
 def api_register_user(*, email, name, passwd):
     if not name or not name.strip():
         raise APIValueError('name')

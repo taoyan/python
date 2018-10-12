@@ -71,12 +71,12 @@ class RequestHandler(object):
             if not self._has_var_kw_arg and self._named_kw_args:
                 # remove all unamed kw:
                 copy = dict()
-                for name in self._name_kw_args:
+                for name in self._named_kw_args:
                     if name in kw:
                         copy[name] = kw[name]
                 kw = copy
             # check named arg:
-            for k,v in request.match_info.item():
+            for k,v in request.match_info.items():
                 if k in kw:
                     logging.warning('Duplicate arg name in named arg and kw args: %s' % k)
                 kw[k] = v

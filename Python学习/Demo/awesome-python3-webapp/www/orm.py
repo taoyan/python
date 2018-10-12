@@ -113,7 +113,7 @@ class StringField(Field):
 
 class BooleanField(Field):
     def __init__(self,name=None,default=False):
-        super().__init__(name,'boolean',False,default)
+        super().__init__(name, 'boolean', False, default)
 
 class IntegerField(Field):
     def __init__(self,name=None,primary_key=False,default=0):
@@ -203,7 +203,7 @@ class Model(dict, metaclass=ModelMetaclass):
         return cls(**rs[0])
 
     async def save(self):
-        args = list(map(self.getValueOrDefault,self.__fields__))
+        args = list(map(self.getValueOrDefault, self.__fields__))
         args.append(self.getValueOrDefault(self.__primary_key__))
         rows = await execute(self.__insert__,args)
         if rows != 1:

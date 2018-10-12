@@ -109,7 +109,7 @@ function _httpJSON(method, url, data, callback) {
         opt.data = JSON.stringify(data || {});
         opt.contentType = 'application/json';
     }
-    $.ajax(opt).done(function () {
+    $.ajax(opt).done(function (r) {
         if (r && r.error){
             return callback(r);
         }
