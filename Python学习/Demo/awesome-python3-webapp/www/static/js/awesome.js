@@ -79,9 +79,9 @@ $(function () {
                 data = {};
             }
             return this.each(function () {
-               var $form = $(this);
-               $form.showFormError();
-               $form.showFormLoading(true);
+                var $form = $(this);
+                $form.showFormError();
+                $form.showFormLoading(true);
                 _httpJSON('POST',url, data, function (err, r) {
                     if (err){
                         $form.showFormError(err);
