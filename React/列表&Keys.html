@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表&Keys</title>
+
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+	<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+	<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+
+    <script type="text/javascript">
+        const numbers = [1,2,3,4,5];
+        const doubled = numbers.map((number) => number * 2);
+        console.log(doubled);
+    </script>
+
+
+    <script type="text/babel">
+        const listItems = numbers.map((number) =>
+            <li key={number.toString()}>{number}</li>
+        );
+
+        ReactDOM.render(
+            <ul>{listItems}</ul>,
+            document.getElementById('root')
+        );
+
+
+        function Blog(props) {
+            const sidebar = (
+                <ul>
+                    {props.posts.map((post) =>
+                        <li key={post.id}>
+                            {post.title}
+                        </li>
+                    )}
+                </ul>
+            );
+            const content = props.posts.map((post) =>
+                <div key={post.title}>
+                    <h3>{post.title}</h3>
+                    <p>{post.content}</p>
+                </div>
+            );
+            return (
+                <div>
+                    {sidebar}
+                    <hr/>
+                    {content}
+                </div>
+            );
+        }
+
+        const posts = [
+            {id:1,title:'Hello world',content:'Welcome to learning React!'},
+            {id:2,title:'Installation',content:'You can install React from npm.'}
+        ];
+
+        ReactDOM.render(
+            <Blog posts = {posts}/>,
+            document.getElementById('blogs')
+        );
+
+    </script>
+
+</head>
+<body>
+
+    <div id="root"></div>
+    <div id = "blogs"></div>
+
+</body>
+</html>

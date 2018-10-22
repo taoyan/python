@@ -1,0 +1,82 @@
+<html>
+<head>
+	<title>State&生命周期</title>
+
+	<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+	<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+	<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+	<script type="text/babel">
+
+	class Clock extends React.Component{
+		//构造函数,初始化this.state
+		constructor(props){
+			super(props);
+			this.state = {date: new Date()};
+		}
+
+		//组件挂载时候调用
+		componentDidMount(){
+			this.timerID = setInterval(
+				() => this.tick(),
+				1000
+			);
+		}
+
+		//组件卸载时候调用
+		componentWillUnmount(){
+			clearInterval(this.timerID);
+		}
+
+		//每一秒更新state里的date
+		//state更新，React直到状态已经改变，并再次调用render()方法
+		tick(){
+			this.setState({
+				date: new Date()
+			});
+		}
+
+		//渲染内容
+		render(){
+			return (
+				<div>
+					<h1>Hello, world!</h1>
+					<h2> It is {this.state.date.toLocaleTimeString()}.</h2>
+				</div>
+			);
+		}
+	}
+
+	//渲染
+	ReactDOM.render(
+		<Clock/>,
+		document.getElementById('root')
+	);
+
+	</script>
+</head>
+<body>
+
+	<div id = "root">root</div>
+
+	<div>
+		<i>当 <Clock /> 被传递给 ReactDOM.render() 时，React 调用 Clock 组件的构造函数。 由于 Clock 需要显示当前时间，所以使用包含当前时间的对象来初始化 this.state 。 我们稍后会更新此状态。
+
+React 然后调用 Clock 组件的 render() 方法。这是 React 了解屏幕上应该显示什么内容，然后 React 更新 DOM 以匹配 Clock 的渲染输出。
+
+当 Clock 的输出插入到 DOM 中时，React 调用 componentDidMount() 生命周期钩子。 在其中，Clock 组件要求浏览器设置一个定时器，每秒钟调用一次 tick()。
+
+浏览器每秒钟调用 tick() 方法。 在其中，Clock 组件通过使用包含当前时间的对象调用 setState() 来调度UI更新。 通过调用 setState() ，React 知道状态已经改变，并再次调用 render() 方法来确定屏幕上应当显示什么。 这一次，render() 方法中的 this.state.date 将不同，所以渲染输出将包含更新的时间，并相应地更新DOM。
+
+一旦Clock组件被从DOM中移除，React会调用componentWillUnmount()这个钩子函数，定时器也就会被清除。</i>
+	</div>
+
+
+	<h3>构造函数是唯一能够初始化this.state的地方，其他地方都要调用this.setState</h3>
+
+	<h3>状态更新可能是异步的</h3>
+	<h3>状态更新合并</h3>
+	<h3>数据自顶向下流动</h3>
+
+</body>
+</html>

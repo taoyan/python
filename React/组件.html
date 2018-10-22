@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>组件</title>
+	<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+	<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+	<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+	<script type="text/babel">
+
+	//这里定义了个组件Welecome
+	function Welcome(props){
+		return <h1>Hello, {props.name}</h1>
+	}
+
+	//ES6 class定义一个组件
+	class Hello extends React.Component{
+		render(){
+			return <h1>Hello, {this.props.name}</h1>
+		}
+	}
+
+	//这里创建了个组件
+	const element = <Welcome name="yant"/>;
+	const helloElement = <Hello name="yantyant">aaa</Hello>
+
+	//DOM渲染
+	ReactDOM.render(
+		element,
+		document.getElementById("root")
+		);
+
+	ReactDOM.render(
+		helloElement,
+		document.getElementById("hello")
+		);
+
+
+
+	function App() {
+        return (
+          <div>
+              <Welcome name="Sara"></Welcome>
+              <Welcome name="Cahal"></Welcome>
+              <Welcome name="Edite"></Welcome>
+          </div>
+        );
+    }
+
+    ReactDOM.render(
+        <App/>,
+        document.getElementById('app')
+    );
+
+	</script>
+
+</head>
+<body>
+
+
+	<div id="root"></div>
+	<div id = "hello"> HELLO</div>
+
+    <div id = "app"></div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+	<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+	<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <script type="text/javascript">
+        function activateLasers() {
+            console.log("点击了按钮");
+        }
+    </script>
+
+    <script type="text/babel">
+        ReactDOM.render(
+            <button onClick={activateLasers}>React中点击事件</button>,
+            document.getElementById("root")
+        );
+
+        class Toggle extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {isToggleOn: true};
+                // this.handleClick = this.handleClick.bind(this);
+            }
+            handleClick(){
+                this.setState(prevState => ({
+                    isToggleOn: !prevState.isToggleOn
+                }));
+            }
+            render(){
+                return(
+                    <button onClick={this.handleClick.bind(this)}>
+                        {this.state.isToggleOn ? 'ON' : 'OFF'}
+                    </button>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <Toggle/>,
+            document.getElementById("toggle")
+        );
+
+
+        class Popper extends React.Component{
+            constructor(){
+                super();
+                this.state = {name:'Hello world!'};
+            }
+
+            //事件对象e要放在最后
+            preventPop(name, e){
+                e.preventDefault();
+                alert(name);
+            }
+
+            render(){
+                return (
+                    <div>
+                        <p>hello</p>
+                        <a href="https://react.js.org" onClick={this.preventPop.bind(this,this.state.name)}>Click</a>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <Popper/>,
+            document.getElementById("popper")
+        );
+
+    </script>
+
+</head>
+<body>
+
+    <button onclick="activateLasers()">传统的点击事件</button>
+
+    <div id = "root"></div>
+
+    <div id = 'toggle'></div>
+
+    <h3>传参</h3>
+
+    <div id = 'popper'></div>
+</body>
+</html>
