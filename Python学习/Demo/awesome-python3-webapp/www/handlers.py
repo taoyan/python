@@ -26,7 +26,8 @@ def index(request):
     ]
     return {
         '__template__':'blogs.html',
-        'blogs':blogs
+        'blogs':blogs,
+        '__user__':request.__user__
     }
 
 @get('/register')
