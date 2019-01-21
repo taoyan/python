@@ -34,8 +34,9 @@ def login(request):
 def index(request):
     if request.method == 'GET':
         return render(request, 'todos/home.html')
+
+
+def logout(request):
     if request.method == 'POST':
-        # if request.POST.get('id') == 'logout':
         auth.logout(request)
         return HttpResponseRedirect('/todos/login')
-
