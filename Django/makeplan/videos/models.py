@@ -11,5 +11,6 @@ class video_Type(IntEnum):
 class Video(models.Model):
     type = models.IntegerField(default=0)
     name = models.CharField(max_length=200)
-    desc = models.CharField
+    detail = models.TextField(blank=True)
+    file = models.FileField(blank=True)
     url = models.CharField(max_length=300)
