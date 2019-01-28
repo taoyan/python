@@ -7,7 +7,7 @@ import json
 import csv
 import os
 # 写入excel
-from xlwt import *
+# from xlwt import *
 # 时间转换用
 import time
 
@@ -33,9 +33,14 @@ def searchData(appid):
 def processData(data_dict):
     items = data_dict['data']
 
+    directory = 'CSVs'
+    path = os.path.join(os.curdir, directory)
+    if os.path.exists(path) == False:
+        os.mkdir(path)
+
     #生成csv
     file_name = '%s_%s.csv' % (items[0]['app_pkg'] , items[0]['data_date'])
-    csv_fp = open(os.path.join('./AAA',file_name), 'w', encoding="utf-8")
+    csv_fp = open(os.path.join(path,file_name), 'w', encoding="utf-8")
     sheet_title = items[0].keys()
     sheet_data = []
     for data in items:
