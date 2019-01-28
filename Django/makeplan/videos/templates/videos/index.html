@@ -7,8 +7,15 @@
 <body>
 
 
-
-
+{% if videos %}
+<ul>
+    {% for video in videos %}
+        <li><a href="">{{ video.name }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No videos</p>
+{% endif %}
 
 </body>
 </html>
