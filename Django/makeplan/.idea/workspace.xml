@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="468d1993-49e8-4e0a-a7df-bb84cc35f207" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/83f89190-2aca-4947-a887-5d84bb099950.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/83f89190-2aca-4947-a887-5d84bb099950.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makeplan/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/makeplan/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Python学习/Demo/CSVs/all_content.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Python学习/Demo/CSVs/com.apps.go.clean.boost.master_2019-01-24.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Python学习/Demo/CSVs/com.ehawk.antivirus.applock.wifi_2019-01-24.csv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +41,12 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="performance_schema: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="test: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
     </expand>
@@ -60,7 +61,8 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -68,10 +70,12 @@
           <entry key="html" value="3" />
           <entry key="py" value="7" />
           <entry key="rnc" value="1" />
+          <entry key="videos_video" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Database Element" value="2" />
           <entry key="HTML" value="3" />
           <entry key="Python" value="7" />
           <entry key="RNG Compact" value="1" />
@@ -148,8 +152,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/makeplan/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="79" column="36" lean-forward="true" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+            <state relative-caret-position="230">
+              <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -173,19 +177,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://83f89190-2aca-4947-a887-5d84bb099950/schema/newdb/table/auth_user">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todos/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -227,9 +222,6 @@
               <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <marker date="1548406289530" expanded="true" signature="138:168" ph="..." />
-                <marker date="1548406289530" expanded="true" signature="194:195" ph="..." />
-                <marker date="1548406289530" expanded="true" signature="194:199" ph="..." />
               </folding>
             </state>
           </provider>
@@ -290,9 +282,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="217" />
-    <option name="y" value="25" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="282" />
+    <option name="y" value="23" />
     <option name="width" value="1063" />
     <option name="height" value="726" />
   </component>
@@ -343,19 +335,6 @@
               <item name="makeplan" type="462c0819:PsiDirectoryNode" />
               <item name="videos" type="462c0819:PsiDirectoryNode" />
               <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makeplan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="makeplan" type="462c0819:PsiDirectoryNode" />
-              <item name="videos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makeplan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="makeplan" type="462c0819:PsiDirectoryNode" />
-              <item name="videos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="videos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="makeplan" type="b2602c69:ProjectViewProjectNode" />
@@ -442,15 +421,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="217" y="25" width="1063" height="726" extended-state="0" />
+    <frame x="282" y="23" width="1063" height="726" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3006856" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3065622" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329653" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2823344" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2823344" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -536,43 +515,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.7/site-packages/django/contrib/admin/sites.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file:///usr/local/lib/python3.7/site-packages/django/contrib/admin/templates/admin/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.7/site-packages/django/core/handlers/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="134" selection-start-line="134" selection-end-line="134" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.7/site-packages/django/utils/deprecation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="88" column="44" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/django/contrib/admin/sites.py" />
+    <entry file="file:///usr/local/lib/python3.7/site-packages/django/contrib/admin/templates/admin/index.html" />
+    <entry file="file:///usr/local/lib/python3.7/site-packages/django/core/handlers/base.py" />
+    <entry file="file:///usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py" />
+    <entry file="file:///usr/local/lib/python3.7/site-packages/django/utils/deprecation.py" />
     <entry file="file://$PROJECT_DIR$/videos/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/83f89190-2aca-4947-a887-5d84bb099950/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/83f89190-2aca-4947-a887-5d84bb099950/console.sql" />
     <entry file="file://$PROJECT_DIR$/makeplan/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -649,13 +600,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/videos/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/urls.py" />
     <entry file="file://$PROJECT_DIR$/videos/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -670,16 +615,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/videos/migrations/0002_auto_20190125_1649.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/videos/migrations/0003_auto_20190125_1651.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/migrations/0002_auto_20190125_1649.py" />
+    <entry file="file://$PROJECT_DIR$/videos/migrations/0003_auto_20190125_1651.py" />
     <entry file="file://$PROJECT_DIR$/../../Python学习/Demo/数据写入excel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -687,7 +624,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../广告数据.py" />
+    <entry file="file://$USER_HOME$/广告数据.py" />
     <entry file="file://$PROJECT_DIR$/videos/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -698,17 +635,39 @@
     <entry file="file://$PROJECT_DIR$/../../Python学习/Demo/合并csvs.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/videos/templates/videos/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/templates/videos/index.html" />
     <entry file="file://$PROJECT_DIR$/todos/templates/todos/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://83f89190-2aca-4947-a887-5d84bb099950/schema/mydb/table/videos_video">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://83f89190-2aca-4947-a887-5d84bb099950/schema/awesome/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://83f89190-2aca-4947-a887-5d84bb099950/schema/newdb/table/auth_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todos/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -742,9 +701,6 @@
           <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <marker date="1548406289530" expanded="true" signature="138:168" ph="..." />
-            <marker date="1548406289530" expanded="true" signature="194:195" ph="..." />
-            <marker date="1548406289530" expanded="true" signature="194:199" ph="..." />
           </folding>
         </state>
       </provider>
@@ -756,38 +712,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://83f89190-2aca-4947-a887-5d84bb099950/schema/mydb/table/videos_video">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/makeplan/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="79" column="36" lean-forward="true" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://83f89190-2aca-4947-a887-5d84bb099950/schema/awesome/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://83f89190-2aca-4947-a887-5d84bb099950/schema/newdb/table/auth_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todos/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="230">
+          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
         </state>
       </provider>
     </entry>
