@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'makeplan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'mydb',
+        'NAME':'newdb',
         'USER':'root',
         'PASSWORD':'yantyant',
         'HOST':'localhost',
