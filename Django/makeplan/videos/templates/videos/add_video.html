@@ -9,8 +9,18 @@
 <div>
     <form method="post" action="" enctype="multipart/form-data">
         {%  csrf_token %}
+        <label for="">名称</label>
+        <br>
+        <input type="text" name="name">
+        <br>
+        <label for="">描述</label>
+        <br>
+        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+        <br>
         <label for="">上传文件</label>
+        <br>
         <input type="file" name="myfile">
+        <br>
         <input type="submit" value="提交">
     </form>
 </div>

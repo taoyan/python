@@ -31,7 +31,7 @@ def add_video(request):
 def download(request, file_name):
 
     def file_iterator(file, chunk_size = 512):
-        with open(file, encoding='utf-8') as f:
+        with open(file, 'rb') as f:
             while True:
                 c = f.read(chunk_size)
                 if c:
@@ -39,7 +39,12 @@ def download(request, file_name):
                 else:
                     break;
 
-    response = StreamingHttpResponse(file_iterator(file_name))
+    path = 'Media/%s' % file_name
+    response = StreamingHttpResponse(file_iterator(path))
     response['Content-Type'] = 'application/octet-stream'
     response['Content-Disposition'] = 'attachment;filename="{0}"'.format(file_name)
     return response
+
+
+def detail(request):
+    return render(request, 'videos/detail.html')

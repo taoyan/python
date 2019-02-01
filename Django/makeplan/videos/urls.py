@@ -7,5 +7,6 @@ app_name = 'videos'
 urlpatterns = [
     url('index/',views.index),
     url('add/',views.add_video),
-    path('download/<str:file_name>/', views.download),
+    path('download/Media/<str:file_name>/', views.download),
+    url('detail/',views.detail),
 ]
