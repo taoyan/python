@@ -2,36 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>add video</title>
+    <title>Update</title>
 </head>
 <body>
 
-<div>
+{% if video %}
     <form method="post" action="" enctype="multipart/form-data">
         {%  csrf_token %}
         <label for="">名称</label>
         <br>
-        <input type="text" name="name">
+        <input type="text" name="name" value={{ video.name }}>
         <br>
         <label for="">描述</label>
         <br>
-        <textarea name="detail" id="" cols="30" rows="10"></textarea>
+        <textarea name="detail" id="" cols="30" rows="10">{{ video.detail }}</textarea>
         <br>
-{#        <label for="">上传文件</label>#}
-{#        <br>#}
-{#        <input type="file" name="myfile">#}
         <label for="">url</label>
         <br>
-        <textarea name="url" cols="60", role="2"></textarea>
+        <textarea name="url" cols="60", role="2" >{{ video.url }}</textarea>
         <br>
         <label for="">缩略图地址</label>
         <br>
-        <textarea name="pic_url" cols="60", role="2"></textarea>
+        <textarea name="pic_url" cols="60", role="2" >{{ video.pic_url }}</textarea>
         <br>
-        <input type="submit" value="提交">
+        <input type="submit" value="Update">
     </form>
-</div>
-
+{% else %}
+<p>No video</p>
+{% endif %}
 
 </body>
 </html>

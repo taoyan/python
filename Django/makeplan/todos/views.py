@@ -5,7 +5,7 @@ from django.contrib import auth
 from django.contrib.auth.hashers import make_password, check_password
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 def regist(request):
     if request.method == 'GET':
@@ -33,7 +33,8 @@ def login(request):
 
 def index(request):
     if request.method == 'GET':
-        return render(request, 'todos/home.html')
+        users = User.objects.all()
+        return render(request, 'todos/home.html', {'users':users})
 
 
 def logout(request):
