@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+
+    <script type="text/javascript">
+        function getVerification() {
+            var phone = document.getElementById('phone');
+
+            console.log(phone.value)
+
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                {
+                    alert(xmlhttp.responseText)
+                }
+            }
+
+            xmlhttp.open("POST","/user/send_sms", true);
+            {#var params = "mobile=" + phone.value;#}
+            {#xmlhttp.send(params);#}
+            xmlhttp.setRequestHeader("Content-type","application/json");
+            xmlhttp.send(JSON.stringify({
+                "mobile":phone.value
+            }));
+            xmlhttp.send(params);
+        }
+        
+    </script>
+</head>
+<body>
+
+<form action="" method="POST">
+{#    {%  csrf_token %}#}
+    昵称:
+    <br>
+    <input type="text" name = "name">
+    <br>
+    手机号码:
+    <br>
+    <input type="number" name="phone" id="phone">
+    <br>
+    验证码:
+    <br>
+    <input type="number" name="verification">
+    <input type="button" onclick="getVerification()" value="获取验证码">
+    <br>
+    <br>
+    <hr>
+    <br>
+    注册密码:
+    <br>
+    <input type="password" name="password">
+    <br>
+    确认密码:
+    <br>
+    <input type="password" name="password2">
+    <br>
+    <input type="submit" value="提交">
+</form>
+
+</body>
+</html>
