@@ -6,9 +6,42 @@
 
     <script type="text/javascript">
         function getVerification() {
-            var phone = document.getElementById('phone');
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                {
+                    var jsonContent = JSON.parse(xmlhttp.responseText)
+                    alert(jsonContent.msg)
+                }
+            }
 
-            console.log(phone.value)
+            var phone = document.getElementById('mobile');
+            xmlhttp.open("POST","/user/send_sms_regist", true);
+            xmlhttp.setRequestHeader("Content-type","application/json");
+            xmlhttp.send(JSON.stringify({
+                "mobile":phone.value
+            }));
+            xmlhttp.send();
+        }
+
+        function submitRegist() {
+            var name = document.getElementById('name');
+            var mobile = document.getElementById('mobile');
+            var code = document.getElementById('code');
+            var password = document.getElementById('password');
+            var password2 = document.getElementById('password2');
+
+            if (password.value != password2.value)
+            {
+                alert("两次密码不一致")
+            }
+
 
             var xmlhttp;
             if (window.XMLHttpRequest){
@@ -20,18 +53,40 @@
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
                 {
-                    alert(xmlhttp.responseText)
+                    var jsonContent = JSON.parse(xmlhttp.responseText)
+                    alert(jsonContent.msg)
                 }
             }
-
-            xmlhttp.open("POST","/user/send_sms", true);
-            {#var params = "mobile=" + phone.value;#}
-            {#xmlhttp.send(params);#}
+            xmlhttp.open("POST","/user/register/", true);
             xmlhttp.setRequestHeader("Content-type","application/json");
             xmlhttp.send(JSON.stringify({
-                "mobile":phone.value
+                "name":name.value,
+                "mobile": mobile.value,
+                "code": code.value,
+                "password": password.value,
             }));
-            xmlhttp.send(params);
+            xmlhttp.send();
+        }
+
+        function getCookie(c_name) {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=")
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1
+                    c_end=document.cookie.indexOf(";",c_start)
+                    if (c_end==-1) c_end=document.cookie.length
+                    return unescape(document.cookie.substring(c_start,c_end))
+                }
+            }
+            return ""
+            {#console.log(document.cookie)#}
+            {#var arr, reg = new RegExp("(^|)"+name+"=([^;]*)(;|$)");#}
+            {#if (arr = document.cookie.match(reg))#}
+            {#    return unescape(arr[2]);#}
+            {#else#}
+            {#    return null;#}
         }
         
     </script>
@@ -42,15 +97,15 @@
 {#    {%  csrf_token %}#}
     昵称:
     <br>
-    <input type="text" name = "name">
+    <input type="text" name = "name" id="name">
     <br>
     手机号码:
     <br>
-    <input type="number" name="phone" id="phone">
+    <input type="number" name="mobile" id="mobile">
     <br>
     验证码:
     <br>
-    <input type="number" name="verification">
+    <input type="number" name="verification" id="code">
     <input type="button" onclick="getVerification()" value="获取验证码">
     <br>
     <br>
@@ -58,13 +113,13 @@
     <br>
     注册密码:
     <br>
-    <input type="password" name="password">
+    <input type="password" name="password" id="password">
     <br>
     确认密码:
     <br>
-    <input type="password" name="password2">
+    <input type="password" name="password2" id="password2">
     <br>
-    <input type="submit" value="提交">
+    <input type="button" onclick="submitRegist()" value="提交">
 </form>
 
 </body>

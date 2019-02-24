@@ -1,54 +1,114 @@
-from django.shortcuts import render
 
 # Create your views here.
-import urllib
-from urllib import parse
-from urllib import request
 import json
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, JsonResponse
+from .send_sms import SendSMS
+from .models import User
+from . import my_tool
+import hashlib
+from django.core.cache import cache
 
-from django.shortcuts import render
-from django.http import HttpResponse
 
 def register(request):
     if request.method == 'GET':
         return render(request, 'user/register.html')
     else:
-        return HttpResponse('aa')
+        params = json.loads(request.body)
+        name = params.get('name')
+        mobile = params.get('mobile')
+        code = params.get('code')
+        password = params.get('password')
+
+        if not code:
+            return JsonResponse({"msg":"请先获取短信验证码"})
+        else:
+            cache_code = cache.get(mobile)
+            if not cache_code:
+                return JsonResponse({'msg': "没有验证码或验证码已过期"})
+            else:
+                if code == cache_code:
+                    user = User(username=name, phone=mobile)
+                    user.save()
+                    sha1_passwd = '%s:%s' % (user.id, password)
+                    user.password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
+                    user.save()
+
+                    token = my_tool.get_token(user, max_age=86400)
+
+                    dict = {'msg': "注册成功, %s" % token}
+                    return JsonResponse(dict)
+                else:
+                    dict = {'msg':"验证码错误"}
+                    return JsonResponse(dict)
 
 
 def login(request):
     if request.method == 'GET':
         return render(request, 'user/login.html')
     else:
-        return HttpResponse('bb')
+        params = json.loads(request.body)
+        mobile = params.get('mobile')
+        code = params.get('code')
+        password = params.get('password')
+        type = params.get('type')
+
+        if type == 'code':
+            if not code:
+                return JsonResponse({"msg":"请先获取短信验证码"})
+            else:
+                cache_code = cache[mobile]
+                if not cache_code:
+                    return JsonResponse({'msg':"没有验证码或验证码已过期"})
+                if code == cache_code:
+                    user = User.objects.get(phone=mobile)
+                    token = my_tool.get_token(user, max_age=86400)
+                    dict = {'msg': "登录成功, %s" % token}
+                    return JsonResponse(dict)
+                else:
+                    dict = {'msg':"验证码错误"}
+                    return JsonResponse(dict)
+        else:
+            if not password:
+                return JsonResponse({"msg": "请先输入登录密码"})
+            else:
+                user = User.objects.get(phone=mobile)
+                sha1_passwd = '%s:%s' % (user.id, password)
+                sha1_password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
+                if user.password != sha1_password:
+                    return JsonResponse({'msg': "用户名或密码错误"})
+                else:
+                    token = my_tool.get_token(user, max_age=86400)
+                    dict = {'msg': "登录成功, %s" % token}
+                    return JsonResponse(dict)
 
 
-def send_sms(request):
+
+
+def send_sms_regist(request):
     if request.method == 'POST':
         mobile = json.loads(request.body).get('mobile')
 
-        account = "C92781433"
-        password = "85916c177b989fb7388e8ec362fb08fe"
-        # host = "106.ihuyi.com"
-        # sms_send_uri = "/webservice/sms.php?method=Submit"
-        text = "您的验证码是：0000。请不要把验证码泄露给其他人。"
+        users = User.objects.filter(phone=mobile)
+        if users.count() != 0:
+            return JsonResponse({"msg": "手机号已被注册"}, safe=False)
+        else:
+            sms = SendSMS()
+            code = my_tool.get_verification()
+            # dict = sms.send_sms(code, mobile)
+            cache.set(mobile, code, 60 * 10)
+            return JsonResponse({"msg":code}, safe=False)
 
-        # params = urllib.urlencode(
-        #     {'account': account, 'password': password, 'content': text, 'mobile': mobile, 'format': 'json'})
-        # headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
-        # conn = httplib.HTTPConnection(host, port=80, timeout=30)
-        # conn.request("POST", sms_send_uri, params, headers)
-        # response = conn.getresponse()
-        # response_str = response.read()
-        # conn.close()
+def send_sms_login(request):
+    if request.method == 'POST':
+        mobile = json.loads(request.body).get('mobile')
 
-        data = parse.urlencode(
-            {'account': account, 'password': password, 'content': text, 'mobile': mobile, 'format': 'json'}
-        )
-        req = urllib.request.Request("http://106.ihuyi.com/webservice/sms.php?method=Submit")
-        req.add_header('Content-type','application/x-www-form-urlencoded')
-        req.add_header('Accept','text/plain')
-
-        res = urllib.request.urlopen(req, data=data.encode('utf-8'))
-        print(res.status)
-        return HttpResponse('发送成功');
+        users = User.objects.filter(phone=mobile)
+        if users.count() == 0:
+            return JsonResponse({"msg": "账号未注册，请先注册"}, safe=False)
+        else:
+            sms = SendSMS()
+            code = my_tool.get_verification()
+            # dict = sms.send_sms(code, mobile)
+            cache.set(mobile, code, 60 * 10)
+            return JsonResponse({"msg":code}, safe=False)
