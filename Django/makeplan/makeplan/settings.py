@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todos.apps.TodosConfig',
     'videos.apps.VideosConfig',
-    'user.apps.UserConfig'
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'user.middleware.user_auth_middleware.UserAuth',
 ]
 
 ROOT_URLCONF = 'makeplan.urls'

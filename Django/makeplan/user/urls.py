@@ -8,4 +8,7 @@ urlpatterns = [
     url('login/',views.login),
     url('send_sms_regist',views.send_sms_regist),
     url('send_sms_login',views.send_sms_login),
+    url('send_sms',views.send_sms),
+    url('BindNewMobile',views.bind_new_mobile),
+    url('ModifyPassword', views.modify_password)
 ]
