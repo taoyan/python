@@ -4,9 +4,11 @@ from django.db import models
 from django.db import models
 
 class User(models.Model):
-    username = models.CharField(max_length=20)
+    mobile = models.CharField(max_length=20)
     password = models.CharField(max_length=100)
-    phone = models.CharField(max_length=20)
+    nick_name = models.CharField(max_length=20)
+    individuality_signature = models.CharField(max_length=200, blank=True)
+    header_image_url = models.CharField(max_length=300, blank=True)
     email = models.EmailField(blank=True)
     last_login = models.DateTimeField(auto_now=True)
     date_joined = models.DateTimeField(auto_now_add=True)

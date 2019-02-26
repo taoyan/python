@@ -28,7 +28,7 @@ def register(request):
                 return JsonResponse({'msg': "没有验证码或验证码已过期"})
             else:
                 if code == cache_code:
-                    user = User(username=name, phone=mobile)
+                    user = User(nick_name=name, mobile=mobile)
                     user.save()
                     sha1_passwd = '%s:%s' % (user.id, password)
                     user.password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
@@ -63,7 +63,7 @@ def login(request):
                 if not cache_code:
                     return JsonResponse({'msg':"没有验证码或验证码已过期"})
                 if code == cache_code:
-                    user = User.objects.get(phone=mobile)
+                    user = User.objects.get(mobile=mobile)
                     token = my_tool.get_token(user, max_age=3600 * 24 * 30)
                     # token缓存一个月
                     cache.set(user.id, token, 3600 * 24 * 30)
@@ -76,7 +76,7 @@ def login(request):
             if not password:
                 return JsonResponse({"msg": "请先输入登录密码"})
             else:
-                user = User.objects.get(phone=mobile)
+                user = User.objects.get(mobile=mobile)
                 sha1_passwd = '%s:%s' % (user.id, password)
                 sha1_password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
                 if user.password != sha1_password:
@@ -85,17 +85,28 @@ def login(request):
                     token = my_tool.get_token(user, max_age=3600 * 24 * 30)
                     # token缓存一个月
                     cache.set(user.id, token, 3600 * 24 * 30)
-                    dict = {'msg': "登录成功", 'token':token}
+
+                    data_dict = {"uid":user.id, "mobile":user.mobile, "nickName":user.nick_name,
+                                 "individualitySignature":user.individuality_signature,
+                                 "headerImageUrl":user.header_image_url, "email":user.email, 'token':token}
+
+                    dict = {'msg': "登录成功","data":data_dict}
                     return JsonResponse(dict)
 
 
+def logout(request):
+    if request.method == 'POST':
+        params = json.loads(request.body)
+        uid = params.get("userId")
+        cache.delete(uid)
+        return JsonResponse({"msg":"退出成功"})
 
 
 def send_sms_regist(request):
     if request.method == 'POST':
         mobile = json.loads(request.body).get('mobile')
 
-        users = User.objects.filter(phone=mobile)
+        users = User.objects.filter(mobile=mobile)
         if users.count() != 0:
             return JsonResponse({"msg": "手机号已被注册"}, safe=False)
         else:
@@ -109,7 +120,7 @@ def send_sms_login(request):
     if request.method == 'POST':
         mobile = json.loads(request.body).get('mobile')
 
-        users = User.objects.filter(phone=mobile)
+        users = User.objects.filter(mobile=mobile)
         if users.count() == 0:
             return JsonResponse({"msg": "账号未注册，请先注册"}, safe=False)
         else:
@@ -140,8 +151,8 @@ def bind_new_mobile(request):
         if code == cache_code:
             cache_new_code = cache[new_mobile]
             if new_code == cache_new_code:
-                user = User.objects.get(phone=mobile)
-                user.phone = new_mobile
+                user = User.objects.get(mobile=mobile)
+                user.mobile = new_mobile
                 user.save()
                 return JsonResponse({"msg": "修改手机号码成功"}, safe=False)
             else:
@@ -158,7 +169,7 @@ def modify_password(request):
         new_passwd = params.get('new_password')
         cache_code = cache[mobile]
         if code == cache_code:
-            user = User.objects.get(phone=mobile)
+            user = User.objects.get(mobile=mobile)
             sha1_passwd = '%s:%s' % (user.id, new_passwd)
             user.password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
             user.save()
