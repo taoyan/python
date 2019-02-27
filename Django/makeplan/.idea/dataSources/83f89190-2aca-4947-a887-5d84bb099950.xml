@@ -6864,7 +6864,6 @@ model</ColNames>
     <column id="1396" parent="328" name="finish_date">
       <Position>5</Position>
       <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1397" parent="328" name="remind_type">
@@ -6876,7 +6875,6 @@ model</ColNames>
     <column id="1398" parent="328" name="remind_date">
       <Position>7</Position>
       <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1399" parent="328" name="icon_index">
