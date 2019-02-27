@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'todos.apps.TodosConfig',
     'videos.apps.VideosConfig',
     'user.apps.UserConfig',
+    'my_todos.apps.MyTodosConfig'
 ]
 
 MIDDLEWARE = [

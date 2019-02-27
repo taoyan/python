@@ -22,4 +22,5 @@ urlpatterns = [
     path('videos/',include('videos.urls')),
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
+    path('my_todos/',include('my_todos.urls')),
 ]

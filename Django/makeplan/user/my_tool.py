@@ -2,8 +2,7 @@
 import random
 import time
 import hashlib
-from .models import User
-
+from django.http import JsonResponse
 
 # 生成四位随机验证码
 def get_verification():
@@ -20,3 +19,11 @@ def get_token(user, max_age):
     s = '%s-%s-%s-%s' % (user.id, user.password, expires, cookie_key)
     L = [str(user.id), expires, hashlib.sha1(s.encode('utf-8')).hexdigest()]
     return '-'.join(L)
+
+
+# 生产统一样式的json返回
+def json_response(outcome=0, data={}, message=''):
+    dict = {"outcome":outcome,
+            "data":data,
+            "message":message}
+    return JsonResponse(dict)
