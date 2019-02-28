@@ -5,13 +5,16 @@ from django.http import JsonResponse
 import user.my_tool
 from .models import Todo
 import json
-import time
+from django.utils import timezone
+import datetime
+from django.core import serializers
 
 def synchronize_todo(request):
     if request.method == 'POST':
         params = json.loads(request.body)
         last_modified = params.get("lastModified")
         todo_list = params.get('dirtyData')
+        uid = params.get("userId")
         if len(todo_list) > 0:
             for todo_dict in todo_list:
                 ident = todo_dict["ident"]
@@ -27,8 +30,20 @@ def synchronize_todo(request):
                 user_id = todo_dict["userId"]
 
                 todo = Todo(ident, desc, group, schedule_date, finish_date, remind_type,
-                                           remind_date,icon_index,status,finish_type,user_id,
-                                           last_modified=int(time.time()*1000))
+                            remind_date,icon_index,status,finish_type,user_id,
+                            last_modified = timezone.now())
                 todo.save()
         #返回所有lastmodified大于参数lastmodified的数据
-        return user.my_tool.json_response()
+        todos = []
+        if last_modified == None:
+            todos_queryset = Todo.objects.filter(user_id=uid)
+            todos = list(todos_queryset)
+        else:
+            todos_queryset = Todo.objects.filter(user_id=uid, last_modified__gt=datetime.datetime.strptime(last_modified,"%Y-%m-%d %H:%M:%S.ssssZ"))
+            todos = list(todos_queryset)
+
+        dict_list = []
+        for todo in todos:
+            dict = todo.to_dict()
+            dict_list.append(dict)
+        return user.my_tool.json_response(data=dict_list)

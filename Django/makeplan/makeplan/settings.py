@@ -127,6 +127,8 @@ TIME_ZONE = 'Asia/Shanghai'
 USE_I18N = True
 
 USE_L10N = True
+# DATE_FORMAT = 'YYYY-MM-DD'
+# DATETIME_FORMAT = 'YYYY-MM-DD HH:mm:ss'
 
 USE_TZ = True
 
