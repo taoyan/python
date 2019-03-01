@@ -22,7 +22,7 @@ def get_token(user, max_age):
 
 
 # 生产统一样式的json返回
-def json_response(data, outcome=0, message=''):
+def json_response(data='', outcome=0, message=''):
     dict = {"outcome":outcome,
             "data":data,
             "message":message}

@@ -40,7 +40,7 @@ def synchronize_todo(request):
             todos = list(todos_queryset)
         else:
             last_modified_time = datetime.strptime(last_modified, "%Y-%m-%d %H:%M:%S")
-            todos_queryset = Todo.objects.filter(user_id=uid).exclude(last_modified__gt = last_modified_time)
+            todos_queryset = Todo.objects.filter(user_id=uid , last_modified__lt = last_modified_time)
             todos = list(todos_queryset)
 
         dict_list = []

@@ -7,6 +7,8 @@ class UserAuth(MiddlewareMixin):
 
     def process_request(self,request):
         if request.method == 'POST':
+            if request.path == '/user/login/':
+                return
             token = request.META.get('HTTP_TOKEN')
             if token:
                 user_id = token.split('-')[0]
