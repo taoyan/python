@@ -6,7 +6,7 @@ import user.my_tool
 from .models import Todo
 import json
 from django.utils import timezone
-import datetime
+from datetime import datetime
 from django.core import serializers
 
 def synchronize_todo(request):
@@ -31,7 +31,7 @@ def synchronize_todo(request):
 
                 todo = Todo(ident, desc, group, schedule_date, finish_date, remind_type,
                             remind_date,icon_index,status,finish_type,user_id,
-                            last_modified = timezone.now())
+                            last_modified = timezone.now().strftime('%Y-%m-%d %H:%M:%S'))
                 todo.save()
         #返回所有lastmodified大于参数lastmodified的数据
         todos = []
@@ -39,7 +39,8 @@ def synchronize_todo(request):
             todos_queryset = Todo.objects.filter(user_id=uid)
             todos = list(todos_queryset)
         else:
-            todos_queryset = Todo.objects.filter(user_id=uid, last_modified__gt=datetime.datetime.strptime(last_modified,"%Y-%m-%d %H:%M:%S.ssssZ"))
+            last_modified_time = datetime.strptime(last_modified, "%Y-%m-%d %H:%M:%S")
+            todos_queryset = Todo.objects.filter(user_id=uid).exclude(last_modified__gt = last_modified_time)
             todos = list(todos_queryset)
 
         dict_list = []

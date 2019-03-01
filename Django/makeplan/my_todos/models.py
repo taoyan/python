@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 class Todo(models.Model):
@@ -30,5 +29,5 @@ class Todo(models.Model):
         dict["status"] = self.status
         dict["finishType"] = self.finish_type
         dict["userId"] = self.user_id
-        dict["lastModified"] = self.last_modified
+        dict["lastModified"] = self.last_modified.strftime("%Y-%m-%d %H:%M:%S")
         return dict

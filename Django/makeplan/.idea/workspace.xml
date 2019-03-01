@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="468d1993-49e8-4e0a-a7df-bb84cc35f207" name="Default Changelist" comment="" />
+    <list default="true" id="468d1993-49e8-4e0a-a7df-bb84cc35f207" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_todos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_todos/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_todos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_todos/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,16 +111,16 @@
     <session id="-1056611561">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="18" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="4" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="5" />
+          <entry key="project.open.time.8" value="6" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -129,20 +133,20 @@
           <entry key="html" value="16" />
           <entry key="my_cache_table" value="2" />
           <entry key="my_todos_todo" value="1" />
-          <entry key="py" value="123" />
+          <entry key="py" value="125" />
           <entry key="rnc" value="1" />
           <entry key="sql" value="1" />
           <entry key="ts" value="1" />
-          <entry key="user_user" value="5" />
+          <entry key="user_user" value="6" />
           <entry key="users" value="3" />
           <entry key="videos_video" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="27" />
+          <entry key="Database Element" value="28" />
           <entry key="HTML" value="16" />
-          <entry key="Python" value="123" />
+          <entry key="Python" value="125" />
           <entry key="RNG Compact" value="1" />
           <entry key="Scratch" value="1" />
           <entry key="TypeScript" value="1" />
@@ -153,7 +157,7 @@
           <entry key="Django Console" value="28" />
           <entry key="dummy" value="9" />
           <entry key="html" value="1035" />
-          <entry key="py" value="5512" />
+          <entry key="py" value="5741" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
@@ -161,14 +165,14 @@
         <counts>
           <entry key="HTML" value="1035" />
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="Python" value="5540" />
+          <entry key="Python" value="5769" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="das://83f89190-2aca-4947-a887-5d84bb099950/schema/newdb/table/my_todos_todo">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -180,17 +184,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/manage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+            <state relative-caret-position="120">
+              <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my_todos/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+            <state relative-caret-position="189">
+              <caret line="36" column="18" lean-forward="true" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -205,18 +212,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/makeplan/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1920">
-              <caret line="128" column="15" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1920">
+            <state relative-caret-position="330">
               <caret line="138" selection-start-line="138" selection-end-line="138" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -228,8 +226,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my_todos/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+            <state relative-caret-position="-195">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -305,8 +303,8 @@
         <option value="$PROJECT_DIR$/makeplan/urls.py" />
         <option value="$PROJECT_DIR$/user/views.py" />
         <option value="$PROJECT_DIR$/user/my_tool.py" />
-        <option value="$PROJECT_DIR$/my_todos/models.py" />
         <option value="$PROJECT_DIR$/makeplan/settings.py" />
+        <option value="$PROJECT_DIR$/my_todos/models.py" />
         <option value="$PROJECT_DIR$/my_todos/views.py" />
       </list>
     </option>
@@ -318,7 +316,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="179" />
+    <option name="x" value="178" />
     <option name="y" value="23" />
     <option name="width" value="1075" />
     <option name="height" value="726" />
@@ -435,10 +433,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="179" y="23" width="1075" height="726" extended-state="0" />
+    <frame x="178" y="23" width="1075" height="726" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498708" visible="true" weight="0.2536302" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498708" visible="true" weight="0.25847048" />
       <window_info id="Structure" order="1" sideWeight="0.501292" side_tool="true" weight="0.3124388" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -712,13 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://83f89190-2aca-4947-a887-5d84bb099950/schema/newdb/table/user_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
@@ -741,23 +732,30 @@
       </provider>
     </entry>
     <entry file="file:///usr/local/lib/python3.7/site-packages/django/core/handlers/base.py" />
-    <entry file="file://$PROJECT_DIR$/my_todos/urls.py">
+    <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="120">
+          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://83f89190-2aca-4947-a887-5d84bb099950/schema/newdb/table/user_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/makeplan/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
+        <state relative-caret-position="330">
           <caret line="128" column="15" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
+        <state relative-caret-position="330">
           <caret line="138" selection-start-line="138" selection-end-line="138" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
@@ -767,15 +765,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my_todos/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        <state relative-caret-position="-195">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
+    <entry file="file://$PROJECT_DIR$/my_todos/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_todos/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="36" column="18" lean-forward="true" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -783,13 +791,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my_todos/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
         </state>
       </provider>
     </entry>
