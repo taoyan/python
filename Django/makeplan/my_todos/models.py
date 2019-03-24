@@ -31,3 +31,29 @@ class Todo(models.Model):
         dict["userId"] = self.user_id
         dict["lastModified"] = self.last_modified.strftime("%Y-%m-%d %H:%M:%S")
         return dict
+
+
+class Goal(models.Model):
+    ident = models.CharField(max_length=50, primary_key=True)
+    title = models.CharField(max_length=500)
+    start_date = models.DateField(blank=False)
+    end_date = models.DateField(blank=False)
+    content = models.BinaryField(null=True)
+    completeness = models.IntegerField(default=0)
+    status = models.IntegerField(default=0)
+
+    user_id = models.IntegerField(blank=False)
+    last_modified = models.DateTimeField(blank=False)
+
+    def to_dict(self):
+        dict = {}
+        dict["ident"] = self.ident
+        dict["title"] = self.title
+        dict["startDate"] = self.start_date
+        dict["endDate"] = self.end_date
+        dict["content"] = self.content
+        dict["completeness"] = self.completeness
+        dict["status"] = self.status
+        dict["userId"] = self.user_id
+        dict["lastModified"] = self.last_modified.strftime("%Y-%m-%d %H:%M:%S")
+        return dict
