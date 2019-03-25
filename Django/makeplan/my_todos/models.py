@@ -38,7 +38,7 @@ class Goal(models.Model):
     title = models.CharField(max_length=500)
     start_date = models.DateField(blank=False)
     end_date = models.DateField(blank=False)
-    content = models.BinaryField(null=True)
+    content = models.TextField(null=True)
     completeness = models.IntegerField(default=0)
     status = models.IntegerField(default=0)
 
