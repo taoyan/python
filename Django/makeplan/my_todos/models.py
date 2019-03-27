@@ -24,7 +24,7 @@ class Todo(models.Model):
         dict["scheduleDate"] = self.schedule_date
         dict["finishDate"] = self.finish_date
         dict["remindType"] = self.remind_type
-        dict["remindDate"] = self.remind_date
+        dict["remindDate"] = None if (self.remind_date == None) else self.remind_date.strftime("%Y-%m-%d %H:%M:%S")
         dict["iconIndex"] = self.icon_index
         dict["status"] = self.status
         dict["finishType"] = self.finish_type
