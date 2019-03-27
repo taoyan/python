@@ -6,7 +6,7 @@ import user.my_tool
 from .models import Todo, Goal
 import json
 from django.utils import timezone
-from datetime import datetime
+import datetime
 from django.core import serializers
 
 def synchronize(request):
@@ -46,8 +46,9 @@ def synchronize(request):
             todos_queryset = Todo.objects.filter(user_id=uid)
             todos = list(todos_queryset)
         else:
-            last_modified_time = datetime.strptime(todo_last_modified, "%Y-%m-%d %H:%M:%S")
-            todos_queryset = Todo.objects.filter(user_id=uid , last_modified__lt = last_modified_time)
+            last_modified_time = datetime.datetime.strptime(todo_last_modified, "%Y-%m-%d %H:%M:%S")
+            new_last_modified_time = timezone.make_aware(last_modified_time, timezone.utc)
+            todos_queryset = Todo.objects.filter(user_id=uid , last_modified__gt = new_last_modified_time)
             todos = list(todos_queryset)
 
         todo_dict_list = []
@@ -79,8 +80,9 @@ def synchronize(request):
             goals_queryset = Goal.objects.filter(user_id=uid)
             goals = list(goals_queryset)
         else:
-            last_modified_time = datetime.strptime(goal_last_modified, "%Y-%m-%d %H:%M:%S")
-            goals_queryset = Goal.objects.filter(user_id=uid, last_modified__lt=last_modified_time)
+            last_modified_time = datetime.datetime.strptime(goal_last_modified, "%Y-%m-%d %H:%M:%S")
+            new_last_modified_time = timezone.make_aware(last_modified_time, timezone.utc)
+            goals_queryset = Goal.objects.filter(user_id=uid, last_modified__gt=new_last_modified_time)
             goals = list(goals_queryset)
 
         goal_dict_list = []
