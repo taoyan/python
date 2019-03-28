@@ -68,11 +68,12 @@ def synchronize(request):
                 content = goal_dict["content"]
                 completeness = goal_dict["completeness"]
                 status = goal_dict["status"]
+                delete_status = goal_dict["deleteStatus"]
                 user_id = goal_dict["userId"]
 
                 if uid == user_id:
                     goal = Goal(ident, title, start_date, end_date, content,
-                                completeness,status,user_id,
+                                completeness,status, delete_status, user_id,
                             last_modified = timezone.now().strftime('%Y-%m-%d %H:%M:%S'))
                     goal.save()
         goals = []

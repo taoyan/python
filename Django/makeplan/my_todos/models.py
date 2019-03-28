@@ -41,6 +41,7 @@ class Goal(models.Model):
     content = models.TextField(null=True)
     completeness = models.IntegerField(default=0)
     status = models.IntegerField(default=0)
+    delete_status = models.IntegerField(default=0)
 
     user_id = models.IntegerField(blank=False)
     last_modified = models.DateTimeField(blank=False)
@@ -54,6 +55,7 @@ class Goal(models.Model):
         dict["content"] = self.content
         dict["completeness"] = self.completeness
         dict["status"] = self.status
+        dict["deleteStatus"] = self.delete_status
         dict["userId"] = self.user_id
         dict["lastModified"] = self.last_modified.strftime("%Y-%m-%d %H:%M:%S")
         return dict
