@@ -3,7 +3,8 @@
 import json
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, JsonResponse
-from .send_sms import SendSMS
+# from .send_sms import SendSMS
+from .SMS import SendTemplateSMS
 from .models import User
 from . import my_tool
 import hashlib
@@ -118,9 +119,10 @@ def send_sms_regist(request):
         if users.count() != 0:
             return my_tool.json_response(outcome=1, message="手机号已被注册")
         else:
-            sms = SendSMS()
             code = my_tool.get_verification()
+            # sms = SendSMS()
             # dict = sms.send_sms(code, mobile)
+            SendTemplateSMS.sendTemplateSMS(mobile, {code, '10分钟'}, 1)
             cache.set(mobile, code, 60 * 10)
             return my_tool.json_response(data={"code": code})
 
@@ -133,9 +135,10 @@ def send_sms_login(request):
         if users.count() == 0:
             return my_tool.json_response(outcome=1, message="账号未注册，请先注册")
         else:
-            sms = SendSMS()
             code = my_tool.get_verification()
+            # sms = SendSMS()
             # dict = sms.send_sms(code, mobile)
+            SendTemplateSMS.sendTemplateSMS(mobile, {code, '10分钟'}, 1)
             cache.set(mobile, code, 60 * 10)
             return my_tool.json_response(data={"code":code})
 
@@ -143,9 +146,10 @@ def send_sms_login(request):
 def send_sms(request):
     if request.method == 'POST':
         mobile = json.loads(request.body).get('mobile')
-        sms = SendSMS()
         code = my_tool.get_verification()
+        # sms = SendSMS()
         # dict = sms.send_sms(code, mobile)
+        SendTemplateSMS.sendTemplateSMS(mobile, {code, '10分钟'}, 1)
         cache.set(mobile, code, 60 * 10)
         return my_tool.json_response(data={"code": code})
 
