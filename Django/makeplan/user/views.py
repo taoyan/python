@@ -122,9 +122,12 @@ def send_sms_regist(request):
             code = my_tool.get_verification()
             # sms = SendSMS()
             # dict = sms.send_sms(code, mobile)
-            SendTemplateSMS.sendTemplateSMS(mobile, {code, '10分钟'}, 1)
-            cache.set(mobile, code, 60 * 10)
-            return my_tool.json_response(data={"code": code})
+            result = SendTemplateSMS.sendTemplateSMS(mobile, {code,'10'}, 1)
+            if result == True:
+                cache.set(mobile, code, 60 * 10)
+                return my_tool.json_response(data={"code": code})
+            else:
+                return my_tool.json_response(outcome=1)
 
 
 def send_sms_login(request):
@@ -138,9 +141,12 @@ def send_sms_login(request):
             code = my_tool.get_verification()
             # sms = SendSMS()
             # dict = sms.send_sms(code, mobile)
-            SendTemplateSMS.sendTemplateSMS(mobile, {code, '10分钟'}, 1)
-            cache.set(mobile, code, 60 * 10)
-            return my_tool.json_response(data={"code":code})
+            result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
+            if result == True:
+                cache.set(mobile, code, 60 * 10)
+                return my_tool.json_response(data={"code": code})
+            else:
+                return my_tool.json_response(outcome=1)
 
 
 def send_sms(request):
@@ -149,9 +155,12 @@ def send_sms(request):
         code = my_tool.get_verification()
         # sms = SendSMS()
         # dict = sms.send_sms(code, mobile)
-        SendTemplateSMS.sendTemplateSMS(mobile, {code, '10分钟'}, 1)
-        cache.set(mobile, code, 60 * 10)
-        return my_tool.json_response(data={"code": code})
+        result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
+        if result == True:
+            cache.set(mobile, code, 60 * 10)
+            return my_tool.json_response(data={"code": code})
+        else:
+            return my_tool.json_response(outcome=1)
 
 
 def bind_new_mobile(request):

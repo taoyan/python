@@ -7,6 +7,7 @@
 from .SDK.CCPRestSDK import REST
 # import ConfigParser
 
+
 #主帐号
 accountSid= '8aaf07086904be0b01695622e26d2493';
 
@@ -23,7 +24,7 @@ serverIP='app.cloopen.com';
 serverPort=8883;
 
 #REST版本号
-softVersion='2015-05-11';
+softVersion='2013-12-26';
 
   # 发送模板短信
   # @param to 手机号码
@@ -39,13 +40,16 @@ def sendTemplateSMS(to,datas,tempId):
     rest.setAppId(appId)
     
     result = rest.sendTemplateSMS(to,datas,tempId)
-    for k,v in result.iteritems(): 
-        
-        if k=='templateSMS' :
-                for k,s in v.iteritems(): 
-                    print('%s:%s' % (k, s))
-        else:
-            print('%s:%s' % (k, v))
+    print(result)
+    return True if(result['statusCode'] == '000000') else False
+
+    # for k,v in result.iteritems():
+    #
+    #     if k=='templateSMS' :
+    #             for k,s in v.iteritems():
+    #                 print('%s:%s' % (k, s))
+    #     else:
+    #         print('%s:%s' % (k, v))
     
    
 #sendTemplateSMS(手机号码,内容数据,模板Id)

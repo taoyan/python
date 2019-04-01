@@ -22,6 +22,10 @@ def get_token(user, max_age):
 
 
 # 生产统一样式的json返回
+# outcome = 0 正常
+# 1 错误
+# 2 被踢出
+# 3 未登录
 def json_response(data='', outcome=0, message=''):
     dict = {"outcome":outcome,
             "data":data,

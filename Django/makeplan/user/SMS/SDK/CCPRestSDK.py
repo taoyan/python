@@ -18,7 +18,8 @@ import datetime
 import urllib.request as urllib2
 import json
 from .xmltojson import xmltojson
-from xml.dom import minidom 
+from xml.dom import minidom
+
 
 class REST:
     
@@ -32,7 +33,7 @@ class REST:
     SoftVersion=''
     Iflog=True #是否打印日志
     Batch=''  #时间戳
-    BodyType = 'xml'#包体格式，可填值：json 、xml
+    BodyType = 'json'#包体格式，可填值：json 、xml
     
      # 初始化
      # @param serverIP       必选参数    服务器地址
@@ -109,7 +110,7 @@ class REST:
             body = '''{"friendlyName": "%s", "appId": "%s"}'''%(friendlyName,self.AppId)
         data=''
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
         try:
             res = urllib2.urlopen(req);
             data = res.read()
@@ -160,7 +161,7 @@ class REST:
             body = '''{"appId": "%s", "startNo": "%s", "offset": "%s"}'''%(self.AppId,startNo,offset)
         data=''
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
         try:
             res = urllib2.urlopen(req);
             data = res.read()
@@ -212,7 +213,7 @@ class REST:
             body = '''{"friendlyName": "%s", "appId": "%s"}'''%(friendlyName,self.AppId)
         data=''
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
         try:
             res = urllib2.urlopen(req);
             data = res.read()
@@ -270,7 +271,7 @@ class REST:
             b+=']'
             body = '''{"to": "%s", "datas": %s, "templateId": "%s", "appId": "%s"}'''%(to,b,tempId,self.AppId)
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
         data=''
         try:
             res = urllib2.urlopen(req);
@@ -333,7 +334,7 @@ class REST:
         if self.BodyType == 'json':   
             body = '''{"to": "%s", "mediaName": "%s","mediaTxt": "%s","appId": "%s","displayNum": "%s","playTimes": "%s","respUrl": "%s","userData": "%s","maxCallTime": "%s","speed": "%s","volume": "%s","pitch": "%s","bgsound": "%s"}'''%(to, mediaName,mediaTxt,self.AppId,displayNum,playTimes,respUrl,userData,maxCallTime,speed,volume,pitch,bgsound)
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
         data=''
         try:
             res = urllib2.urlopen(req);
@@ -391,7 +392,7 @@ class REST:
             # if this model is Json ..then do next code 
             body = '''{"appId": "%s", "verifyCode": "%s","playTimes": "%s","to": "%s","respUrl": "%s","displayNum": "%s","lang": "%s","userData": "%s"}'''%(self.AppId,verifyCode,playTimes,to,respUrl,displayNum,lang,userData)
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
         data=''
         try:
             res = urllib2.urlopen(req);
@@ -444,7 +445,7 @@ class REST:
                 </Request>
             '''%(self.AppId,number,userdata,record)
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
         data=''
         try:
             res = urllib2.urlopen(req);
@@ -490,7 +491,7 @@ class REST:
             # if this model is Json ..then do next code 
             body = '''{"appId": "%s", "date": "%s","keywords": "%s"}'''%(self.AppId,date,keywords)
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
         data=''
         try:
             res = urllib2.urlopen(req);
@@ -582,7 +583,7 @@ class REST:
             # if this model is Json ..then do next code 
             body = '''{"appId": "%s", "templateId": "%s"}'''%(self.AppId,templateId)
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
         data=''
         try:
             res = urllib2.urlopen(req);
@@ -675,7 +676,7 @@ class REST:
             # if this model is Json ..then do next code 
             body = '''{"Appid":"%s","QueryCallState":{"callid":"%s","action":"%s"}}'''%(self.AppId,callid,action)
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
         data=''
         try:
             res = urllib2.urlopen(req);
@@ -727,7 +728,7 @@ class REST:
         
         #创建包体        
         # req.add_data(body)
-        req.data = body
+        req.data = body.encode('utf-8')
 
         try:
             res = urllib2.urlopen(req);
