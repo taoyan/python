@@ -32,12 +32,11 @@ def synchronize(request):
                 remind_date = todo_dict["remindDate"]
                 icon_index = todo_dict["iconIndex"]
                 status = todo_dict["status"]
-                finish_type = todo_dict["finishType"]
                 user_id = todo_dict["userId"]
 
                 if uid == user_id:
                     todo = Todo(ident, desc, group, schedule_date, finish_date, remind_type,
-                            remind_date,icon_index,status,finish_type,user_id,
+                            remind_date,icon_index,status,user_id,
                             last_modified = timezone.now().strftime('%Y-%m-%d %H:%M:%S'))
                     todo.save()
         #返回所有lastmodified大于参数lastmodified的数据
