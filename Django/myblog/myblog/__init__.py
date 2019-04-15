@@ -1,0 +1,3 @@
+import pymysql
+# 告诉django用pymysql代替默认的MySQLdb，因为MySQLdb不支持python3
+pymysql.install_as_MySQLdb()
