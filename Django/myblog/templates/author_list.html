@@ -34,8 +34,11 @@
                 </td>
                 <td>
                     <a href="/delete_author/?id={{ author.id }}">删除</a>
+                    <a href="/edit_author/?id={{ author.id }}">编辑</a>
                 </td>
             </tr>
+        {% empty %}
+            <td>暂无数据</td>
         {% endfor %}
 
     </tbody>

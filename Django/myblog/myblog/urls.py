@@ -37,4 +37,8 @@ urlpatterns = [
     url(r'^author_list/',views.author_list),
     url(r'^add_author/',views.add_author),
     url(r'^delete_author/',views.delete_author),
+    url(r'^edit_author/',views.edit_author),
+
+    #模版学习
+    url(r'^template_test/',views.template_test),
 ]

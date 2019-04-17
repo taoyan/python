@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit author</title>
+</head>
+<body>
+
+<form action="" method="post">
+    <input type="text" name="author_id" value="{{ author.id }}" style="display: none">
+    <p>
+        作者姓名:
+        <input type="text" name="author_name" value="{{ author.name }}">
+    </p>
+    <p>
+        作品:
+        <select name="books" multiple>
+            {% for book in book_list %}
+                {% if book in author.book.all %}
+                    <option selected value="{{ book.id }}">{{ book.title }}</option>
+                {% else %}
+                    <option value="{{ book.id }}">{{ book.title }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </p>
+    <input type="submit" value="提交">
+</form>
+
+</body>
+</html>

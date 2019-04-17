@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% load my_filter %}
+{{ name|sb }}
+<br>
+{{ name|add_str:"厉害了" }}
+<br>
+文件大小{{ file_size|filesizeformat }}
+<br>
+你好 {{ name|length }}, {{ age }}
+<br>
+{{ 不存在|default:"这个变量没传值，使用默认" }}
+
+<p>
+    切片: {{ name_list|slice:"1:-1" }}
+    <br>
+    {{ name|slice:"0:1" }}
+</p>
+
+<p>格式化时间:{{ now|date:"Y-m-d h:i:s" }}</p>
+
+{{ html|safe }}
+{{ script_html }}
+{#{{ script_html|safe }}#}
+{#XSS跨站脚本攻击#}
+{#<script>while (1){alert("111")} </script>#}
+
+<p>
+    大文本：{{ p_str|truncatechars:50 }}
+</p>
+
+<p>
+    {{ name_list }}
+</p>
+
+<ul>
+    {% for name in name_list %}
+        {% if forloop.first %}
+            <li>{{ forloop.revcounter }}----{{ name }}</li>
+        {% else %}
+            <li>{{ forloop.revcounter }}-{{ name }}</li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+
+{% if name_list|length > 2 %}
+    <p>打两辆车</p>
+{% else %}
+    <p>打一两辆车</p>
+{% endif %}
+
+{% with name_list.1 as name %}
+    {{ name }}
+{% endwith %}
+<br>
+{{ name_list.0 }}
+
+
+
+<br>
+{{ name_dict }}
+<br>
+{{ name_dict.first_name }}
+
+<p>
+    {{ person1 }}
+</p>
+
+<p>
+    {{ person2.name }}
+</p>
+
+
+</body>
+</html>
