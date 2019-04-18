@@ -13,11 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url , include
 from django.contrib import admin
 
 from user import views
-from bookmanager import views
+from bookmanager import views, urls
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
@@ -27,18 +27,11 @@ urlpatterns = [
     # url(r'^user_list/',views.user_list),
     # url(r'^add_user/',views.add_user),
 
-    # 书相关
-    url(r'^book_list/',views.book_list),
-    url(r'^add_book/', views.add_book),
-    url(r'^delete_book/',views.delete_book),
-    url(r'^edit_book/', views.edit_book),
-
-    #作者相关
-    url(r'^author_list/',views.author_list),
-    url(r'^add_author/',views.add_author),
-    url(r'^delete_author/',views.delete_author),
-    url(r'^edit_author/',views.edit_author),
+    # url路由
+    url(r'^bookmanager/', include(urls)),
 
     #模版学习
     url(r'^template_test/',views.template_test),
+
+    url(r'^upload/',views.upload),
 ]

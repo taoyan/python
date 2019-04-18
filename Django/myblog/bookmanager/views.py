@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-
+from django.shortcuts import render, redirect, HttpResponse
+from django.urls import reverse
 # Create your views here.
 
 from . import models
@@ -21,13 +21,22 @@ def add_book(request):
         # 用对象赋值
         # publisher = models.Publisher.objects.get(id = publisher)
         # book = models.Book.objects.create(title=title, publisher=publisher)
+        url = reverse('book_list')
+        return redirect(url)
 
-        return redirect('/book_list/')
+# def delete_book(request, arg1):
+#     # id = request.GET.get('id',None)
+#     print(arg1)
+#     id = arg1
+#     models.Book.objects.get(id=id).delete()
+#     return redirect('/book_list/')
 
-def delete_book(request):
-    id = request.GET.get('id',None)
+def delete_book(request, id):
+    # id = request.GET.get('id',None)
+    print(id)
+    # id = arg1
     models.Book.objects.get(id=id).delete()
-    return redirect('/book_list/')
+    return redirect(reverse('book_list'))
 
 def edit_book(request):
     if request.method == 'GET':
@@ -44,7 +53,7 @@ def edit_book(request):
         book.title = book_title
         book.publisher_id = publisher_id
         book.save()
-        return redirect('/book_list/')
+        return redirect(reverse('book_list'))
 
 
 
@@ -131,3 +140,38 @@ def template_test(request):
                   {"name": name, "age":age, "name_list":name_list, "name_dict":name_dict,
                    "person1":p1, "person2":p2, "file_size":file_size, "now":now,
                    "html":html, "script_html":script_html, "p_str": p_str})
+
+
+
+# CBV版本
+from django.views import View
+class AddBook(View):
+    def get(self, request):
+        ret = models.Publisher.objects.all()
+
+        print(request.path_info)
+        print(request.body)
+        return render(request, "add_book.html", {"publisher_list": ret})
+    def post(self, request):
+        title = request.POST.get('title', None)
+        publisher = request.POST.get('publisher', None)
+        book = models.Book.objects.create(title=title, publisher_id=publisher)
+
+        # 用对象赋值
+        # publisher = models.Publisher.objects.get(id = publisher)
+        # book = models.Book.objects.create(title=title, publisher=publisher)
+
+        return redirect(reverse('book_list'))
+
+
+def upload(request):
+    if request.method == 'POST':
+        print(request.FILES["upload_file"])
+        file = request.FILES["upload_file"]
+        filename = file.name
+        with open(filename, 'wb') as f:
+            for i in file.chunks():
+                f.write(i)
+        return HttpResponse("上传成功")
+    else:
+        return render(request, 'upload.html')

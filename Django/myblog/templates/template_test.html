@@ -7,7 +7,12 @@
 <body>
 
 {% load my_filter %}
+{% show_ul 5 %}
+
+
 {{ name|sb }}
+<br>
+{% add_str2  "张三" "李四" "sb" %}
 <br>
 {{ name|add_str:"厉害了" }}
 <br>

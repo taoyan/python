@@ -8,7 +8,7 @@
 
 <h1>添加书籍</h1>
 
-<form action="/add_book/" method="post">
+<form action="{% url 'add_book' %}" method="post">
     <p>
         书名:<input type="text" name="title">
     </p>
