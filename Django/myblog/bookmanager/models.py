@@ -13,8 +13,12 @@ class Publisher(models.Model):
 class Book(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=64, null=False, unique=True)
-    publisher = models.ForeignKey(to=Publisher)
+    price = models.DecimalField(max_digits=5, decimal_places=2, default=99.99)
+    publisher = models.ForeignKey(to=Publisher, on_delete=models.CASCADE, related_name="books")
 
+    # 库存
+    kucun = models.IntegerField(default=1000)
+    maichu = models.IntegerField(default=0)
     def __str__(self):
         return "<book Object: {}>".format(self.title)
 
