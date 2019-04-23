@@ -29,5 +29,26 @@ class Author(models.Model):
     # 多对多，创建第三张表存放关系
     book = models.ManyToManyField(to=Book)
 
+    detail = models.OneToOneField(to='AuthorDetail')
+
     def __str__(self):
         return "<Author object: {}>".format(self.name)
+
+# 什么时候用一对一
+# 一张表的某些字段使用频繁，另一些使用不频繁，
+# 把不频繁的分成另一张表，然后用一对一关联
+class AuthorDetail(models.Model):
+    hobby = models.CharField(max_length=32)
+    addr = models.CharField(max_length=128)
+
+
+
+class Employee(models.Model):
+    name = models.CharField(max_length=32)
+    age = models.IntegerField()
+    salary = models.IntegerField()
+    provice = models.CharField(max_length=32)
+    dept = models.CharField(max_length=16)
+
+    class Meta:
+        db_table = 'employee'
