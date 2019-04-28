@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{#    支持移动端#}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+{#    让浏览器样式统一#}
+    <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.css" rel="stylesheet">
+
+    <style>
+        .c1{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+        {#媒体查询，根据screen改变颜色#}
+        @media screen and (max-width:  600px){
+            .c1{
+               background-color: green;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+{#<img width="400" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1054598549,1073845993&fm=111&gp=0.jpg" alt="">#}
+{#<h1>《钗头凤》</h1>#}
+{#<p>#}
+{#        唐婉#}
+{#    世情薄，#}
+{#    人情恶，#}
+{#    雨送黄昏花易落。#}
+{#    晓风干，#}
+{#    泪痕残，#}
+{#    欲笺心事，#}
+{#    独语斜阑。#}
+{#    难，难，难！#}
+{##}
+{#    人成各，#}
+{#    今非昨，#}
+{#    病魂常似秋千索。#}
+{#    角声寒，#}
+{#    夜阑珊，#}
+{#    怕人寻问，#}
+{#    咽泪装欢。#}
+{#    瞒，瞒，瞒！#}
+{#</p>#}
+{##}
+{#<div>#}
+{#    <button class="btn btn-danger">红色</button>#}
+{#    <button class="btn btn-default">蓝色</button>#}
+{#    <button class="btn btn-primary btn-lg">变大的按钮</button>#}
+{#</div>#}
+
+<div class="container">
+    <div class="c1"></div>
+    <div class="row">
+        <div class="col-md-2 col-xs-4">占一列</div>
+        <div class="col-md-8 col-xs-4">占十列</div>
+        <div class="col-md-2 col-xs-4">占一列</div>
+    </div>
+
+    <div class="row">第二行</div>
+    <div class="row">第三行</div>
+    钗头凤
+</div>
+
+
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/jquery-3.2.1.min.js"></script>
+</body>
+</html>
