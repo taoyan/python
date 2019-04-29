@@ -38,4 +38,19 @@ def register(request):
 
 
 def bootstrap(request):
-    return  render(request, 'bootstrap01.html')
+    return render(request, 'bootstrap01.html')
+
+def font_awesome(request):
+    return render(request, 'font_awesome.html')
+
+def bootstrap2(request):
+    return render(request, 'bootstrap02.html')
+
+def nav(request):
+    return render(request, 'nav.html')
+
+def panel(request):
+    return render(request, 'plane.html')
+
+def carousel(request):
+    return render(request, 'carousel.html')

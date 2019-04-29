@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {#    支持移动端#}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    {#    让浏览器样式统一#}
+    <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+<button type="button" class="btn btn-default" aria-label="Left Align">
+    <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+</button>
+
+<br>
+<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default">Left</button>
+    <button type="button" class="btn btn-default">Middle</button>
+    <button type="button" class="btn btn-default">Right</button>
+</div>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+        Action <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+    </ul>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="nav nav-stacked">
+                <li role="presentation" class="active"><a href="#d1">Home</a></li>
+                <li role="presentation"><a href="#d2">Profile</a></li>
+                <li role="presentation"><a href="#d3">Messages</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="d1" style="background-color: #d4d4d4">个人主页</div>
+    <div class="tab-pane" id="d2" style="background-color: red">profile</div>
+    <div class="tab-pane" id="d3" style="background-color: darkorange">消息</div>
+</div>
+
+
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/jquery-3.2.1.min.js"></script>
+</body>
+</html>

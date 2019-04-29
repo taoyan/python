@@ -10,5 +10,9 @@
       <user-name>root</user-name>
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
+    <data-source name="db" uuid="e31b2b42-9381-4837-8d40-c788a553fcca">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="SQLITE" exact-version="0.0" />
+      <auth-required>false</auth-required>
+    </data-source>
   </component>
 </project>
