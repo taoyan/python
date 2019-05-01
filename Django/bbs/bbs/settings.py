@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'HOST':'127.0.0.1',
         'PORT':'3306',
-        'NAME': 'bbs',
+        'NAME':'bbs',
         'USER':'root',
         'PASSWORD':'yantyant',
     }
@@ -116,7 +116,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'UTC'
 
@@ -136,8 +137,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+# django用户上传的都叫media文件
+MEDIA_URL = "/media/"
+# media配置，用户上传的文件都默认在这个文件夹下
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# 配置默认登录页面
+
+# 配置默认登录页面，需要登录的请求，会跳转到这个配置页
 LOGIN_URL = '/blog/login/'
 
 # 如果使用继承方式修改auth模块，在这里配置设置默认用户认证使用的表

@@ -38,26 +38,30 @@
     </ul>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-2">
-            <ul class="nav nav-stacked">
-                <li role="presentation" class="active"><a href="#d1">Home</a></li>
-                <li role="presentation"><a href="#d2">Profile</a></li>
-                <li role="presentation"><a href="#d3">Messages</a></li>
+        <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" class="active"><a href="#d1" data-toggle="tab">Home</a></li>
+                <li role="presentation"><a href="#d2" data-toggle="tab">Profile</a></li>
+                <li role="presentation"><a href="#d3" data-toggle="tab">Messages</a></li>
             </ul>
+        </div>
+
+        <div class="col-sm-9">
+            <div class="tab-content">
+                <div class="tab-pane active" id="d1" style="background-color: #d4d4d4">个人主页</div>
+                <div class="tab-pane" id="d2" style="background-color: red">profile</div>
+                <div class="tab-pane" id="d3" style="background-color: darkorange">消息</div>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="tab-content">
-    <div class="tab-pane active" id="d1" style="background-color: #d4d4d4">个人主页</div>
-    <div class="tab-pane" id="d2" style="background-color: red">profile</div>
-    <div class="tab-pane" id="d3" style="background-color: darkorange">消息</div>
-</div>
 
 
-<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
 <script src="/static/jquery-3.2.1.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

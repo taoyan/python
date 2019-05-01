@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b7a7649-30e5-424b-be44-530d41adfa70" name="Default Changelist" comment="" />
+    <list default="true" id="4b7a7649-30e5-424b-be44-530d41adfa70" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../bbs/static/toastr/toastr.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bbs/static/toastr/toastr.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/.idea/dataSources/d762c725-7b9f-49a0-a2de-7b9e4fd8548a.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/bbs/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/bbs/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/bbs/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/bbs/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/blog/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/blog/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/static/bootstrap/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/static/font-awesome/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/templates/bootstrap01.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/bootstrap01.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/templates/bootstrap02.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/bootstrap02.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/templates/carousel.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/carousel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/templates/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/nav.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,14 +73,14 @@
     <session id="425632975">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -210,8 +232,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myblog/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="138" column="37" lean-forward="true" selection-start-line="138" selection-start-column="37" selection-end-line="138" selection-end-column="37" />
+            <state relative-caret-position="976">
+              <caret line="159" column="1" lean-forward="true" selection-start-line="143" selection-end-line="159" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -512,7 +534,7 @@
     <frame x="148" y="25" width="1106" height="726" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29887217" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30451128" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -846,8 +868,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myblog/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="138" column="37" lean-forward="true" selection-start-line="138" selection-start-column="37" selection-end-line="138" selection-end-column="37" />
+        <state relative-caret-position="976">
+          <caret line="159" column="1" lean-forward="true" selection-start-line="143" selection-end-line="159" selection-end-column="1" />
         </state>
       </provider>
     </entry>
