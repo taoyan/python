@@ -3,7 +3,10 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'(?P<username>\w+)',views.home),
+    url(r'up_down/$',views.up_down),
+    url(r'comment/$', views.comment),
+    url(r'(\w+)/article/(\d+)/$', views.article_detail),
+    url(r'(\w+)/$',views.home),
 
 
 

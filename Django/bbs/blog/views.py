@@ -93,18 +93,94 @@ def home(request, username):
     # 将我的文章按照我的分类分组，并统计每个分组的文章数
     # category_list = models.Category.objects.filter(blog = blog)
     #
-    category_list = models.Category.objects.filter(blog=blog).annotate(c=Count("article")).values("title","c")
-    # 标签
-    tag_list = models.Tag.objects.filter(blog=blog).annotate(c=Count("article")).values("title","c")
-    return render(request, "home.html", {"blog":blog, "article_list":article_list, "category_list":category_list, "tag_list":tag_list})
+    # category_list, tag_list,  archive_articles = get_left_menu(username)
+    return render(request, "home.html",
+                  {
+                        "blog": blog,
+                       "article_list": article_list,
+                       "username":username,
+                       # "category_list": category_list,
+                       # "tag_list": tag_list,
+                       # "archive_articles": archive_articles
+                  })
+
+def article_detail(request, username, pk):
+    user = models.UserInfo.objects.filter(username = username).first()
+    if not user:
+        return HttpResponse("404")
+
+    article = models.Article.objects.filter(user = user, nid=pk).first()
+
+    # category_list, tag_list, archive_articles = get_left_menu(username)
+
+    comment_list = models.Comment.objects.filter(article=article)
+    return render(request, "article_detail.html",
+                  {
+                        "blog": user.blog,
+                        "article": article,
+                        "username": username,
+                        # "category_list": category_list,
+                        # "tag_list": tag_list,
+                        # "archive_articles": archive_articles
+                        "comment_list": comment_list,
+                  })
+
+
+import json
+from django.db.models import F
+def up_down(request):
+    article_id = request.POST.get("article_id")
+    is_up = json.loads(request.POST.get("is_up"))
+    user = request.user
+    # print(user, type(user))
+    response = {"state":True}
+    try:
+        models.ArticleUpDown.objects.create(user=user, article_id = article_id, is_up = is_up)
+        if is_up:
+            models.Article.objects.filter(pk = article_id).update(up_count = F("up_count") + 1)
+        else:
+            models.Article.objects.filter(pk=article_id).update(down_count=F("down_count") + 1)
+    except Exception as e:
+        up_down_model = models.ArticleUpDown.objects.filter(user = user, article_id = article_id).first()
+        response["state"] = False
+        response["first_action"] = up_down_model.is_up
+        print(response)
+    return JsonResponse(response)
+    # return HttpResponse(json.dumps(response))
+
+
+# def get_left_menu(username):
+#     user = models.UserInfo.objects.filter(username=username).first()
+#     # 获得TA的所有文章
+#     blog = user.blog
+#
+#     category_list = models.Category.objects.filter(blog=blog).annotate(c=Count("article")).values("title","c")
+#     # 标签
+#     tag_list = models.Tag.objects.filter(blog=blog).annotate(c=Count("article")).values("title","c")
+#
+#     # 按日期归档
+#     models.Article.objects.filter(user = user).values().annotate()
+#     archive_articles = models.Article.objects.filter(user=user).extra(
+#         select={"archive_ym":"select date_format(create_time, '%%Y-%%m')"},
+#     ).values('archive_ym').annotate(c = Count('nid')).values('archive_ym', 'c')
+#
+#     return category_list, tag_list, archive_articles
 
 
 
-
-
-
-
-
+def comment(request):
+    print(request.POST)
+    pid = request.POST.get("pid")
+    article_id = request.POST.get("article_id")
+    content = request.POST.get("content")
+    user_pk = request.user.pk
+    response = {}
+    if not pid:
+        comment_obj = models.Comment.objects.create(article_id = article_id, user_id=user_pk, content=content)
+    response["create_time"] = comment_obj.create_time
+    response["content"] = comment_obj.content
+    response["username"] = comment_obj.user.username
+    return JsonResponse(response)
 
 
 

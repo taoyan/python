@@ -73,7 +73,7 @@ class Article(models.Model):
     # 评论数
     comment_count = models.IntegerField(verbose_name="评论数", default=0)
     # 点赞数
-    up_count = models.IntegerField(verbose_name="评论数", default=0)
+    up_count = models.IntegerField(verbose_name="赞数", default=0)
     # 踩数
     down_count = models.IntegerField(verbose_name="踩数", default=0)
 
@@ -124,7 +124,7 @@ class ArticleUpDown(models.Model):
     is_up = models.BooleanField(default=True)
 
     class Meta:
-        unique_together = (("article", "user"),)
+        unique_together = (("article", "user"),)       #联合唯一
         verbose_name = "文章-点赞"
         verbose_name_plural = verbose_name
 
