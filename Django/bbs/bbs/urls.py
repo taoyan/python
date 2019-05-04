@@ -30,6 +30,8 @@ urlpatterns = [
     url(r'register/$', views.register2),
     url(r'check_username/$',views.check_username),
 
+
+    url(r'^upload/',views.upload),
     url(r'blog/', include('blog.urls')),
 
 

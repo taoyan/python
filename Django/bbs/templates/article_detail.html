@@ -25,8 +25,15 @@
     </div>
     </div>
 
+{#    评论树#}
+    <p>评论树</p>
+    <div class="comment_tree">
+    </div>
 
-    <p>评论列表</p>
+
+
+{#评论列表#}
+    <p>评论楼</p>
     <div class="comment_list" style="margin-left: 10px">
         {% for comment in comment_list %}
             <li class="list-group-item">
@@ -34,16 +41,25 @@
                     <a>#{{ forloop.counter }}楼</a>&nbsp;
                     <span style="color: gray">{{ comment.create_time|date:"Y-m-d H:i" }}</span>&nbsp;
                     <a href="/blog/{{ comment.user.username }}"><span>{{ comment.user.username }}</span></a>
-                    <a class="pull-right replay_btn" username="{{ comment.user.username }}"><span>回复</span></a>
+                    <a class="pull-right replay_btn" username="{{ comment.user.username }}" comment_id = "{{ comment.pk }}"><span>回复</span></a>
                 </div>
+                {% if comment.parent_comment_id %}
+                    <div class="pid_info well">
+                        <p>{{ comment.parent_comment.user.username }}&nbsp;&nbsp;</p>
+                        <p>{{ comment.parent_comment.content }}</p>
+                    </div>
+                {% endif %}
                 <div class="con">
-                    {{ comment.content }}
+                    <p>
+                        {{ comment.content }}
+                    </p>
                 </div>
             </li>
         {% endfor %}
     </div>
 
 
+{#    评论区域#}
     {% if request.user.username %}
         <div class="div_comment">
             <p>昵称：<input type="text" id="tbCommentAuthor" class="author" disabled="disabled" size="50" value="{{ request.user.username }}"></p>
@@ -59,10 +75,15 @@
 
     <script src="/static/js/article_detail.js"></script>
     <script>
+        var pid = "";
         $("#comment_btn").click(function () {
             var article_id = $(".info").attr("article_id");
             var comment_content = $("#comment_content").val();
-            var pid = "";
+            if(pid){
+                var index = comment_content.indexOf("\n");
+                comment_content = comment_content.slice(index+1)
+            }
+
             $.ajax({
                 url:"/blog/comment/",
                 type:"post",
@@ -77,8 +98,9 @@
                     create_time = data.create_time;
                     content = data.content;
                     username = data.username;
-                    var comment_li = '<li class="list-group-item"> <div> <a href="/blog/'+username+'">'+username+'</a>&nbsp<span style="color: gray">'+create_time+'</span>&nbsp;  </div> <div class="con">'+content+' </div></li>'
-                    $(".comment_list").append(comment_li)
+                    var comment_li = '<li class="list-group-item"> <div> <a href="/blog/'+username+'">'+username+'</a>&nbsp<span style="color: gray">'+create_time+'</span>&nbsp;  </div> <div class="con">'+content+' </div></li>';
+                    $(".comment_list").append(comment_li);
+                    pid = "";
                 }
             })
         })
@@ -86,9 +108,28 @@
         $(".replay_btn").click(function () {
             $(".comment_content").focus();
             var name = "@"+$(this).attr("username")+"\n";
-            console.log(name);
             $("#comment_content").val(name);
+
+            pid = $(this).attr("comment_id");
         })
+
+
+    //获取评论数据，展示评论树结构
+        $.ajax({
+                url:"/blog/comment_tree/"+'{{ article.pk }}/',
+                success:function (data) {
+                    $.each(data, function (index, comment_dict) {
+                        var comment = '<div class="comment_item well" comment_id = "'+comment_dict.pk+'"> <span class="content">'+comment_dict.user__username+":"+ comment_dict.content+'</span> </div>'
+                        if (comment_dict.parent_comment_id) {
+                            pid = comment_dict.parent_comment_id;
+                            $("[comment_id="+pid+"]").append(comment);
+                        }
+                        else {
+                            $(".comment_tree").append(comment);
+                        }
+                    })
+                }
+            })
     </script>
 
 

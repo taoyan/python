@@ -89,6 +89,7 @@ input.author {
     font-size: 13px;
 }
 
-textarea.comment_textarea {
-    line-height: 1.6;
+
+.comment_tree .comment_item{
+    margin-left: 10px;
 }

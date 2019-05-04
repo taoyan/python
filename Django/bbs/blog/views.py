@@ -177,10 +177,62 @@ def comment(request):
     response = {}
     if not pid:
         comment_obj = models.Comment.objects.create(article_id = article_id, user_id=user_pk, content=content)
+    else:
+        comment_obj = models.Comment.objects.create(article_id=article_id, user_id=user_pk, content=content, parent_comment_id=pid)
     response["create_time"] = comment_obj.create_time
     response["content"] = comment_obj.content
     response["username"] = comment_obj.user.username
     return JsonResponse(response)
+
+
+def comment_tree(request, article_id):
+    ret = list(models.Comment.objects.filter(article_id = article_id).values("pk", "user__username", "content", "parent_comment_id"))
+    print(ret)
+    return JsonResponse(ret, safe=False)
+
+
+# 后台添加文章
+from bs4 import BeautifulSoup
+def add_article(request):
+    if request.method == "POST":
+        title = request.POST.get("title")
+        article_content = request.POST.get("article_content")
+        user = request.user
+
+        # bs4处理html
+        bs = BeautifulSoup(article_content, "html.parser")
+
+        # 防止xss攻击，过滤掉script,自定义属性等
+        for tag in bs.find_all():
+            if tag.name in ["script", "link"]:
+                tag.decompose()
+
+        desc = bs.text[0:150] + '...'
+        article_content = str(bs)
+
+
+        article_obj =  models.Article.objects.create(user = user, title=title, desc=desc)
+        models.ArticleDetail.objects.create(article=article_obj, content=article_content)
+        return redirect("/index")
+    else:
+        return render(request, "add_article.html")
+
+
+
+import os
+from bbs import settings
+def upload(request):
+    file = request.FILES.get("upload_img")
+    path = os.path.join(settings.MEDIA_ROOT,"add_article_img", file.name)
+    with open(path, 'wb') as f:
+        for line in file:
+            f.write(line)
+
+    res = {
+        "error":0,
+        "url":"/media/add_article_img/"+file.name
+    }
+    return JsonResponse(res)
 
 
 
