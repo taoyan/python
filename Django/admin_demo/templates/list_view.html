@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+<h3>查看{{ model_name }}数据</h3>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in data_list %}
+                        <tr>
+                            {% for item in data %}
+                                <td>{{ item }}</td>
+                            {% endfor %}
+
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% for data in data_list %}
+
+    <p>{{ data.title }}</p>
+{% endfor %}
+
+</body>
+</html>

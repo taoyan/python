@@ -2,27 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7a7649-30e5-424b-be44-530d41adfa70" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../bbs/static/toastr/toastr.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bbs/static/toastr/toastr.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/.idea/dataSources/d762c725-7b9f-49a0-a2de-7b9e4fd8548a.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../admin_demo/Xadmin/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../admin_demo/app01/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../admin_demo/app02/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../admin_demo/app02/migrations/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bbs/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/bbs/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/bbs/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bbs/bbs/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/bbs/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/blog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/blog/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/blog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/static/bootstrap/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/static/font-awesome/css/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/templates/bootstrap01.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/bootstrap01.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/templates/bootstrap02.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/bootstrap02.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/templates/carousel.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/carousel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/templates/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/templates/nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,14 +59,15 @@
     <session id="425632975">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.2" value="3" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -189,24 +176,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bookmanager/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+            <state relative-caret-position="122">
+              <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
               <folding>
                 <marker date="1556024905951" expanded="true" signature="1192:1197" ph="..." />
                 <marker date="1556024905951" expanded="true" signature="1313:1318" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/employee">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -229,29 +207,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myblog/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="976">
+            <state relative-caret-position="557">
               <caret line="159" column="1" lean-forward="true" selection-start-line="143" selection-end-line="159" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_authordetail">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_author">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -328,6 +288,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -349,7 +310,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -534,7 +494,7 @@
     <frame x="148" y="25" width="1106" height="726" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30451128" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31015038" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -726,13 +686,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/auth_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/auth_user" />
     <entry file="file://$PROJECT_DIR$/myblog/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -747,13 +701,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/user_userinfo">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/user_userinfo" />
     <entry file="file://$PROJECT_DIR$/user/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -761,13 +709,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_publisher">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_publisher" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/db/models/query_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -782,20 +724,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_book">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_author_book">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_book" />
+    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_author_book" />
+    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/employee" />
+    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_authordetail" />
+    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_author" />
     <entry file="file://$PROJECT_DIR$/orm1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -820,24 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bookmanager/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
-          <folding>
-            <marker date="1556024905951" expanded="true" signature="1192:1197" ph="..." />
-            <marker date="1556024905951" expanded="true" signature="1313:1318" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/employee">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/25f288ad-e092-4fa0-be2d-a5803f05b372/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -852,24 +767,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_authordetail">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://25f288ad-e092-4fa0-be2d-a5803f05b372/schema/myblog/table/bookmanager_author">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myblog/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="976">
+        <state relative-caret-position="557">
           <caret line="159" column="1" lean-forward="true" selection-start-line="143" selection-end-line="159" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bookmanager/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+          <folding>
+            <marker date="1556024905951" expanded="true" signature="1192:1197" ph="..." />
+            <marker date="1556024905951" expanded="true" signature="1313:1318" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
