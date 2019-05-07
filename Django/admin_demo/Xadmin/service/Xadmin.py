@@ -29,6 +29,21 @@ class ModelXadmin(object):
         model_name = self.model._meta.model_name
 
 
+        # 表头
+        header_list = []
+        for field in self.list_display:
+            if isinstance(field, str):
+                if field=="__str__":
+                    header = self.model._meta.model_name.upper
+                    print(field)
+                else:
+                    # 获取字段，及字段属性
+                    header = self.model._meta.get_field(field).verbose_name
+            else:
+                header = field(self, is_header = True)
+            header_list.append(header)
+
+
 
         new_data_list = []
         for obj in data_list:
@@ -38,11 +53,11 @@ class ModelXadmin(object):
                     # 反射，通过字符串找属性
                     temp.append(getattr(obj, field))
                 else:
-                    temp.append(field(self))
+                    temp.append(field(self, obj))
 
             new_data_list.append(temp)
 
-        return render(request, 'list_view.html', {"data_list":new_data_list, "model_name":model_name})
+        return render(request, 'list_view.html', {"data_list":new_data_list, "model_name":model_name, "header_list":header_list})
 
     def add_view(self, request):
         return render(request, 'add_view.html')

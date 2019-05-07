@@ -17,7 +17,9 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th></th>
+                        {% for header in header_list %}
+                            <th>{{ header }}</th>
+                        {% endfor %}
                     </tr>
                 </thead>
                 <tbody>

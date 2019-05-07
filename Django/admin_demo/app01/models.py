@@ -13,8 +13,8 @@ class Publisher(models.Model):
 
 
 class Book(models.Model):
-    id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=64, null=False, unique=True)
+    id = models.AutoField(primary_key=True, verbose_name="编号")
+    title = models.CharField(max_length=64, null=False, unique=True, verbose_name="书籍名称")
     price = models.DecimalField(max_digits=5, decimal_places=2)
     publisher = models.ForeignKey(to=Publisher, on_delete=models.CASCADE, related_name="books")
 
