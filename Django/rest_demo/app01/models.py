@@ -19,6 +19,7 @@ class Book(models.Model):
     price = models.DecimalField(max_digits=5, decimal_places=2)
     publisher = models.ForeignKey(to=Publisher, on_delete=models.CASCADE, related_name="books")
 
+    authors = models.ManyToManyField(to='Author')
     # 库存
     kucun = models.IntegerField(default=1000)
     maichu = models.IntegerField(default=0)
@@ -30,7 +31,7 @@ class Author(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=16,null=False, unique=True)
     # 多对多，创建第三张表存放关系
-    book = models.ManyToManyField(to=Book)
+    # book = models.ManyToManyField(to=Book)
 
     detail = models.OneToOneField(to='AuthorDetail')
 
