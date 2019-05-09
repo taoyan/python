@@ -45,3 +45,14 @@ class AuthorDetail(models.Model):
     hobby = models.CharField(max_length=32)
     addr = models.CharField(max_length=128)
 
+
+
+class User(models.Model):
+    name = models.CharField(max_length=32)
+    pwd = models.CharField(max_length=32)
+
+
+class Token(models.Model):
+    user = models.OneToOneField(to=User)
+    token = models.CharField(max_length=128)
+

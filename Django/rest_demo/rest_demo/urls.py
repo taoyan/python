@@ -25,4 +25,13 @@ urlpatterns = [
 
     url(r'^books/$',views.BookView.as_view(), name="books"),
     url(r'^books/(\d+)/$', views.BookDetailView.as_view(), name="bood_detail"),
+
+    # url(r'^authors/$',views.AuthorView.as_view(), name="authors"),
+    # url(r'^authors/(?P<pk>\d+)/$', views.AuthorDetailView.as_view(), name="authors_detail"),
+
+    url(r'^authors/$',views.AuthorModelView.as_view({"get":"list","post":"create"}), name="authors"),
+    url(r'^authors/(?P<pk>\d+)/$', views.AuthorModelView.as_view({"get":"retrieve","put":"update","delete":"destroy"})),
+
+
+    url(r'^login/$',views.LoginView.as_view()),
 ]

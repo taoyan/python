@@ -1,5 +1,5 @@
 
-from .models import Publisher, Book
+from .models import Publisher, Book, Author
 
 from rest_framework import serializers
 class PublisherSerializers(serializers.Serializer):
@@ -60,3 +60,7 @@ class BookModelSerializers(serializers.ModelSerializer):
     #     book.authors.add(*validated_data["authors"])
     #     return book
 
+class AuthorModelSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = "__all__"
