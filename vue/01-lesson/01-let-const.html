@@ -1,0 +1,30 @@
+<html>
+<head>
+
+</head>
+<body>
+    
+    <script type="text/javascript">
+    // let 不能重复申明
+    // {
+    //     var a = 12;
+    //     var a = 13;
+
+    //     let a = 12;
+    //     let a = 13;
+    // }
+    // console.log(a)
+
+    var a = [];
+    for(var i = 0; i < 10; i++)
+    {
+        a[i] = function(){
+            console.log(i)
+        }
+    }
+    a[6]();
+
+    </script>
+</body>
+
+</html>
