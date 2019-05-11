@@ -4,18 +4,39 @@
 <body>
 
     <div id="app">
-        <h1>{{ title }}</h1>
+        <!-- 插值语法 -->
+        <h1>{{ title }}{{ 1 < 2 ? "真" : "假"}}</h1>
+        <div v-if = "show">哈哈哈</div>
+        <button v-on:click = "clickHandler">切换</button>
     </div>
-    <script src="./js/vue.js"></script>
 
+
+    <script src="./js/vue.js"></script>
     <script>
         var app = new Vue({
             el:"#app",
             // 所有的数据都放在数据属性中
             data:{
-                title:"土豆"
+                title:"土豆",
+                show:false,
+            },
+            methods:{
+                clickHandler(){
+                    console.log(this)
+                    this.show = !this.show;
+                }
             }
         })
+        console.log(app)
+        console.log(app.$el)
+        console.log(app.$data.title)
+        console.log(app.title)
+        // app.title = "香蕉";
+
+
+        //mvvm   Model View ViewModel
+        //指令系统
+        //v-*
     </script>
 </body>
 </html>
