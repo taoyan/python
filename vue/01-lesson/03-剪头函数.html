@@ -1,0 +1,46 @@
+<html>
+    <body>
+        <script>
+            var f = function(a){
+                return a;
+            }
+            console.log(f(2))
+
+
+            var ff = a => {
+                return a;
+            }
+            console.log(ff(4))
+
+
+            var fff = (a, b) => a+b;
+            console.log(fff(3,4))
+
+            //字典方式创建对象
+            var person = {
+                name : "日天",
+                age : 30,
+                // this指使用时使用的对象
+                fav : function(){
+                    // console.log('喜欢av');
+                    console.log(arguments);
+                    console.log(this);
+                    console.log(this.name);
+                },
+                // fav2 : () => console.log('喜欢美女'),
+                // 箭头函数中this指定义时使用的对象(定义person时的对象,window)
+                // 使用箭头函数，arguments不能使用
+                fav2 : () => {
+                    console.log(arguments);
+                    console.log(this);
+                    console.log(this.name)
+                },
+            }
+            person.name;
+            person.fav(1,2,3);
+            person.fav2(1,2,3);
+            // console.log()
+
+        </script>
+    </body>
+</html>

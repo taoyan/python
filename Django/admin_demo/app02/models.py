@@ -10,3 +10,4 @@ class Order(models.Model):
 
 class Food(models.Model):
     title = models.CharField(max_length=32)
+
