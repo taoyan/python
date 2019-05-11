@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4803d83-bfaf-45e7-b9eb-14a7948ddaff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Xadmin/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app02/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app02/migrations/0002_food.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app02/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bbs/bbs/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/bbs/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myblog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myblog/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,18 +88,23 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-2118596442">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Xadmin/service/Xadmin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
-              <folding>
-                <element signature="e#1#33#0" expanded="true" />
-                <marker date="1557150713546" expanded="true" signature="144:1476" ph="..." />
-              </folding>
+            <state relative-caret-position="585">
+              <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -121,10 +119,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-              <folding>
-                <marker date="1557150436207" expanded="true" signature="84:89" ph="..." />
-                <marker date="1557150436207" expanded="true" signature="205:206" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -141,12 +135,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app01/Xadmin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-                <marker date="1557150835356" expanded="true" signature="342:414" ph="..." />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -154,8 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/list_view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="16" column="62" lean-forward="true" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
+            <state relative-caret-position="240">
+              <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -163,7 +153,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin_demo/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
+            <state relative-caret-position="1710">
               <caret line="114" selection-start-line="114" selection-end-line="114" />
             </state>
           </provider>
@@ -233,7 +223,7 @@
     <option name="x" value="137" />
     <option name="y" value="23" />
     <option name="width" value="1143" />
-    <option name="height" value="737" />
+    <option name="height" value="734" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -401,32 +391,33 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="137" y="23" width="1143" height="737" extended-state="0" />
+    <frame x="137" y="23" width="1143" height="734" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24977294" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25431427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="manage.py@admin_demo" weight="0.26046512" />
-      <window_info anchor="bottom" id="Database Changes" weight="0.32868218" />
-      <window_info anchor="bottom" id="Version Control" weight="0.32868218" />
-      <window_info anchor="bottom" id="Python Console" weight="0.32868218" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32868218" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" weight="0.27286822" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" visible="true" weight="0.32866043" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.17209302" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.17133956" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="SciView" />
-      <window_info anchor="right" id="Database" weight="0.32970026" />
+      <window_info anchor="bottom" id="Database Console" order="7" weight="0.27286822" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32868218" />
+      <window_info anchor="bottom" id="manage.py@admin_demo" order="10" weight="0.26046512" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32868218" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="13" weight="0.32868218" />
+      <window_info anchor="bottom" id="Python Console" order="14" weight="0.32868218" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32970026" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,13 +443,7 @@
     <entry file="file://$PROJECT_DIR$/app02/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Xadmin/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Xadmin/admin.py" />
     <entry file="file://$PROJECT_DIR$/Xadmin/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -537,21 +522,12 @@
       </provider>
     </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/contrib/admin/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/contrib/admin/sites.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="278" column="8" selection-start-line="278" selection-start-column="8" selection-end-line="278" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -559,9 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -576,42 +549,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="e#644#676#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="das://e62f2cc7-4ac4-4c4e-ac43-e8b05f42ca3f/schema/main/table/app01_publisher">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/static/js/article_detail.js" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/contrib/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/article_detail.js">
+    <entry file="file://$PROJECT_DIR$/Xadmin/service/Xadmin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-268" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_demo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/list_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="16" column="62" lean-forward="true" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://e62f2cc7-4ac4-4c4e-ac43-e8b05f42ca3f/schema/main/table/app01_book">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+        <state relative-caret-position="585">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -622,24 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding>
-            <marker date="1557150436207" expanded="true" signature="84:89" ph="..." />
-            <marker date="1557150436207" expanded="true" signature="205:206" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/contrib/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Xadmin/service/Xadmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
-          <folding>
-            <element signature="e#1#33#0" expanded="true" />
-            <marker date="1557150713546" expanded="true" signature="144:1476" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -650,14 +580,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/list_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_demo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e62f2cc7-4ac4-4c4e-ac43-e8b05f42ca3f/schema/main/table/app01_book">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e62f2cc7-4ac4-4c4e-ac43-e8b05f42ca3f/schema/main/table/app01_publisher">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="44" lean-forward="true" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app01/Xadmin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <marker date="1557150835356" expanded="true" signature="342:414" ph="..." />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
         </state>
       </provider>
     </entry>
