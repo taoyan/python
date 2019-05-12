@@ -1,13 +1,48 @@
 <html>
+<head>
 
-
+</head>
+    <style>
+        .box{
+            background-color: red;
+            height: 100;
+            width: 100;
+        }
+        .box2{
+            background-color: green;
+            height: 100;
+            width: 100;
+        }
+    </style>
 <body>
 
     <div id="app">
         <!-- 插值语法 -->
         <h1>{{ title }}{{ 1 < 2 ? "真" : "假"}}</h1>
         <div v-if = "show">哈哈哈</div>
-        <button v-on:click = "clickHandler">切换</button>
+        <button @click = "clickHandler">切换</button>
+
+        <!-- display: none; -->
+        <h3 v-show="isShow" v-bind:title="title">v-show修改display</h3>
+        <img v-bind:src="imgSrc" v-bind:alt="timeStr">
+        <!-- v-bind:alt  简写 :alt -->
+        <!-- v-on:click  简写 @click-->
+
+        <div class="box" :class='{box2:isGreen}'></div>
+        <button @click = "changeColor">改变颜色</button>
+
+        <button @click = 'count+=1'>加{{ count}}</button>
+
+        <div>
+            <img :src="currentSrc" alt="aaa" @mouseenter="closeTimer" @mouseleave="openTimer">
+            <ul>
+                <li v-for = "(item, i) in imgArr" @click="currentHandler(item)">{{ i+1 }}</li>
+            </ul>
+        </div>
+        <button @click="nextImg">下一张</button>
+
+        <div v-html=str>
+        </div>
     </div>
 
 
@@ -19,11 +54,50 @@
             data:{
                 title:"土豆",
                 show:false,
+                isShow:true,
+                imgSrc: "https://cn.vuejs.org/images/logo.png",
+                timeStr:new Date().toLocaleDateString,
+                isGreen: false,
+                count: 0,
+                imgArr:[
+                    {id : 1, src:"./images/1.jpeg"},
+                    {id : 2, src:"./images/2.jpg"},
+                    {id : 3, src:"./images/3.jpg"},
+                    {id : 4, src:"./images/4.jpg"},
+                ],
+                currentSrc : "./images/1.jpeg",
+                currentIndex : 0,
+                timer : null,
+                str:"<p>飞飞飞</p>"
+            },
+            created(){
+                console.log("created");
+                this.timer = setInterval(this.nextImg, 2000);
             },
             methods:{
                 clickHandler(){
                     console.log(this)
                     this.show = !this.show;
+                },
+                changeColor(){
+                    this.isGreen = !this.isGreen;
+                },
+                currentHandler(item){
+                    this.currentSrc = item.src;
+                },
+                nextImg(){
+                    if(this.currentIndex == this.imgArr.length-1)
+                    {
+                        this.currentIndex = -1;
+                    }
+                    this.currentIndex++;
+                    this.currentSrc = this.imgArr[this.currentIndex].src;
+                },
+                closeTimer(){
+                    clearInterval(this.timer)
+                },
+                openTimer(){
+                    this.timer = setInterval(this.nextImg, 2000);
                 }
             }
         })

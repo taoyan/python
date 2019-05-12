@@ -1,0 +1,54 @@
+<html>
+
+<body>
+    
+<div id = "computed">
+    <div>
+        <!-- {{ msg.split("").reverse().join('') }} -->
+        {{ reverseStr }}
+
+        <button @click="clickHandler">修改</button>
+
+        <!-- v-model双向绑定=ui监听+事件绑定 -->
+        <!-- v-model 只能用在form表单中 -->
+        <form action="">
+            <input type="text" v-model='msg'>
+            <h3>{{msg}}</h3>
+        </form>
+    </div>
+</div>
+
+
+    <script src="./js/vue.js"></script>
+    <script>
+         var cum = new Vue({
+            el:"#computed",
+            data:{
+                msg:"hello world",
+            },
+            computed:{
+                // 计算对象属性，watch监听
+                // reverseStr(){
+                //     return this.msg.split("").reverse().join('');
+                // }
+                // 默认只有get方法 
+                reverseStr:{
+                    set:function(newValue){
+                        console.log("修改属性")
+                        this.msg = newValue;
+                    },
+                    get:function(){
+                        return this.msg.split("").reverse().join('');
+                    }
+                }
+            },
+            methods:{
+                clickHandler(){
+                    // this.msg = "hello luffy";
+                    this.reverseStr = "hello luffy"
+                }
+            }
+        })
+    </script>
+</body>
+</html>
