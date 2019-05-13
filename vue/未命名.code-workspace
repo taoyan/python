@@ -5,6 +5,15 @@
 		},
 		{
 			"path": "03-vue"
+		},
+		{
+			"path": "04-vue"
+		},
+		{
+			"path": "01-lesson"
+		},
+		{
+			"path": "05-cli"
 		}
 	],
 	"settings": {}

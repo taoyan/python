@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title></title>
+	<style>
+		
+	</style>
+</head>
+<body>
+
+	<div id="app">
+		<vheader></vheader>
+		<vheader></vheader>
+		<vheader></vheader>
+	</div>
+
+	<script type="text/javascript" src="./js/vue.js"></script>
+	<script type="text/javascript">
+		Vue.component('vheader',{
+			//组建的创建
+			data:function(){
+				return {
+					//必须要return
+				}
+			},
+			template:'<div><h1>header123</h1></div>'
+		})
+
+		var app = new Vue({
+			el:"#app",
+		})
+	</script>
+</body>
+</html>
