@@ -50,6 +50,8 @@ class AuthorDetail(models.Model):
 class User(models.Model):
     name = models.CharField(max_length=32)
     pwd = models.CharField(max_length=32)
+    type_choices = ((1, "普通用户"),(2,"VIP"),(3,"SVIP"))
+    user_type = models.IntegerField(choices=type_choices, default=1)
 
 
 class Token(models.Model):

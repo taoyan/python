@@ -124,5 +124,6 @@ STATIC_URL = '/static/'
 
 
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES" : ["app01.auth.TokenAuth",]
+    # "DEFAULT_AUTHENTICATION_CLASSES" : ["app01.auth.TokenAuth",],
+    # "DEFAULT_PERMISSION_CLASSES" : ["app01.permission.SVIPPermission"],
 }

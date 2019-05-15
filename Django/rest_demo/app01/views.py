@@ -86,24 +86,38 @@ from rest_framework import exceptions
 #         pass
 
 
-from rest_framework.authentication import BaseAuthentication
-class TokenAuth(BaseAuthentication):
-    def authenticate(self, request):
-        token = request.GET.get("token")
-        token_obj = Token.objects.filter(token=token).first()
-        if not token_obj:
-            raise exceptions.AuthenticationFailed("验证失败")
-        else:
-            return token_obj.user, token_obj.token
+# from rest_framework.authentication import BaseAuthentication
+# class TokenAuth(BaseAuthentication):
+#     def authenticate(self, request):
+#         token = request.GET.get("token")
+#         token_obj = Token.objects.filter(token=token).first()
+#         if not token_obj:
+#             raise exceptions.AuthenticationFailed("验证失败")
+#         else:
+#             return token_obj.user, token_obj.token
+
+from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
+class MyPageNumberPagination(PageNumberPagination):
+    page_size = 2
+    page_query_param = "page"
+    page_size_query_param = "size"
+    max_page_size = 3
+
+class MyLimitPageNumberPagination(LimitOffsetPagination):
+    default_limit = 2
 
 
 
 
+from .auth import TokenAuth
 from rest_framework.response import Response
+from rest_framework.parsers import JSONParser, FormParser, MultiPartParser, FileUploadParser
 class BookView(APIView):
-    authentication_classes = [TokenAuth,]
+    # authentication_classes = [TokenAuth,]
     # permission_classes = []
     # throttle_classes = []
+
+    parser_classes = [JSONParser]
 
     def get(self, request):
         # print(request.body)
@@ -111,7 +125,16 @@ class BookView(APIView):
         # ps = BookSerializers(book_list, many=True)
         # 序列集合,many=True
         # HyperlinkedIdentityField  context={"request":request}
-        bs = BookModelSerializers(book_list, many=True, context={"request":request})
+
+        # 分页
+        # from rest_framework.pagination import PageNumberPagination
+        # pnp = PageNumberPagination()
+        # pnp.page_size = 2
+        # pnp = MyPageNumberPagination()
+        pnp = MyLimitPageNumberPagination()
+        books_page = pnp.paginate_queryset(book_list, request, self)
+
+        bs = BookModelSerializers(books_page, many=True, context={"request":request})
         return Response(bs.data)
 
 
@@ -204,9 +227,6 @@ from rest_framework import generics
 #         return self.destroy(request, *args, **kwargs)
 
 
-
-
-
 class AuthorView(generics.ListCreateAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorModelSerializers
@@ -217,14 +237,25 @@ class AuthorDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 
+
+from rest_framework.response import Response
+from .permission import SVIPPermission
+from .throttles import Throttles
 from rest_framework import viewsets
 class AuthorModelView(viewsets.ModelViewSet):
     # authentication_classes = [TokenAuth, ]
+    # permission_classes = [SVIPPermission, ]
+    # throttle_classes = [Throttles,]
+
     queryset = Author.objects.all()
     serializer_class = AuthorModelSerializers
+    pagination_class = MyPageNumberPagination
+
 
 
 class LoginView(APIView):
+    authentication_classes = []
+    permission_classes = []
     def post(self, request):
         user = User.objects.filter(name = request.data.get("name"), pwd=request.data.get("pwd")).first()
         res = {"state_code":1000, "msg":None}
