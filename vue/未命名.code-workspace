@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "markdown_project"
+		},
+		{
+			"path": "06-mint-ui-test"
 		}
 	],
 	"settings": {}

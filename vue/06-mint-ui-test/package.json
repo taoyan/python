@@ -1,5 +1,5 @@
 {
-  "name": "y",
+  "name": "mint-ui-test",
   "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "Allen T Yan <allen.t.yan@cn.pwc.com>",
@@ -10,7 +10,9 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.5.11"
+    "mint-ui": "^2.2.13",
+    "vue": "^2.5.11",
+    "vue-router": "^3.0.6"
   },
   "browserslist": [
     "> 1%",
@@ -27,8 +29,7 @@
     "file-loader": "^1.1.4",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.12.0",
-    "webpack-cli": "^3.3.2",
+    "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
   }
 }
