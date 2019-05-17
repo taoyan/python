@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "06-mint-ui-test"
+		},
+		{
+			"path": "07-nav"
 		}
 	],
 	"settings": {}
