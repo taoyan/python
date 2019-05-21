@@ -14,10 +14,10 @@ Vue.use(VueRouter)
 
 let router = new VueRouter({
   routes:[
-    {path:'/', components:{header:Header, default:Footer, footer:Footer}},
-    // {path:'/', redirect:{name:'home'}},
+    // {path:'/', components:{header:Header, default:Footer, footer:Footer}},
+    {path:'/', redirect:{name:'home'}},
     // {name:'home', path:"/home", component:App},
-    // {name:'music', path:"/music", component:Music},
+    {name:'music', path:"/music", component:Music},
     // {name:'movie', path:"/movie", component:Movie},
     // {path:'*', component:NotFound},
 

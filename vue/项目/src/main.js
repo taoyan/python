@@ -1,8 +1,5 @@
 import Vue from 'vue'
 // 第三方包
-import VueRouter from 'vue-router'
-Vue.use(VueRouter)
-
 //mint-ui
 import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
@@ -17,12 +14,13 @@ Vue.prototype.$axios = Axios
 import App from './App.vue'
 import Home from './components/home/Home.vue'
 
-
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
 //路由
 let router = new VueRouter({
-  routers:[
+  routes:[
     {path:'/', redirect:{name:'home'}},
-    {name: 'home', path:'/home', component:Home},
+    {name:'home', path:"/home", component:Home},
   ]
 })
 
