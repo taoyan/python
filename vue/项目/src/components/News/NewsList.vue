@@ -1,9 +1,12 @@
 <template>
     <div class="tmpl">
+        <!-- 头 -->
+        <nav-bar title="新闻列表"></nav-bar>
+
         <!-- mui 图文列表 -->
         <ul v-for="index in times" :key="index" class="mui-table-view">
             <li v-for="news in newsList" :key="news.id" class="mui-table-view-cell" >
-                <a class="mui-navigate-right">
+                <router-link :to="{name:'news.detail', query:{id:news.id}}" class="mui-navigate-right">
                     <img class="mui-media-object mui-pull-left" src="../../static/images/test.png">
                     <div class="mui-media-body">
                         <span v-text="news.title"></span>
@@ -12,7 +15,7 @@
                             <p>发表时间:{{ news.add_time | convertDate }}</p>
                         </div>
                     </div>
-                </a>
+                </router-link>
             </li>
 		</ul>
     </div>

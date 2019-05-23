@@ -16,13 +16,20 @@ import Axios from 'axios'
 Vue.prototype.$axios = Axios
 
 
-import Moment from 'moment'
 //moment全局过滤器
+import Moment from 'moment'
 Vue.filter('convertDate',function(value){
     return Moment(value).format('YYYY-MM-DD');
 })
 
+//vue-preview
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 
+
+//全局组件
+import Navbar from './components/common/Navbar.vue'
+Vue.component('navBar', Navbar) //使用最好以nav-bar
 
 
 import App from './App.vue'
@@ -30,7 +37,10 @@ import Home from './components/home/Home.vue'
 import Member from './components/member/Member.vue'
 import Shopcart from './components/shopcart/Shopcart.vue'
 import Search from './components/search/Search.vue'
-import NewsList from './components/News/NewsList.vue'
+import NewsList from './components/news/NewsList.vue'
+import NewsDetail from './components/news/NewsDetail.vue'
+import PhotoShare from './components/photo/PhotoShare.vue'
+import PhotoDetail from './components/photo/PhotoDetail.vue'
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
@@ -45,6 +55,11 @@ let router = new VueRouter({
     {name:'search', path:"/search", component:Search},
 
     {name:'news_list', path:"/news/list", component:NewsList},
+    {name:'news.detail', path:"/news/detail", query:{id:1}, component:NewsDetail},
+    
+    {name:'photo.share', path:"/photo/share", component:PhotoShare},
+    {name:'photo.detail', path:"/photo/detail/:id", component:PhotoDetail},
+    
   ]
 })
 
