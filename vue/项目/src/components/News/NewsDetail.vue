@@ -27,14 +27,15 @@ export default {
     },
     created(){
         //获取参数，发起请求，返回后渲染页面
-        let id = this.$toute.query.id;
-        this.$axios.get('getnews/'+id)
-        .then(res=>{
-            this.newsDetail = res.data.messages[0];
-        })
-        .catch(err=>{
-            console.log(err);
-        })
+        let id = this.$route.query.id;
+        console.log(id)
+        // this.$axios.get('getnews/'+id)
+        // .then(res=>{
+        //     this.newsDetail = res.data.messages[0];
+        // })
+        // .catch(err=>{
+        //     console.log(err);
+        // })
     }
 }
 </script>

@@ -55,10 +55,10 @@ export default {
         }
     },
     created(){
-        this.$axios.get('getnewslist')
-        .then(res =>{
+        // this.$axios.get('getnewslist')
+        // .then(res =>{
 
-        })
+        // })
     }
 }
 </script>

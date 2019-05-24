@@ -12,7 +12,9 @@
             </ul>
         </div>
 
-        <div class="photo-bottom">
+        <comment pid="pid"></comment>
+
+        <!-- <div class="photo-bottom">
             <ul>
                 <li class="photo-comment">
                     <div>
@@ -21,15 +23,15 @@
                     </div>
                 </li>
                 <li class="txt-comment">
-                    <textarea name="" id="" cols="30" rows="3"></textarea>
+                    <textarea v-model="msg" id="" cols="30" rows="3"></textarea>
                 </li>
                 <li>
-                    <button @click="sendComment">发表评论</button>
+                    <mt-button @click="sendComment" type="primary" size="large">发表评论</mt-button>
                 </li>
                 <li class="photo-comment">
                     <div>
                         <span>评论列表</span>
-                        <span>{{ comments.count }}条评论</span>
+                        <span>{{ comments.length }}条评论</span>
                     </div>
                 </li>
 
@@ -40,7 +42,7 @@
                 <button @click="loadByPage">load more</button>
                 
             </ul>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -66,20 +68,21 @@ export default {
                     h: 900
                 },
             ],
-            comments:[
-                {
-                    title:"评论内容123",
-                },
-                {
-                    title:"评论内容dwaindlawmdlkmwakl",
-                },
-                {
-                    title:"评论内容d[pwad,oawmdo;awmd'kq'wpdlaw;kd;awmd;wka\ndskakdmlk",
-                }
-            ],
-            pageIndex:1,    //页码
-            cid:this.$route.params.id,
-        }
+            // comments:[
+            //     {
+            //         title:"评论内容123",
+            //     },
+            //     {
+            //         title:"评论内容dwaindlawmdlkmwakl",
+            //     },
+            //     {
+            //         title:"评论内容d[pwad,oawmdo;awmd'kq'wpdlaw;kd;awmd;wka\ndskakdmlk",
+            //     }
+            // ],
+            // pageIndex:1,    //页码
+            pid:this.$route.params.id,
+            // msg:"",
+        }   
     },
     created(){
         let id = this.$route.params.id;
@@ -89,13 +92,14 @@ export default {
       handleClose () {
         console.log('close event')
       },
-      loadByPage(){
-          console.log('concat')
-          this.comments = this.comments.concat({title:"评论内容2222"})
-      },
-      sendComment(){
-          
-      }
+    //   loadByPage(){
+    //       console.log('concat')
+    //       this.comments = this.comments.concat({title:"评论内容2222"})
+    //   },
+    //   sendComment(){
+    //       this.comments.unshift({title:this.msg});
+    //       this.msg = "";
+    //   }
     }
 }
 </script>

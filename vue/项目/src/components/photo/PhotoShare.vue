@@ -96,30 +96,30 @@ export default {
             id:0,
             title:"全部",
         })
-        this.$axios.get('getimagecategory')
-        .then(res=>{
-            this.categorys = res.data.message;
-            this.categorys.unshift({
-                id:0,
-                title:"全部",
-            })
-        })
-        .catch(err=>{
-            console.log(err);
-        })
+        // this.$axios.get('getimagecategory')
+        // .then(res=>{
+        //     this.categorys = res.data.message;
+        //     this.categorys.unshift({
+        //         id:0,
+        //         title:"全部",
+        //     })
+        // })
+        // .catch(err=>{
+        //     console.log(err);
+        // })
 
         this.loadImg(0)
     },
     methods:{
         loadImg(id){
             //获取类别下的图片
-            this.$axios.get('getimages/'+id)
-            .then(res=>{
-                this.imgs = res.data.message;
-            })
-            .catch(err=>{
-                console.log(err);
-            })
+            // this.$axios.get('getimages/'+id)
+            // .then(res=>{
+            //     this.imgs = res.data.message;
+            // })
+            // .catch(err=>{
+            //     console.log(err);
+            // })
         }
     }
 }

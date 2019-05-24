@@ -14,7 +14,18 @@ Vue.use(Mint)
 import Axios from 'axios'
 //挂载到原型
 Vue.prototype.$axios = Axios
-
+//拦截器加loading
+Axios.interceptors.request.use(function(config){
+    Mint.Indicator.open({
+      text: '加载中...',
+      spinnerType: 'fading-circle'
+    });
+    return config;
+});
+Axios.interceptors.response.use(function(config){
+    Mint.Indicator.close();
+    return config;
+});
 
 //moment全局过滤器
 import Moment from 'moment'
@@ -29,8 +40,9 @@ Vue.use(VuePreview)
 
 //全局组件
 import Navbar from './components/common/Navbar.vue'
+import Comment from './components/common/Comment.vue'
 Vue.component('navBar', Navbar) //使用最好以nav-bar
-
+Vue.component('comment', Comment)
 
 import App from './App.vue'
 import Home from './components/home/Home.vue'
@@ -41,6 +53,8 @@ import NewsList from './components/news/NewsList.vue'
 import NewsDetail from './components/news/NewsDetail.vue'
 import PhotoShare from './components/photo/PhotoShare.vue'
 import PhotoDetail from './components/photo/PhotoDetail.vue'
+import GoodsList from './components/goods/GoodsList.vue'
+import GoodsDetail from './components/goods/GoodsDetail.vue'
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
@@ -59,7 +73,9 @@ let router = new VueRouter({
     
     {name:'photo.share', path:"/photo/share", component:PhotoShare},
     {name:'photo.detail', path:"/photo/detail/:id", component:PhotoDetail},
-    
+
+    {name:'goods.list', path:"/goods/list/", component:GoodsList},
+    {name:'goods.detail', path:"/goods/detail/", component:GoodsDetail},
   ]
 })
 
