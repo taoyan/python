@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todos.apps.TodosConfig',
     'videos.apps.VideosConfig',
     'user.apps.UserConfig',
     'my_todos.apps.MyTodosConfig',
@@ -47,7 +46,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -81,7 +80,7 @@ WSGI_APPLICATION = 'makeplan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'newdb',
+        'NAME':'todo_goal',
         'USER':'root',
         'PASSWORD':'yantyant',
         'HOST':'localhost',
@@ -137,3 +136,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# django用户上传的都叫media文件
+MEDIA_URL = "/media/"
+# media配置，用户上传的文件都默认在这个文件夹下
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# 配置默认登录页面，需要登录的请求，会跳转到这个配置页
+# LOGIN_URL = '/user/login/'
+
+# 如果使用继承方式修改auth模块，在这里配置设置默认用户认证使用的表
+AUTH_USER_MODEL = 'user.UserInfo'
