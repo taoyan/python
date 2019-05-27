@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+
+    <script type="text/javascript">
+        function getVerification() {
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                {
+                    var jsonContent = JSON.parse(xmlhttp.responseText)
+                    alert(jsonContent.msg)
+                }
+            }
+
+            var phone = document.getElementById('mobile');
+            xmlhttp.open("POST","/user/send_sms_login", true);
+            xmlhttp.setRequestHeader("Content-type","application/json");
+            xmlhttp.send(JSON.stringify({
+                "mobile":phone.value
+            }));
+            xmlhttp.send();
+        }
+
+        function login() {
+            var mobile = document.getElementById('mobile');
+            var code = document.getElementById('code');
+            var password = document.getElementById('password');
+            var type = document.getElementById('codeType');
+
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                {
+                    var jsonContent = JSON.parse(xmlhttp.responseText)
+                    alert(jsonContent.msg)
+                }
+            }
+            xmlhttp.open("POST","/user/login/", true);
+            xmlhttp.setRequestHeader("Content-type","application/json");
+            xmlhttp.send(JSON.stringify({
+                "mobile": mobile.value,
+                "code": code.value,
+                "password": password.value,
+                "type": type.checked ? "code" : "password",
+            }));
+            xmlhttp.send();
+        }
+    </script>
+
+</head>
+<body>
+
+
+<form action="">
+    手机号码：
+    <br>
+    <input type="number" name="mobile" id="mobile">
+    <br>
+    <input type="checkbox" id="codeType">
+    验证码登录：
+    <input type="number" name="code" id="code">
+    <input type="button" value="获取验证码" onclick="getVerification()">
+    <br>
+    <input type="checkbox" id="passwordType">
+    密码登录：
+    <input type="password" id="password">
+    <br>
+    <input type="button" value="登录" onclick="login()">
+</form>
+
+
+</body>
+</html>
