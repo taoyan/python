@@ -42,7 +42,7 @@ class Goal(models.Model):
     title = models.CharField(max_length=500)
     start_date = models.DateField(blank=False)
     end_date = models.DateField(blank=False)
-    content = models.TextField(blank=True)
+    content = models.TextField(blank=True, default="")
     status = models.IntegerField(default=0)
 
     last_modified = models.DateTimeField(blank=False)

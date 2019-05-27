@@ -3,68 +3,70 @@
 import json
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, JsonResponse
-# from .send_sms import SendSMS
+from .send_sms import SendSMS
 from .SMS import SendTemplateSMS
 from .models import UserInfo
 from . import my_tool
 import hashlib
 from django.core.cache import cache
 from . import forms
+from django.views.decorators.csrf import csrf_exempt
 
 
+@csrf_exempt
 def register(request):
-    # if request.method == 'GET':
-    #     return render(request, 'user/register.html')
-    # else:
-    #     params = json.loads(request.body)
-    #     name = params.get('name')
-    #     mobile = params.get('mobile')
-    #     code = params.get('code')
-    #     password = params.get('password')
-    #
-    #     if not code:
-    #         return my_tool.json_response(outcome=1,message="请先获取短信验证码")
-    #     else:
-    #         cache_code = cache.get(mobile)
-    #         if not cache_code:
-    #             return my_tool.json_response(outcome=1, message="没有验证码或验证码已过期")
-    #         else:
-    #             if code == cache_code:
-    #                 user = User(nick_name=name, mobile=mobile)
-    #                 user.save()
-    #                 sha1_passwd = '%s:%s' % (user.id, password)
-    #                 user.password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
-    #                 user.save()
-    #
-    #                 token = my_tool.get_token(user, max_age=3600 * 24 * 10)
-    #                 # token缓存
-    #                 cache.set(user.id, token, 3600 * 24 * 0)
-    #
-    #                 return my_tool.json_response(data={'token':token})
-    #             else:
-    #                 return my_tool.json_response(outcome=1, message="验证码错误")
+    if request.method == 'GET':
+        return render(request, 'user/register.html')
+    else:
+        params = json.loads(request.body)
+        name = params.get('name')
+        mobile = params.get('mobile')
+        code = params.get('code')
+        password = params.get('password')
 
-    if request.method == 'POST':
-        ret = {"status":0, "msg":""}
-        form_obj = forms.RegForm(request.POST)
-        #帮我做校验
-        if form_obj.is_valid():
-            form_obj.cleaned_data.pop("re_password")
-            avatar_img = request.FILES.get('avatar')
-            print(avatar_img)
-            print(form_obj.cleaned_data)
-            UserInfo.objects.create_user(**form_obj.cleaned_data, avatar = avatar_img)
-            ret["msg"] = "/index/"
-            return JsonResponse(ret)
+        if not code:
+            return my_tool.json_response(outcome=1,message="请先获取短信验证码")
         else:
-            print(form_obj.errors)
-            ret["status"] = 1
-            ret["msg"] = form_obj.errors
-            return JsonResponse(ret)
+            cache_code = cache.get(mobile)
+            if not cache_code:
+                return my_tool.json_response(outcome=1, message="没有验证码或验证码已过期")
+            else:
+                if code == cache_code:
+                    user = UserInfo(username=name, phone=mobile, password=password)
+                    user.save()
+                    # sha1_passwd = '%s:%s' % (user.id, password)
+                    # user.password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
+                    # user.save()
 
-    # 生成一个form对象
-    form_obj = forms.RegForm()
-    return render(request, 'user/register2.html', {"form_obj":form_obj})
+                    token = my_tool.get_token(user, max_age=3600 * 24 * 10)
+                    # token缓存
+                    cache.set(user.nid, token, 3600 * 24 * 0)
+
+                    return my_tool.json_response(data={'token':token})
+                else:
+                    return my_tool.json_response(outcome=1, message="验证码错误")
+
+    # if request.method == 'POST':
+    #     ret = {"status":0, "msg":""}
+    #     form_obj = forms.RegForm(request.POST)
+    #     #帮我做校验
+    #     if form_obj.is_valid():
+    #         form_obj.cleaned_data.pop("re_password")
+    #         avatar_img = request.FILES.get('avatar')
+    #         print(avatar_img)
+    #         print(form_obj.cleaned_data)
+    #         UserInfo.objects.create_user(**form_obj.cleaned_data, avatar = avatar_img)
+    #         ret["msg"] = "/index/"
+    #         return JsonResponse(ret)
+    #     else:
+    #         print(form_obj.errors)
+    #         ret["status"] = 1
+    #         ret["msg"] = form_obj.errors
+    #         return JsonResponse(ret)
+    #
+    # # 生成一个form对象
+    # form_obj = forms.RegForm()
+    # return render(request, 'user/register2.html', {"form_obj":form_obj})
 
 def login(request):
     if request.method == 'GET':
@@ -132,12 +134,12 @@ def user_info(request):
 
         return my_tool.json_response(data=data_dict)
 
-
+@csrf_exempt
 def send_sms_regist(request):
     if request.method == 'POST':
         mobile = json.loads(request.body).get('mobile')
 
-        users = UserInfo.objects.filter(mobile=mobile)
+        users = UserInfo.objects.filter(phone=mobile)
         if users.count() != 0:
             return my_tool.json_response(outcome=1, message="手机号已被注册")
         else:

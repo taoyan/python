@@ -61,7 +61,7 @@
                 <div class="form-group">
                     <label for="avatar" class="col-md-3 control-label">头像</label>
                     <div class="col-md-9">
-                        <label for="id_avatar"><img id="avatar-img" width="100px" height="100px" src="/static/avatars/default.png" alt="上传头像"></label>
+                        <label for="id_avatar"><img id="avatar-img" width="100px" height="100px" src="/static/images/default.png" alt="上传头像"></label>
                         <input accept="image/*" type="file" id="id_avatar" style="display: none">
 
                         <span class="help-block"></span>
@@ -116,7 +116,7 @@
         formData.append("avatar",$("#id_avatar")[0].files[0])
 
         $.ajax({
-            url:"/register2/",
+            url:"/user/register/",
             type:"post",
             processData: false,     //传文件需要，告诉jq不要处理传的数据
             contentType: false,     //传文件需要，告诉jq不要设置contentType
@@ -158,7 +158,7 @@
     $("#id_username").on("input",function () {
         var username = $(this).val();
         $.ajax({
-            url:"/check_username/",
+            url:"/user/check_username/",
             type:"get",
             data:{
                 username: username,

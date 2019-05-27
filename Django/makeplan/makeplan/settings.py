@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'user.middleware.user_auth_middleware.UserAuth',
 ]
 
+
 ROOT_URLCONF = 'makeplan.urls'
 
 TEMPLATES = [
