@@ -116,7 +116,7 @@ def download(request, file_name):
                 else:
                     break;
 
-    path = 'Media/%s' % file_name
+    path = 'media/%s' % file_name
     response = StreamingHttpResponse(file_iterator(path))
     response['Content-Type'] = 'video/mp4'
     # response['Content-Length'] = '1665024'

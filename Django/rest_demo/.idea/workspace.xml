@@ -2,15 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f241e2b-0001-49ad-8e40-33994d64a5ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app01/migrations/0004_user_user_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d60b34c-ef23-42b0-befc-1f18b814471e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d60b34c-ef23-42b0-befc-1f18b814471e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bbs/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bbs/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/.idea/dataSources/83f89190-2aca-4947-a887-5d84bb099950.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/.idea/dataSources/83f89190-2aca-4947-a887-5d84bb099950.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/.idea/makeplan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/.idea/makeplan.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/.idea/runConfigurations/MakePlan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/.idea/runConfigurations/MakePlan.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/Media/test.MP4" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/media/test.MP4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/makeplan/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/makeplan/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/makeplan/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/makeplan/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/my_todos/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/migrations/0002_auto_20190227_1921.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/migrations/0003_auto_20190227_1925.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/migrations/0004_auto_20190228_1036.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/migrations/0005_auto_20190228_1539.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/migrations/0006_goal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/migrations/0007_auto_20190325_1531.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/migrations/0008_goal_delete_status.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/migrations/0009_remove_todo_finish_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/my_todos/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/my_todos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/my_todos/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../TodoAndGoal/UserManager/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/templates/todos/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/templates/todos/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/templates/todos/regist.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/todos/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/user/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/user/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/user/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/user/migrations/0002_auto_20190222_1534.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/user/migrations/0003_auto_20190222_1541.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/user/migrations/0004_auto_20190226_1624.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/videos/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/videos/migrations/0002_auto_20190125_1649.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/videos/migrations/0003_auto_20190125_1651.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/videos/migrations/0004_auto_20190203_0019.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/videos/migrations/0005_video_pic_url.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/videos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/videos/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../makeplan/videos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../makeplan/videos/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_demo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest_demo/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_demo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest_demo/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vue/未命名.code-workspace" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/未命名.code-workspace" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,12 +95,12 @@
     <session id="-726886908">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -74,13 +114,13 @@
           <entry key="app01_token" value="4" />
           <entry key="app01_user" value="2" />
           <entry key="auth_user" value="1" />
-          <entry key="py" value="50" />
+          <entry key="py" value="57" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Database Element" value="20" />
-          <entry key="Python" value="50" />
+          <entry key="Python" value="57" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -102,11 +142,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app01/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="240" column="41" selection-start-line="240" selection-start-column="41" selection-end-line="240" selection-end-column="41" />
+            <state relative-caret-position="258">
+              <caret line="250" column="34" selection-start-line="250" selection-start-column="23" selection-end-line="250" selection-end-column="45" />
               <folding>
                 <marker date="1557901102833" expanded="false" signature="387:392" ph="..." />
                 <marker date="1557901102833" expanded="false" signature="415:424" ph="..." />
@@ -123,56 +163,62 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/response.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app01/serializer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+            <state relative-caret-position="227">
+              <caret line="48" selection-start-line="48" selection-end-line="49" />
+              <folding>
+                <element signature="e#1#44#0" expanded="true" />
+                <marker date="1557388058193" expanded="true" signature="270:342" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_authordetail">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+        <entry file="file://$PROJECT_DIR$/rest_demo/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1392">
+              <caret line="112" column="15" selection-start-line="112" selection-start-column="15" selection-end-line="112" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/viewsets.py">
+        <entry file="file://$PROJECT_DIR$/app01/permission.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="222" column="35" selection-start-line="222" selection-start-column="35" selection-end-line="222" selection-end-column="35" />
+            <state relative-caret-position="180">
+              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/mixins.py">
+        <entry file="file://$PROJECT_DIR$/app01/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+            <state relative-caret-position="437">
+              <caret line="56" column="6" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
+              <folding>
+                <marker date="1557839675269" expanded="true" signature="56:59" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/generics.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="233" column="6" selection-start-line="233" selection-start-column="6" selection-end-line="233" selection-end-column="6" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/app01/admin.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/pagination.py">
+        <entry file="file://$PROJECT_DIR$/app01/auth.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="155" column="6" selection-start-line="155" selection-start-column="6" selection-end-line="155" selection-end-column="6" />
+            <state relative-caret-position="180">
+              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+              <folding>
+                <element signature="e#1#22#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -180,8 +226,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rest_demo/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+            <state relative-caret-position="362">
+              <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
               <folding>
                 <element signature="e#644#685#0" expanded="true" />
               </folding>
@@ -190,10 +236,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/settings.py">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/response.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="248" selection-start-line="248" selection-end-line="248" />
+            <state relative-caret-position="298">
+              <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -201,7 +247,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="1320">
               <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
             </state>
           </provider>
@@ -253,18 +299,19 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="175" />
-    <option name="y" value="80" />
+    <option name="x" value="106" />
+    <option name="y" value="33" />
     <option name="width" value="1115" />
     <option name="height" value="726" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -286,11 +333,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -346,10 +395,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="175" y="80" width="1115" height="726" extended-state="0" />
+    <frame x="106" y="33" width="1115" height="726" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27399814" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27865797" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -383,7 +432,6 @@
   <component name="editorHistoryManager">
     <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_author_book" />
     <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_publisher" />
-    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_authordetail" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -392,7 +440,6 @@
       </provider>
     </entry>
     <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_book_authors" />
-    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_author" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/fields.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -477,41 +524,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app01/serializer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-          <folding>
-            <element signature="e#1#44#0" expanded="true" />
-            <marker date="1557388058193" expanded="true" signature="270:342" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/exceptions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-13">
           <caret line="97" column="6" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app01/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <marker date="1557839675269" expanded="true" signature="56:59" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app01/auth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="50" />
-          <folding>
-            <element signature="e#1#22#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -536,24 +552,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app01/permission.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app01/throttles.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rest_demo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="112" column="15" lean-forward="true" selection-start-line="112" selection-start-column="15" selection-end-line="112" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -564,104 +566,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rest_demo/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
-          <folding>
-            <element signature="e#644#685#0" expanded="true" />
-          </folding>
+    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_author">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="248" selection-start-line="248" selection-end-line="248" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/pagination.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="155" column="6" selection-start-line="155" selection-start-column="6" selection-end-line="155" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/generics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="233" column="6" selection-start-line="233" selection-start-column="6" selection-end-line="233" selection-end-column="6" />
+    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_authordetail">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/viewsets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
+        <state relative-caret-position="3165">
           <caret line="222" column="35" selection-start-line="222" selection-start-column="35" selection-end-line="222" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/mixins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="450">
           <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_author">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/generics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3375">
+          <caret line="233" column="6" selection-start-line="233" selection-start-column="6" selection-end-line="233" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_author">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/pagination.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="155" column="6" selection-start-line="155" selection-start-column="6" selection-end-line="155" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_author">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3600">
+          <caret line="248" selection-start-line="248" selection-end-line="248" />
         </state>
       </provider>
     </entry>
-    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_authordetail">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_authordetail">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/response.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_authordetail">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/app01/permission.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app01/auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding>
+            <element signature="e#1#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app01/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app01/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="56" column="6" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
+          <folding>
+            <marker date="1557839675269" expanded="true" signature="56:59" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rest_demo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1392">
+          <caret line="112" column="15" selection-start-line="112" selection-start-column="15" selection-end-line="112" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app01/serializer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="48" selection-start-line="48" selection-end-line="49" />
+          <folding>
+            <element signature="e#1#44#0" expanded="true" />
+            <marker date="1557388058193" expanded="true" signature="270:342" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rest_demo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+          <folding>
+            <element signature="e#644#685#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app01/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="240" column="41" selection-start-line="240" selection-start-column="41" selection-end-line="240" selection-end-column="41" />
+        <state relative-caret-position="258">
+          <caret line="250" column="34" selection-start-line="250" selection-start-column="23" selection-end-line="250" selection-end-column="45" />
           <folding>
             <marker date="1557901102833" expanded="false" signature="387:392" ph="..." />
             <marker date="1557901102833" expanded="false" signature="415:424" ph="..." />
@@ -674,20 +703,6 @@
             <marker date="1557901102833" expanded="true" signature="7042:7045" ph="..." />
             <marker date="1557901102833" expanded="true" signature="7321:7368" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://8d60b34c-ef23-42b0-befc-1f18b814471e/schema/main/table/app01_author">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/rest_framework/response.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
         </state>
       </provider>
     </entry>
