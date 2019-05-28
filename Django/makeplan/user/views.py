@@ -9,69 +9,48 @@ from .models import UserInfo
 from . import my_tool
 import hashlib
 from django.core.cache import cache
-from . import forms
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import auth
 
 
 @csrf_exempt
 def register(request):
-    if request.method == 'GET':
-        return render(request, 'user/register.html')
-    else:
-        params = json.loads(request.body)
-        name = params.get('name')
-        mobile = params.get('mobile')
-        code = params.get('code')
-        password = params.get('password')
+    if request.method == 'POST':
+        name = request.POST.get('username')
+        mobile = request.POST.get('mobile')
+        code = request.POST.get('code')
+        password = request.POST.get('password')
+        avatar = request.FILES.get('avatar')
 
         if not code:
-            return my_tool.json_response(outcome=1,message="请先获取短信验证码")
-        else:
-            cache_code = cache.get(mobile)
-            if not cache_code:
-                return my_tool.json_response(outcome=1, message="没有验证码或验证码已过期")
-            else:
-                if code == cache_code:
-                    user = UserInfo(username=name, phone=mobile, password=password)
-                    user.save()
-                    # sha1_passwd = '%s:%s' % (user.id, password)
-                    # user.password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
-                    # user.save()
+            return my_tool.json_response(outcome=1, message="请先获取短信验证码")
 
-                    token = my_tool.get_token(user, max_age=3600 * 24 * 10)
-                    # token缓存
-                    cache.set(user.nid, token, 3600 * 24 * 0)
+        cache_code = cache.get(mobile)
+        if not cache_code:
+            return my_tool.json_response(outcome=1, message="验证码已过期，请重新获取")
 
-                    return my_tool.json_response(data={'token':token})
-                else:
-                    return my_tool.json_response(outcome=1, message="验证码错误")
+        if code != cache_code:
+            return my_tool.json_response(outcome=1, message="验证码错误")
 
-    # if request.method == 'POST':
-    #     ret = {"status":0, "msg":""}
-    #     form_obj = forms.RegForm(request.POST)
-    #     #帮我做校验
-    #     if form_obj.is_valid():
-    #         form_obj.cleaned_data.pop("re_password")
-    #         avatar_img = request.FILES.get('avatar')
-    #         print(avatar_img)
-    #         print(form_obj.cleaned_data)
-    #         UserInfo.objects.create_user(**form_obj.cleaned_data, avatar = avatar_img)
-    #         ret["msg"] = "/index/"
-    #         return JsonResponse(ret)
-    #     else:
-    #         print(form_obj.errors)
-    #         ret["status"] = 1
-    #         ret["msg"] = form_obj.errors
-    #         return JsonResponse(ret)
-    #
-    # # 生成一个form对象
-    # form_obj = forms.RegForm()
-    # return render(request, 'user/register2.html', {"form_obj":form_obj})
+
+        try:
+            user = UserInfo.objects.create_user(username=mobile, mobile=mobile,
+                                                password=password, nick_name=name,avatar=avatar)
+        except Exception as e:
+            return my_tool.json_response(outcome=1, message=str(e))
+
+
+        auth.login(request, user)
+        return my_tool.json_response(data={'token': ''})
+
+
+    return render(request, 'user/register.html')
+
+
+
 
 def login(request):
-    if request.method == 'GET':
-        return render(request, 'user/login.html')
-    else:
+    if request.method == 'POST':
         params = json.loads(request.body)
         mobile = params.get('mobile')
         code = params.get('code')
@@ -81,45 +60,39 @@ def login(request):
         if type == 'code':
             if not code:
                 return my_tool.json_response(outcome=1, message="请先获取短信验证码")
-            else:
-                cache_code = cache[mobile]
-                if not cache_code:
-                    return my_tool.json_response(outcome=1, message="没有验证码或验证码已过期")
-                if code == cache_code:
-                    user = User.objects.get(mobile=mobile)
-                    token = my_tool.get_token(user, max_age=3600 * 24 * 10)
-                    # token缓存
-                    cache.set(user.id, token, 3600 * 24 * 10)
-                    return my_tool.json_response(data={'token':token})
-                else:
-                    return my_tool.json_response(outcome=1, message="验证码错误")
-        else:
-            if not password:
-                return my_tool.json_response(outcome=1, message="请先输入登录密码")
-            else:
+
+            cache_code = cache[mobile]
+            if not cache_code:
+                return my_tool.json_response(outcome=1, message="没有验证码或验证码已过期")
+            if code == cache_code:
                 user = UserInfo.objects.get(mobile=mobile)
-                sha1_passwd = '%s:%s' % (user.id, password)
-                sha1_password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
-                if user.password != sha1_password:
-                    return my_tool.json_response(outcome=1, message="用户名或密码错误")
-                else:
-                    token = my_tool.get_token(user, max_age=3600 * 24 * 10)
-                    # token缓存
-                    cache.set(user.id, token, 3600 * 24 * 10)
+                token = my_tool.get_token(user, max_age=3600 * 24 * 10)
+                # token缓存
+                cache.set(user.id, token, 3600 * 24 * 10)
+                return my_tool.json_response(data={'token': token})
+            else:
+                return my_tool.json_response(outcome=1, message="验证码错误")
 
-                    data_dict = {"uid":user.id, "mobile":user.mobile, "nickName":user.nick_name,
-                                 "individualitySignature":user.individuality_signature,
-                                 "headerImageUrl":user.header_image_url, "email":user.email, 'token':token}
+        if not password:
+            return my_tool.json_response(outcome=1, message="请先输入登录密码")
 
-                    return my_tool.json_response(data=data_dict)
+        user = auth.authenticate(username = mobile, password = password)
+        if not user:
+            return my_tool.json_response(outcome=1, message="用户名或密码错误")
+
+        auth.login(request, user)
+        data_dict = {"nid": user.nid, "mobile": user.mobile, "nickName": user.nick_name,
+                    "email": user.email}
+
+        return my_tool.json_response(data=data_dict)
+
+    return render(request, 'user/login.html')
+
 
 
 def logout(request):
     if request.method == 'POST':
-        params = json.loads(request.body)
-        uid = params.get("userId")
-        if uid:
-            cache.delete(uid)
+        auth.logout(request)
         return my_tool.json_response(message="退出成功")
 
 
@@ -139,14 +112,15 @@ def send_sms_regist(request):
     if request.method == 'POST':
         mobile = json.loads(request.body).get('mobile')
 
-        users = UserInfo.objects.filter(phone=mobile)
+        users = UserInfo.objects.filter(mobile=mobile)
         if users.count() != 0:
             return my_tool.json_response(outcome=1, message="手机号已被注册")
         else:
             code = my_tool.get_verification()
             # sms = SendSMS()
             # dict = sms.send_sms(code, mobile)
-            result = SendTemplateSMS.sendTemplateSMS(mobile, {code,'10'}, 1)
+            # result = SendTemplateSMS.sendTemplateSMS(mobile, {code,'10'}, 1)
+            result = True
             if result == True:
                 cache.set(mobile, code, 60 * 10)
                 return my_tool.json_response(data={"code": code})

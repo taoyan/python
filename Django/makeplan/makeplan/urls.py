@@ -22,5 +22,5 @@ urlpatterns = [
 
     url('^user/', include('user.urls')),
     url('^videos/',include('videos.urls')),
-    url('^my_todos/',include('my_todos.urls')),
+    url('^todo_goal/',include('my_todos.urls')),
 ]

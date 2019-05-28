@@ -16,8 +16,8 @@ def get_verification():
 def get_token(user, max_age):
     expires = str(int(time.time())+ max_age)
     cookie_key = ''
-    s = '%s-%s-%s-%s' % (user.id, user.password, expires, cookie_key)
-    L = [str(user.id), expires, hashlib.sha1(s.encode('utf-8')).hexdigest()]
+    s = '%s-%s-%s-%s' % (user.nid, user.password, expires, cookie_key)
+    L = [str(user.nid), expires, hashlib.sha1(s.encode('utf-8')).hexdigest()]
     return '-'.join(L)
 
 

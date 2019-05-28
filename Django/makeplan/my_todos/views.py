@@ -2,25 +2,30 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import JsonResponse
-import user.my_tool
-from .models import Todo, Goal
+from user import my_tool
+from .models import Todo, Goal, TimeRecord
 import json
 from django.utils import timezone
 import datetime
-from django.core import serializers
 
 def synchronize(request):
     if request.method == 'POST':
+        current_user = request.user
+
         params = json.loads(request.body)
-        uid = params.get("userId")
         todo_params = params.get("todo")
         goal_params = params.get("goal")
+        timerecord_params = params.get('timeRecord')
+
         todo_last_modified = todo_params["lastModified"]
         todo_list = todo_params['dirtyData']
         goal_last_modified = goal_params["lastModified"]
         goal_list = goal_params['dirtyData']
+        timerecord_last_modified = timerecord_params["lastModified"]
+        timerecord_list = timerecord_params['dirtyData']
 
         # todo
+        # 返回所有lastmodified大于参数lastmodified的数据
         if len(todo_list) > 0:
             for todo_dict in todo_list:
                 ident = todo_dict["ident"]
@@ -42,12 +47,12 @@ def synchronize(request):
         #返回所有lastmodified大于参数lastmodified的数据
         todos = []
         if todo_last_modified == None:
-            todos_queryset = Todo.objects.filter(user_id=uid)
+            todos_queryset = Todo.objects.filter(user_id=current_user.nid)
             todos = list(todos_queryset)
         else:
             last_modified_time = datetime.datetime.strptime(todo_last_modified, "%Y-%m-%d %H:%M:%S")
             new_last_modified_time = timezone.make_aware(last_modified_time, timezone.utc)
-            todos_queryset = Todo.objects.filter(user_id=uid , last_modified__gt = new_last_modified_time)
+            todos_queryset = Todo.objects.filter(user_id=current_user.nid , last_modified__gt = new_last_modified_time)
             todos = list(todos_queryset)
 
         todo_dict_list = []
@@ -65,24 +70,18 @@ def synchronize(request):
                 start_date = goal_dict["startDate"]
                 end_date = goal_dict["endDate"]
                 content = goal_dict["content"]
-                completeness = goal_dict["completeness"]
                 status = goal_dict["status"]
-                delete_status = goal_dict["deleteStatus"]
-                user_id = goal_dict["userId"]
 
-                if uid == user_id:
-                    goal = Goal(ident, title, start_date, end_date, content,
-                                completeness,status, delete_status, user_id,
-                            last_modified = timezone.now().strftime('%Y-%m-%d %H:%M:%S'))
-                    goal.save()
+                goal = Goal(ident, title, start_date, end_date, content,
+                            status, user=current_user)
+                goal.save()
+
         goals = []
         if goal_last_modified == None:
-            goals_queryset = Goal.objects.filter(user_id=uid)
+            goals_queryset = Goal.objects.filter(user = current_user)
             goals = list(goals_queryset)
         else:
-            last_modified_time = datetime.datetime.strptime(goal_last_modified, "%Y-%m-%d %H:%M:%S")
-            new_last_modified_time = timezone.make_aware(last_modified_time, timezone.utc)
-            goals_queryset = Goal.objects.filter(user_id=uid, last_modified__gt=new_last_modified_time)
+            goals_queryset = Goal.objects.filter(user=current_user, last_modified__gt=goal_last_modified)
             goals = list(goals_queryset)
 
         goal_dict_list = []
@@ -90,4 +89,29 @@ def synchronize(request):
             dict = goal.to_dict()
             goal_dict_list.append(dict)
 
-        return user.my_tool.json_response(data={"todo":todo_dict_list, "goal":goal_dict_list})
+
+        # timerecord
+        if len(timerecord_list) > 0:
+            for timerecord_dict in timerecord_list:
+                ident = timerecord_dict["ident"]
+                date = timerecord_dict["date"]
+                time_counts = timerecord_dict["timeCounts"]
+                goal_id = timerecord_dict["goalId"]
+
+                time_record = TimeRecord(ident, date, time_counts, user=current_user, goal_id=goal_id)
+                time_record.save()
+
+        records = []
+        if timerecord_last_modified == None:
+            records_queryset = TimeRecord.objects.filter(user = current_user)
+            records = list(records_queryset)
+        else:
+            records_queryset = TimeRecord.objects.filter(user=current_user, last_modified__gt=timerecord_last_modified)
+            records = list(records_queryset)
+
+        records_dict_list = []
+        for record in records:
+            dict = record.to_dict()
+            records_dict_list.append(dict)
+        return my_tool.json_response(data={"todo":todo_dict_list, "goal":goal_dict_list,
+                                                "timeRecord":records_dict_list})

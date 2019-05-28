@@ -46,7 +46,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -152,3 +152,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # 如果使用继承方式修改auth模块，在这里配置设置默认用户认证使用的表
 AUTH_USER_MODEL = 'user.UserInfo'
+
+
+AUTH_WHITE_LIST = [
+    '/user/register/',
+    '/user/login/',
+    '/user/send_sms_regist',
+]
