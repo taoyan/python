@@ -81,6 +81,7 @@ def login(request):
             return my_tool.json_response(outcome=1, message="用户名或密码错误")
 
         auth.login(request, user)
+        print(request.session.session_key)
         data_dict = {"nid": user.nid, "mobile": user.mobile, "nickName": user.nick_name,
                     "email": user.email}
 
