@@ -41,7 +41,9 @@ def register(request):
 
 
         auth.login(request, user)
-        return my_tool.json_response(data={'token': ''})
+        data_dict = {"nid": user.nid, "mobile": user.mobile, "nickName": user.nick_name,
+                     "email": user.email, "avatar":user.avatar.url}
+        return my_tool.json_response(data=data_dict)
 
 
     return render(request, 'user/register.html')
@@ -81,9 +83,8 @@ def login(request):
             return my_tool.json_response(outcome=1, message="用户名或密码错误")
 
         auth.login(request, user)
-        print(request.session.session_key)
         data_dict = {"nid": user.nid, "mobile": user.mobile, "nickName": user.nick_name,
-                    "email": user.email}
+                     "email": user.email, "avatar": user.avatar.url}
 
         return my_tool.json_response(data=data_dict)
 
@@ -140,7 +141,8 @@ def send_sms_login(request):
             code = my_tool.get_verification()
             # sms = SendSMS()
             # dict = sms.send_sms(code, mobile)
-            result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
+            # result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
+            result = True
             if result == True:
                 cache.set(mobile, code, 60 * 10)
                 return my_tool.json_response(data={"code": code})

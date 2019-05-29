@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url, include
+from django.views.static import serve
+from django.conf import settings
 
 
 urlpatterns = [
     url('^admin/', admin.site.urls),
+    # 配置media资源
+    url(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
 
     url('^user/', include('user.urls')),
     url('^videos/',include('videos.urls')),
