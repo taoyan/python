@@ -32,10 +32,16 @@ def register(request):
         if code != cache_code:
             return my_tool.json_response(outcome=1, message="验证码错误")
 
+        if not password:
+            return my_tool.json_response(outcome=1, message="密码不能为空")
 
         try:
-            user = UserInfo.objects.create_user(username=mobile, mobile=mobile,
+            if avatar:
+                user = UserInfo.objects.create_user(username=mobile, mobile=mobile,
                                                 password=password, nick_name=name,avatar=avatar)
+            else:
+                user = UserInfo.objects.create_user(username=mobile, mobile=mobile,
+                                                    password=password, nick_name=name)
         except Exception as e:
             return my_tool.json_response(outcome=1, message=str(e))
 
@@ -63,24 +69,19 @@ def login(request):
             if not code:
                 return my_tool.json_response(outcome=1, message="请先获取短信验证码")
 
-            cache_code = cache[mobile]
+            cache_code = cache.get(mobile)
             if not cache_code:
                 return my_tool.json_response(outcome=1, message="没有验证码或验证码已过期")
-            if code == cache_code:
-                user = UserInfo.objects.get(mobile=mobile)
-                token = my_tool.get_token(user, max_age=3600 * 24 * 10)
-                # token缓存
-                cache.set(user.id, token, 3600 * 24 * 10)
-                return my_tool.json_response(data={'token': token})
-            else:
+            if code != cache_code:
                 return my_tool.json_response(outcome=1, message="验证码错误")
+            user = UserInfo.objects.get(mobile=mobile)
 
-        if not password:
-            return my_tool.json_response(outcome=1, message="请先输入登录密码")
-
-        user = auth.authenticate(username = mobile, password = password)
-        if not user:
-            return my_tool.json_response(outcome=1, message="用户名或密码错误")
+        else:
+            if not password:
+                return my_tool.json_response(outcome=1, message="请先输入登录密码")
+            user = auth.authenticate(username = mobile, password = password)
+            if not user:
+                return my_tool.json_response(outcome=1, message="用户名或密码错误")
 
         auth.login(request, user)
         data_dict = {"nid": user.nid, "mobile": user.mobile, "nickName": user.nick_name,
