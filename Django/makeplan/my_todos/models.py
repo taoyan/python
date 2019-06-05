@@ -60,7 +60,7 @@ class Goal(models.Model):
 
 
 class TimeRecord(models.Model):
-    ident = models.AutoField(primary_key=True)
+    ident = models.CharField(max_length=50, primary_key=True)
     date = models.DateField(blank=False)
     time_counts = models.IntegerField(default=0)
 
