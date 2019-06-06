@@ -37,22 +37,18 @@ def synchronize(request):
                 remind_date = todo_dict["remindDate"]
                 icon_index = todo_dict["iconIndex"]
                 status = todo_dict["status"]
-                user_id = todo_dict["userId"]
 
-                if uid == user_id:
-                    todo = Todo(ident, desc, group, schedule_date, finish_date, remind_type,
-                            remind_date,icon_index,status,user_id,
-                            last_modified = timezone.now().strftime('%Y-%m-%d %H:%M:%S'))
-                    todo.save()
+                todo = Todo(ident, desc, group, schedule_date, finish_date, remind_type,
+                            remind_date, icon_index, status, user=current_user)
+                todo.save()
+
         #返回所有lastmodified大于参数lastmodified的数据
         todos = []
         if todo_last_modified == None:
-            todos_queryset = Todo.objects.filter(user_id=current_user.nid)
+            todos_queryset = Todo.objects.filter(user=current_user)
             todos = list(todos_queryset)
         else:
-            last_modified_time = datetime.datetime.strptime(todo_last_modified, "%Y-%m-%d %H:%M:%S")
-            new_last_modified_time = timezone.make_aware(last_modified_time, timezone.utc)
-            todos_queryset = Todo.objects.filter(user_id=current_user.nid , last_modified__gt = new_last_modified_time)
+            todos_queryset = Todo.objects.filter(user=current_user, last_modified__gt=todo_last_modified)
             todos = list(todos_queryset)
 
         todo_dict_list = []
@@ -113,5 +109,7 @@ def synchronize(request):
         for record in records:
             dict = record.to_dict()
             records_dict_list.append(dict)
+
+
         return my_tool.json_response(data={"todo":todo_dict_list, "goal":goal_dict_list,
                                                 "timeRecord":records_dict_list})
