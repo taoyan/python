@@ -160,5 +160,4 @@ AUTH_WHITE_LIST = [
     '/user/send_sms_regist/',
     '/user/send_sms_login/',
     '/media/avatars/sign_Dowr7VN.jpg',
-
 ]
