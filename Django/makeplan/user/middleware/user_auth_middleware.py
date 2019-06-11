@@ -6,6 +6,8 @@ class UserAuth(MiddlewareMixin):
 
     def process_request(self,request):
         print(request.COOKIES)
+        print(settings.AUTH_WHITE_LIST)
+        print(request.path)
         if request.path in settings.AUTH_WHITE_LIST:
             return
         if request.user.pk == None:
