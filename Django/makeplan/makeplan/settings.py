@@ -154,10 +154,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 AUTH_USER_MODEL = 'user.UserInfo'
 
 
-AUTH_WHITE_LIST = [
-    '/user/register/',
-    '/user/login/',
-    '/user/send_sms_regist/',
-    '/user/send_sms_login/',
-    '/media/avatars/sign_Dowr7VN.jpg',
+AUTH_LIST = [
+
 ]

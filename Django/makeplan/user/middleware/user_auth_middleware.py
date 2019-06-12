@@ -6,9 +6,8 @@ class UserAuth(MiddlewareMixin):
 
     def process_request(self,request):
         print(request.COOKIES)
-        print(settings.AUTH_WHITE_LIST)
         print(request.path)
-        if request.path in settings.AUTH_WHITE_LIST:
+        if request.path not in settings.AUTH_LIST:
             return
         if request.user.pk == None:
             return my_tool.json_response(outcome=1, message="请先登录")

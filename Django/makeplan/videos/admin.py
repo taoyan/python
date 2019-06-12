@@ -5,3 +5,7 @@ from django.contrib import admin
 from . import models
 
 admin.site.register(models.Video)
+admin.site.register(models.VideoDetail)
+admin.site.register(models.Comment)
+admin.site.register(models.VideoThumbsUp)
+admin.site.register(models.VideoPlay)

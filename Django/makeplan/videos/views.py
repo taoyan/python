@@ -43,6 +43,20 @@ def videos(request):
 
 
 
+def detail(request, video_id):
+    if request.method == 'GET':
+        video = get_object_or_404(Video, pk = video_id)
+        return render(request, 'videos/detail.html', {'video': video})
+    else:
+        video = get_object_or_404(Video, pk=video_id)
+        if not video:
+            return HttpResponse("sorry, no video available")
+        else:
+            json_data = serializers.serialize('json',(video,))
+            return JsonResponse(json.loads(json_data), safe=False)
+
+
+
 def add_video(request):
     if request.method == 'GET':
         return render(request,'videos/add_video.html')
@@ -123,16 +137,4 @@ def download(request, file_name):
     response['Content-Disposition'] = 'attachment;filename="{0}"'.format(file_name)
     return response
 
-
-def detail(request, video_id):
-    if request.method == 'GET':
-        video = get_object_or_404(Video, pk = video_id)
-        return render(request, 'videos/detail.html', {'video': video})
-    else:
-        video = get_object_or_404(Video, pk=video_id)
-        if not video:
-            return HttpResponse("sorry, no video available")
-        else:
-            json_data = serializers.serialize('json',(video,))
-            return JsonResponse(json.loads(json_data), safe=False)
 

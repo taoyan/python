@@ -10,4 +10,4 @@ class UserInfo(AbstractUser):
     nick_name = models.CharField(max_length=30, blank=False, default='')
     avatar = models.FileField(upload_to="avatars/", default="avatars/default.png", verbose_name="头像")
 
-    USERNAME_FIELD = 'mobile'
+    # USERNAME_FIELD = 'mobile'
