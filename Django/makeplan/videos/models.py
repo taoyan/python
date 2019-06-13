@@ -47,7 +47,7 @@ class Comment(models.Model):
         return self.content
 
 
-# 点赞
+# 点赞记录
 class VideoThumbsUp(models.Model):
     nid = models.AutoField(primary_key=True)
     user = models.ForeignKey(to=UserInfo, to_field="nid")
@@ -59,7 +59,7 @@ class VideoThumbsUp(models.Model):
         verbose_name_plural = verbose_name
 
 
-# 播放次数
+# 播放记录
 class VideoPlay(models.Model):
     nid = models.AutoField(primary_key=True)
     user = models.ForeignKey(to=UserInfo, to_field="nid")
@@ -69,4 +69,18 @@ class VideoPlay(models.Model):
     class Meta:
         unique_together = (("video", "user"),)
         verbose_name = "Video-播放量"
+        verbose_name_plural = verbose_name
+
+
+# 收藏表
+class VideoCollection(models.Model):
+    nid = models.AutoField(primary_key=True)
+    user = models.ForeignKey(to=UserInfo, to_field="nid")
+    video = models.ForeignKey(to="Video", to_field="nid")
+    is_collection = models.BooleanField(default=True)
+    create_time = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = (("video", "user"),)
+        verbose_name = "Video-收藏"
         verbose_name_plural = verbose_name
