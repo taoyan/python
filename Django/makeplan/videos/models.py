@@ -12,11 +12,13 @@ class Video(models.Model):
     nid = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
     screen_shot = models.FileField(upload_to="screen_shot/", default="screen_shot/default.png", verbose_name="缩略图")
-    resource_url = models.CharField(max_length=200, null=False, blank=False)
+    resource_url = models.CharField(max_length=500, null=False, blank=False)
     up_count = models.IntegerField(default=0)
     play_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)
     create_date = models.DateTimeField(auto_now_add=True)
+
+    content = models.OneToOneField(to="VideoDetail", to_field="nid", null=False)
 
     def __str__(self):
         return self.title
@@ -25,7 +27,7 @@ class Video(models.Model):
 class VideoDetail(models.Model):
     nid = models.AutoField(primary_key=True)
     content = models.TextField()
-    video = models.OneToOneField(to="Video", to_field="nid")
+
 
 
 # 评论

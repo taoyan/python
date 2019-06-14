@@ -49,7 +49,10 @@
             {% if videos %}
                 <ul>
                     {% for video in videos %}
-                    <li><a href="/videos/detail/{{ video.id }}">{{ video.name }}</a></li>
+                    <li>
+                        <p><a href="/videos/detail/{{ video.nid }}">{{ video.title }}</a></p>
+                        <p><img src="/media/{{ video.screen_shot }}" width="150", height="150"></img></p>
+                    </li>
                     {% endfor %}
                 </ul>
             {% else %}

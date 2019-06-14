@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.http import StreamingHttpResponse
 from django.core import serializers
 import json
+from user import my_tool
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -47,14 +48,19 @@ def detail(request, video_id):
     if request.method == 'GET':
         video = get_object_or_404(Video, pk = video_id)
         return render(request, 'videos/detail.html', {'video': video})
-    else:
-        video = get_object_or_404(Video, pk=video_id)
-        if not video:
-            return HttpResponse("sorry, no video available")
-        else:
-            json_data = serializers.serialize('json',(video,))
-            return JsonResponse(json.loads(json_data), safe=False)
 
+
+
+def detail2(request):
+    if request.method == 'POST':
+        params = json.loads(request.body)
+        video_id = params.get('ident')
+        video = Video.objects.filter(pk=video_id).first()
+        if not video:
+            return my_tool.json_response(outcome=1, message="没有所请求的内容")
+        else:
+            data_dict = {"content":video.content.content}
+            return my_tool.json_response(data=data_dict)
 
 
 def add_video(request):
