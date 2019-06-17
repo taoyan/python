@@ -931,7 +931,7 @@
     <table id="244" parent="11" name="user_userinfo_user_permissions"/>
     <table id="245" parent="11" name="videos_comment"/>
     <table id="246" parent="11" name="videos_video"/>
-    <table id="247" parent="11" name="videos_videocollection"/>
+    <table id="247" parent="11" name="videos_videobookmark"/>
     <table id="248" parent="11" name="videos_videodetail"/>
     <table id="249" parent="11" name="videos_videoplay"/>
     <table id="250" parent="11" name="videos_videothumbsup"/>
@@ -1816,7 +1816,7 @@ permission_id</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="407" parent="247" name="is_collection">
+    <column id="407" parent="247" name="is_bookmark">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>

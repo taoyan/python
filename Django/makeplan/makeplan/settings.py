@@ -155,5 +155,5 @@ AUTH_USER_MODEL = 'user.UserInfo'
 
 
 AUTH_LIST = [
-
+    "/videos/myCollection"
 ]

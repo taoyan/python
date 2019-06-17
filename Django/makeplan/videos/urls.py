@@ -9,6 +9,11 @@ urlpatterns = [
     url('^detail/(\d+)/$',views.detail),
     url('^detail$',views.detail2),
 
+
+    url('^bookmark',views.bookmark),                     #收藏/取消收藏
+    url('^myBookmarks$',views.my_bookmarks),          #收藏列表
+
+
     # url('add/',views.add_video),
     # url('download/Media/<str:file_name>/', views.download),
     # url('delete', views.delete_video),

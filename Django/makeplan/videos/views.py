@@ -2,13 +2,14 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render, get_object_or_404
-from .models import Video
+from .models import *
 from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.http import StreamingHttpResponse
 from django.core import serializers
 import json
 from user import my_tool
 
+from django.db.models import F
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def videos(request):
@@ -61,6 +62,29 @@ def detail2(request):
         else:
             data_dict = {"content":video.content.content}
             return my_tool.json_response(data=data_dict)
+
+
+
+def bookmark(request):
+    if request.method == 'POST':
+        params = json.loads(request.body)
+        video_id = params.get('videoId')
+        is_bookmark = params.get('isBookmark', True)
+        collection = VideoBookmark(user=request.user, video_id=video_id, is_bookmark=is_bookmark)
+        collection.save()
+        return my_tool.json_response(data={})
+
+
+
+def my_bookmarks(request):
+    if request.method == 'POST':
+        videos = VideoBookmark.objects.filter(user=request.user, is_bookmark=True)\
+            .values("video__nid","video__resource_url").extra('nid', 'resource_url')
+        data_dict = {"videos":list(videos)}
+        return my_tool.json_response(data=data_dict)
+
+
+
 
 
 def add_video(request):

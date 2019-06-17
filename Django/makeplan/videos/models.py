@@ -75,11 +75,11 @@ class VideoPlay(models.Model):
 
 
 # 收藏表
-class VideoCollection(models.Model):
+class VideoBookmark(models.Model):
     nid = models.AutoField(primary_key=True)
     user = models.ForeignKey(to=UserInfo, to_field="nid")
     video = models.ForeignKey(to="Video", to_field="nid")
-    is_collection = models.BooleanField(default=True)
+    is_bookmark = models.BooleanField(default=True)
     create_time = models.DateTimeField(auto_now_add=True)
 
     class Meta:
