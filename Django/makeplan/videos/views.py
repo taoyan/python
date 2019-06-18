@@ -29,9 +29,10 @@ def videos(request):
                 videos = paginator.page(paginator.num_pages)
             return render(request, 'videos/index.html', {'videos': videos})
     else:
+        page = json.loads(request.body).get('page')
+
         videos = Video.objects.all().values()
         paginator = Paginator(videos, per_page_count)
-        page = json.loads(request.body).get('page')
         try:
             videos_page = paginator.page(page)
         except PageNotAnInteger:
@@ -59,9 +60,12 @@ def detail2(request):
         video = Video.objects.filter(pk=video_id).first()
         if not video:
             return my_tool.json_response(outcome=1, message="没有所请求的内容")
-        else:
-            data_dict = {"content":video.content.content}
-            return my_tool.json_response(data=data_dict)
+
+        bookmark = VideoBookmark.objects.filter(video=video).first()
+        is_bookmark = True if bookmark != None else False
+        data_dict = {"content": video.content.content,"isBookmark": is_bookmark}
+        return my_tool.json_response(data=data_dict)
+
 
 
 
@@ -70,8 +74,13 @@ def bookmark(request):
         params = json.loads(request.body)
         video_id = params.get('videoId')
         is_bookmark = params.get('isBookmark', True)
-        collection = VideoBookmark(user=request.user, video_id=video_id, is_bookmark=is_bookmark)
-        collection.save()
+        bookmark = VideoBookmark.objects.filter(user=request.user, video_id=video_id).first()
+        if not bookmark:
+            bookmark = VideoBookmark(user=request.user, video_id=video_id, is_bookmark=is_bookmark)
+            bookmark.save()
+        else:
+            bookmark.is_bookmark = is_bookmark
+            bookmark.save()
         return my_tool.json_response(data={})
 
 
