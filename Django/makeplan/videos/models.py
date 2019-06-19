@@ -20,6 +20,24 @@ class Video(models.Model):
 
     content = models.OneToOneField(to="VideoDetail", to_field="nid", null=False)
 
+    def to_short_dict(self):
+        dict = {}
+        dict["nid"] = self.nid
+        dict["title"] = self.title
+        dict["screenShot"] = self.screen_shot.path
+        dict["resourceUrl"] = self.resource_url
+        return dict
+
+
+    def to_dict(self):
+        dict = self.to_short_dict()
+        dict["upCount"] = self.up_count
+        dict["playCount"] = self.play_count
+        dict["commentCount"] = self.comment_count
+        dict["createDate"] = self.create_date
+        dict["content"] = self.content.content
+        return dict
+
     def __str__(self):
         return self.title
 

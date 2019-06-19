@@ -14,8 +14,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def videos(request):
     per_page_count = 6
+    videos = Video.objects.all().order_by('-create_date')
     if request.method == 'GET':
-        videos = Video.objects.all()
         if not videos:
             return HttpResponse("sorry, no videos available")
         else:
@@ -31,7 +31,6 @@ def videos(request):
     else:
         page = json.loads(request.body).get('page')
 
-        videos = Video.objects.all().values()
         paginator = Paginator(videos, per_page_count)
         try:
             videos_page = paginator.page(page)
@@ -39,10 +38,14 @@ def videos(request):
             videos_page = paginator.page(1)
         except EmptyPage:
             videos_page = paginator.page(paginator.num_pages)
+
         dict = {}
-        dict['videos'] = list(videos_page)
-        dict['total'] = videos.__len__()
-        return JsonResponse(dict, safe=False)
+        video_list = []
+        for video in videos_page.object_list:
+            video_list.append(video.to_short_dict())
+        dict['videos'] = video_list
+        dict['total'] = videos.count()
+        return my_tool.json_response(data=dict)
 
 
 
@@ -61,9 +64,12 @@ def detail2(request):
         if not video:
             return my_tool.json_response(outcome=1, message="没有所请求的内容")
 
-        bookmark = VideoBookmark.objects.filter(video=video).first()
-        is_bookmark = True if bookmark != None else False
-        data_dict = {"content": video.content.content,"isBookmark": is_bookmark}
+        bookmark = VideoBookmark.objects.filter(user=request.user,video=video).first()
+        is_bookmark = False
+        if bookmark != None:
+            is_bookmark = bookmark.is_bookmark
+
+        data_dict = {"video": video.to_dict(),"isBookmark": is_bookmark}
         return my_tool.json_response(data=data_dict)
 
 
@@ -87,9 +93,25 @@ def bookmark(request):
 
 def my_bookmarks(request):
     if request.method == 'POST':
-        videos = VideoBookmark.objects.filter(user=request.user, is_bookmark=True)\
-            .values("video__nid","video__resource_url").extra('nid', 'resource_url')
-        data_dict = {"videos":list(videos)}
+        per_page_count = 6
+        page = json.loads(request.body).get('page')
+
+        bookmarks = VideoBookmark.objects.filter(user=request.user, is_bookmark=True).order_by('-create_time')
+        paginator = Paginator(bookmarks, per_page_count)
+        try:
+            bookmarks_page = paginator.page(page)
+        except PageNotAnInteger:
+            bookmarks_page = paginator.page(1)
+        except EmptyPage:
+            bookmarks_page = paginator.page(paginator.num_pages)
+
+
+        data_dict = {}
+        video_list = []
+        for bookmark in bookmarks_page.object_list:
+            video_list.append(bookmark.video.to_short_dict())
+        data_dict["videos"] = video_list
+        data_dict['total'] = bookmarks.count()
         return my_tool.json_response(data=data_dict)
 
 
