@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="3403866d-d1cc-4003-bae7-2c93e9025ef9" name="106.13.81.245" url="http://106.13.81.245">
+      <webServer id="891058cf-e124-494f-b83d-4f9fce40bf68" name="106.13.81.245" url="http://106.13.81.245">
         <fileTransfer host="106.13.81.245" port="22" rootFolder="/root/yant_project/makeplan" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />

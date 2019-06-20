@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'user.middleware.user_auth_middleware.UserAuth',
 ]
 
-
+# from django.contrib.auth.middleware import AuthenticationMiddleware
 ROOT_URLCONF = 'makeplan.urls'
 
 TEMPLATES = [

@@ -24,7 +24,7 @@ class Video(models.Model):
         dict = {}
         dict["nid"] = self.nid
         dict["title"] = self.title
-        dict["screenShot"] = self.screen_shot.path
+        dict["screenShot"] = self.screen_shot.url
         dict["resourceUrl"] = self.resource_url
         return dict
 
