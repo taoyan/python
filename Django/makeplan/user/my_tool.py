@@ -3,6 +3,8 @@ import random
 import time
 import hashlib
 from django.http import JsonResponse
+import jwt
+from jwt.exceptions import ExpiredSignatureError
 
 # 生成四位随机验证码
 def get_verification():
@@ -20,6 +22,25 @@ def get_token(user, max_age):
     L = [str(user.nid), expires, hashlib.sha1(s.encode('utf-8')).hexdigest()]
     return '-'.join(L)
 
+
+def get_jwt_token(user):
+    payload = {
+        "userId":user.nid,
+        "username":user.username,
+        # "exp":
+    }
+    token = jwt.encode(payload, 'secret', algorithm='HS256')
+    return str(token, encoding='utf-8')
+
+
+def verify_jwt_token(token):
+    try:
+        payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+    except ExpiredSignatureError:
+        return False, token
+    if payload:
+        return True, payload
+    return False, token
 
 # 生产统一样式的json返回
 # outcome = 0 正常

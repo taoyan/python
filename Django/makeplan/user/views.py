@@ -10,7 +10,6 @@ from . import my_tool
 import hashlib
 from django.core.cache import cache
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib import auth
 
 
 @csrf_exempt
@@ -37,18 +36,16 @@ def register(request):
 
         try:
             if avatar:
-                user = UserInfo.objects.create_user(username=mobile, mobile=mobile,
-                                                password=password, nick_name=name,avatar=avatar)
+                user = UserInfo(mobile=mobile, password=password, username=name, avatar=avatar)
             else:
-                user = UserInfo.objects.create_user(username=mobile, mobile=mobile,
-                                                    password=password, nick_name=name)
+                user = UserInfo(mobile=mobile, password=password, username=name)
         except Exception as e:
             return my_tool.json_response(outcome=1, message=str(e))
 
+        user.save()
 
-        auth.login(request, user)
-        data_dict = {"nid": user.nid, "mobile": user.mobile, "nickName": user.nick_name,
-                     "email": user.email, "avatar":user.avatar.url}
+        data_dict = {"nid": user.nid, "mobile": user.mobile, "username": user.username,
+                     "email": user.email, "avatar":user.avatar.url, "token":my_tool.get_jwt_token(user)}
         return my_tool.json_response(data=data_dict)
 
 
@@ -79,13 +76,14 @@ def login(request):
         else:
             if not password:
                 return my_tool.json_response(outcome=1, message="请先输入登录密码")
-            user = auth.authenticate(username = mobile, password = password)
+
+            user = UserInfo.objects.filter(mobile=mobile, password=password).first()
             if not user:
                 return my_tool.json_response(outcome=1, message="用户名或密码错误")
 
-        auth.login(request, user)
-        data_dict = {"nid": user.nid, "mobile": user.mobile, "nickName": user.nick_name,
-                     "email": user.email, "avatar": user.avatar.url}
+
+        data_dict = {"nid": user.nid, "mobile": user.mobile, "username": user.username,
+                     "email": user.email, "avatar": user.avatar.url, "token":my_tool.get_jwt_token(user)}
 
         return my_tool.json_response(data=data_dict)
 
@@ -95,7 +93,6 @@ def login(request):
 
 def logout(request):
     if request.method == 'POST':
-        auth.logout(request)
         return my_tool.json_response(message="退出成功")
 
 

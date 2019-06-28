@@ -64,7 +64,7 @@ def detail2(request):
         if not video:
             return my_tool.json_response(outcome=1, message="没有所请求的内容")
 
-        bookmark = VideoBookmark.objects.filter(user=request.user,video=video).first()
+        bookmark = VideoBookmark.objects.filter(user_id=request.user_id,video=video).first()
         is_bookmark = False
         if bookmark != None:
             is_bookmark = bookmark.is_bookmark
@@ -80,9 +80,9 @@ def bookmark(request):
         params = json.loads(request.body)
         video_id = params.get('videoId')
         is_bookmark = params.get('isBookmark', True)
-        bookmark = VideoBookmark.objects.filter(user=request.user, video_id=video_id).first()
+        bookmark = VideoBookmark.objects.filter(user_id=request.user_id, video_id=video_id).first()
         if not bookmark:
-            bookmark = VideoBookmark(user=request.user, video_id=video_id, is_bookmark=is_bookmark)
+            bookmark = VideoBookmark(user_id=request.user_id, video_id=video_id, is_bookmark=is_bookmark)
             bookmark.save()
         else:
             bookmark.is_bookmark = is_bookmark
@@ -96,7 +96,7 @@ def my_bookmarks(request):
         per_page_count = 6
         page = json.loads(request.body).get('page')
 
-        bookmarks = VideoBookmark.objects.filter(user=request.user, is_bookmark=True).order_by('-create_time')
+        bookmarks = VideoBookmark.objects.filter(user_id=request.user_id, is_bookmark=True).order_by('-create_time')
         paginator = Paginator(bookmarks, per_page_count)
         try:
             bookmarks_page = paginator.page(page)

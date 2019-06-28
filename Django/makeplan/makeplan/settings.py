@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'makeplan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'todo_goal',
+        'NAME':'todo_goal_new',
         'USER':'root',
         'PASSWORD':'yantyant',
         'HOST':'localhost',
@@ -151,9 +151,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # LOGIN_URL = '/user/login/'
 
 # 如果使用继承方式修改auth模块，在这里配置设置默认用户认证使用的表
-AUTH_USER_MODEL = 'user.UserInfo'
+# AUTH_USER_MODEL = 'user.UserInfo'
 
 
 AUTH_LIST = [
-    "/videos/myCollection"
+    "/videos/myBookmarks"
 ]
