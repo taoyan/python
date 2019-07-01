@@ -4,7 +4,7 @@ import time
 import hashlib
 from django.http import JsonResponse
 import jwt
-from jwt.exceptions import ExpiredSignatureError
+from jwt.exceptions import PyJWTError
 
 # 生成四位随机验证码
 def get_verification():
@@ -36,7 +36,7 @@ def get_jwt_token(user):
 def verify_jwt_token(token):
     try:
         payload = jwt.decode(bytes(token, encoding="utf-8"), 'secret', algorithms=['HS256'])
-    except ExpiredSignatureError:
+    except JWTException:
         return False, token
     if payload:
         return True, payload
