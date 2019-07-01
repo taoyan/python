@@ -198,3 +198,9 @@ def modify_password(request):
             return my_tool.json_response(message="修改密码成功")
         else:
             return my_tool.json_response(outcome=1, message="验证码错误")
+
+
+
+def upload_avatar(request):
+    if request.method == 'POST':
+        avatar = request.FILES.get('avatar')

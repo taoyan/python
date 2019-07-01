@@ -14,4 +14,6 @@ urlpatterns = [
     url('^BindNewMobile/$',views.bind_new_mobile),
     url('^ModifyPassword/$', views.modify_password),
     url('^userInfo/$',views.user_info),
+
+    url('^uploadAvatar$',views.upload_avatar),
 ]

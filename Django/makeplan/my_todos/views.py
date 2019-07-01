@@ -10,7 +10,7 @@ import datetime
 
 def synchronize(request):
     if request.method == 'POST':
-        current_user = request.user
+        current_user_id = request.user_id
 
         params = json.loads(request.body)
         todo_params = params.get("todo")
@@ -39,16 +39,16 @@ def synchronize(request):
                 status = todo_dict["status"]
 
                 todo = Todo(ident, desc, group, schedule_date, finish_date, remind_type,
-                            remind_date, icon_index, status, user=current_user)
+                            remind_date, icon_index, status, user_id=current_user_id)
                 todo.save()
 
         #返回所有lastmodified大于参数lastmodified的数据
         todos = []
         if todo_last_modified == None:
-            todos_queryset = Todo.objects.filter(user=current_user)
+            todos_queryset = Todo.objects.filter(user_id=current_user_id)
             todos = list(todos_queryset)
         else:
-            todos_queryset = Todo.objects.filter(user=current_user, last_modified__gt=todo_last_modified)
+            todos_queryset = Todo.objects.filter(user_id=current_user_id, last_modified__gt=todo_last_modified)
             todos = list(todos_queryset)
 
         todo_dict_list = []
@@ -69,15 +69,15 @@ def synchronize(request):
                 status = goal_dict["status"]
 
                 goal = Goal(ident, title, start_date, end_date, content,
-                            status, user=current_user)
+                            status, user_id=current_user_id)
                 goal.save()
 
         goals = []
         if goal_last_modified == None:
-            goals_queryset = Goal.objects.filter(user = current_user)
+            goals_queryset = Goal.objects.filter(user_id = current_user_id)
             goals = list(goals_queryset)
         else:
-            goals_queryset = Goal.objects.filter(user=current_user, last_modified__gt=goal_last_modified)
+            goals_queryset = Goal.objects.filter(user_id=current_user_id, last_modified__gt=goal_last_modified)
             goals = list(goals_queryset)
 
         goal_dict_list = []
@@ -94,15 +94,15 @@ def synchronize(request):
                 time_counts = timerecord_dict["timeCounts"]
                 goal_id = timerecord_dict["goalId"]
 
-                time_record = TimeRecord(ident, date, time_counts, user=current_user, goal_id=goal_id)
+                time_record = TimeRecord(ident, date, time_counts, user_id=current_user_id, goal_id=goal_id)
                 time_record.save()
 
         records = []
         if timerecord_last_modified == None:
-            records_queryset = TimeRecord.objects.filter(user = current_user)
+            records_queryset = TimeRecord.objects.filter(user_id = current_user_id)
             records = list(records_queryset)
         else:
-            records_queryset = TimeRecord.objects.filter(user=current_user, last_modified__gt=timerecord_last_modified)
+            records_queryset = TimeRecord.objects.filter(user_id=current_user_id, last_modified__gt=timerecord_last_modified)
             records = list(records_queryset)
 
         records_dict_list = []
