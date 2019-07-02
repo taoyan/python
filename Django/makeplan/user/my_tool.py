@@ -27,6 +27,7 @@ def get_jwt_token(user):
     payload = {
         "userId":user.nid,
         "username":user.username,
+        "mobile":user.mobile,
         # "exp":
     }
     token = jwt.encode(payload, 'secret', algorithm='HS256')
@@ -36,7 +37,7 @@ def get_jwt_token(user):
 def verify_jwt_token(token):
     try:
         payload = jwt.decode(bytes(token, encoding="utf-8"), 'secret', algorithms=['HS256'])
-    except JWTException:
+    except PyJWTError:
         return False, token
     if payload:
         return True, payload

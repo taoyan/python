@@ -12,14 +12,35 @@ from django.core.cache import cache
 from django.views.decorators.csrf import csrf_exempt
 
 
+def check_sms_code(request):
+    if request.method == 'POST':
+        params = json.loads(request.body)
+        mobile = params.get('mobile')
+        code = params.get('code')
+
+        if not code:
+            return my_tool.json_response(outcome=1, message="请先获取短信验证码")
+
+        cache_code = cache.get(mobile)
+        if not cache_code:
+            return my_tool.json_response(outcome=1, message="验证码已过期，请重新获取")
+
+        if code != cache_code:
+            return my_tool.json_response(outcome=1, message="验证码错误")
+
+        return my_tool.json_response(data={})
+
+
 @csrf_exempt
 def register(request):
     if request.method == 'POST':
-        name = request.POST.get('username')
-        mobile = request.POST.get('mobile')
-        code = request.POST.get('code')
-        password = request.POST.get('password')
-        avatar = request.FILES.get('avatar')
+        params = json.loads(request.body)
+        avatar = params.get('avatar')
+        name = params.get('username')
+        mobile = params.get('mobile')
+        code = params.get('code')
+        password = params.get('password')
+
 
         if not code:
             return my_tool.json_response(outcome=1, message="请先获取短信验证码")
@@ -33,7 +54,6 @@ def register(request):
 
         if not password:
             return my_tool.json_response(outcome=1, message="密码不能为空")
-
         try:
             if avatar:
                 user = UserInfo(mobile=mobile, password=password, username=name, avatar=avatar)
@@ -44,8 +64,8 @@ def register(request):
 
         user.save()
 
-        data_dict = {"nid": user.nid, "mobile": user.mobile, "username": user.username,
-                     "email": user.email, "avatar":user.avatar.url, "token":my_tool.get_jwt_token(user)}
+        data_dict = user.to_dict()
+        data_dict["token"] = my_tool.get_jwt_token(user)
         return my_tool.json_response(data=data_dict)
 
 
@@ -82,9 +102,8 @@ def login(request):
                 return my_tool.json_response(outcome=1, message="用户名或密码错误")
 
 
-        data_dict = {"nid": user.nid, "mobile": user.mobile, "username": user.username,
-                     "email": user.email, "avatar": user.avatar.url, "token":my_tool.get_jwt_token(user)}
-
+        data_dict = user.to_dict()
+        data_dict["token"] = my_tool.get_jwt_token(user)
         return my_tool.json_response(data=data_dict)
 
     return render(request, 'user/login.html')
@@ -96,16 +115,6 @@ def logout(request):
         return my_tool.json_response(message="退出成功")
 
 
-def user_info(request):
-    if request.method == 'POST':
-        params = json.loads(request.body)
-        user_id = params.get("userId")
-        user = UserInfo.objects.get(pk=user_id)
-        data_dict = {"uid": user.id, "mobile": user.mobile, "nickName": user.nick_name,
-                     "individualitySignature": user.individuality_signature,
-                     "headerImageUrl": user.header_image_url, "email": user.email}
-
-        return my_tool.json_response(data=data_dict)
 
 @csrf_exempt
 def send_sms_regist(request):
@@ -150,11 +159,12 @@ def send_sms_login(request):
 
 def send_sms(request):
     if request.method == 'POST':
-        mobile = json.loads(request.body).get('mobile')
+        mobile = request.mobile
         code = my_tool.get_verification()
         # sms = SendSMS()
         # dict = sms.send_sms(code, mobile)
-        result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
+        # result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
+        result = True
         if result == True:
             cache.set(mobile, code, 60 * 10)
             return my_tool.json_response(data={"code": code})
@@ -183,24 +193,37 @@ def bind_new_mobile(request):
             return my_tool.json_response(outcome=1, message="原始手机号验证码错误")
 
 
-def modify_password(request):
+def modify_userinfo(request):
     if request.method == 'POST':
         params = json.loads(request.body)
-        mobile = params.get('mobile')
-        code = params.get('code')
-        new_passwd = params.get('new_password')
-        cache_code = cache[mobile]
-        if code == cache_code:
-            user = UserInfo.objects.get(mobile=mobile)
-            sha1_passwd = '%s:%s' % (user.id, new_passwd)
-            user.password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
-            user.save()
-            return my_tool.json_response(message="修改密码成功")
-        else:
-            return my_tool.json_response(outcome=1, message="验证码错误")
+        user_id = request.user_id
+        password = params.get('password')
+        avatar = params.get('avatar')
+        username = params.get('username')
+
+        user = UserInfo.objects.filter(nid=user_id).first()
+        if password != None:
+            user.password = password
+        if avatar != None:
+            user.avatar = avatar
+        if username != None:
+            user.username = username
+        user.save()
+
+        data_dict = user.to_dict()
+        return my_tool.json_response(data=data_dict)
 
 
 
-def upload_avatar(request):
+
+import os
+import time
+def upload_file(request):
     if request.method == 'POST':
-        avatar = request.FILES.get('avatar')
+        file = request.FILES.get('file')
+        file_name = str(int(time.time() * 10))+"."+ file.name.split(".")[1]
+        filePath = os.path.join("media/avatars", file_name)
+        with open(filePath, 'wb+') as destination:
+            for chunk in file.chunks():
+                destination.write(chunk)
+        return my_tool.json_response(data={"url":filePath})

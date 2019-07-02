@@ -156,5 +156,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_LIST = [
     "/videos/myBookmarks",
-    "/todo_goal/synchronize/",
+    "/todo_goal/synchronize",
+    "/user/send_sms",
+    "/user/modifyUserInfo",
+    "/user/bindNewMobile",
 ]

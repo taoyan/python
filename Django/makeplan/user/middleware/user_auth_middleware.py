@@ -10,14 +10,15 @@ class UserAuth(MiddlewareMixin):
         if request.path in settings.AUTH_LIST:
             token = request.META.get('HTTP_AUTHORIZATION')
             if not token:
-                return my_tool.json_response(outcome=1, message="请先登录")
+                return my_tool.json_response(outcome=3, message="请先登录")
             result, payload = my_tool.verify_jwt_token(token)
             if result == True:
                 print(payload)
                 request.user_id = payload["userId"]
+                request.mobile = payload["mobile"]
                 return
             else:
-                return my_tool.json_response(outcome=-1, message="请重新登录")
+                return my_tool.json_response(outcome=2, message="请重新登录")
         # if request.user.pk == None:
         #     return my_tool.json_response(outcome=1, message="请先登录")
         # if request.user.is_authenticated() == False:
