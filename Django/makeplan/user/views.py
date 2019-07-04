@@ -121,6 +121,9 @@ def send_sms_regist(request):
     if request.method == 'POST':
         mobile = json.loads(request.body).get('mobile')
 
+        if len(mobile) != 11:
+            return my_tool.json_response(outcome=1, message="手机号不正确")
+
         users = UserInfo.objects.filter(mobile=mobile)
         if users.count() != 0:
             return my_tool.json_response(outcome=1, message="手机号已被注册")
@@ -172,36 +175,20 @@ def send_sms(request):
             return my_tool.json_response(outcome=1)
 
 
-def bind_new_mobile(request):
-    if request.method == 'POST':
-        params = json.loads(request.body)
-        mobile = params.get('mobile')
-        code = params.get('code')
-        new_mobile = params.get('new_mobile')
-        new_code = params.get('new_code')
-        cache_code = cache[mobile]
-        if code == cache_code:
-            cache_new_code = cache[new_mobile]
-            if new_code == cache_new_code:
-                user = UserInfo.objects.get(mobile=mobile)
-                user.mobile = new_mobile
-                user.save()
-                return my_tool.json_response(message="修改手机号码成功")
-            else:
-                return my_tool.json_response(outcome=1, message="新手机号验证码错误")
-        else:
-            return my_tool.json_response(outcome=1, message="原始手机号验证码错误")
-
 
 def modify_userinfo(request):
     if request.method == 'POST':
-        params = json.loads(request.body)
         user_id = request.user_id
+
+        params = json.loads(request.body)
+        mobile = params.get('mobile')
         password = params.get('password')
         avatar = params.get('avatar')
         username = params.get('username')
 
         user = UserInfo.objects.filter(nid=user_id).first()
+        if mobile != None:
+            user.mobile = mobile
         if password != None:
             user.password = password
         if avatar != None:

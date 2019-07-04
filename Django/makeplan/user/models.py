@@ -5,8 +5,8 @@ from django.db import models
 
 class UserInfo(models.Model):
     nid = models.AutoField(primary_key=True)
-    mobile = models.CharField(max_length=11, blank=False, unique=True)
-    password = models.CharField(max_length=200, blank=False)
+    mobile = models.CharField(max_length=20, blank=False, unique=True)
+    password = models.CharField(max_length=20, blank=False)
     username = models.CharField(max_length=30, blank=False, default='')
     avatar = models.CharField(max_length=200, blank=True)
     email = models.EmailField(blank=True)

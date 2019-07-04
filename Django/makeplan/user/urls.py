@@ -11,7 +11,7 @@ urlpatterns = [
     url('^send_sms_login$',views.send_sms_login),
     url('^send_sms$',views.send_sms),
 
-    url('^bindNewMobile$',views.bind_new_mobile),
+    # url('^bindNewMobile$',views.bind_new_mobile),
     url('^modifyUserInfo$', views.modify_userinfo),
 
 
