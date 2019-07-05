@@ -13,6 +13,7 @@ urlpatterns = [
 
     # url('^bindNewMobile$',views.bind_new_mobile),
     url('^modifyUserInfo$', views.modify_userinfo),
+    url('^userInfo$', views.userinfo),
 
 
     url('^uploadFile$',views.upload_file),

@@ -175,6 +175,13 @@ def send_sms(request):
             return my_tool.json_response(outcome=1)
 
 
+def userinfo(request):
+    if request.method == 'POST':
+        user_id = request.user_id
+        user = UserInfo.objects.filter(nid=user_id).first()
+
+        data_dict = user.to_dict()
+        return my_tool.json_response(data=data_dict)
 
 def modify_userinfo(request):
     if request.method == 'POST':
