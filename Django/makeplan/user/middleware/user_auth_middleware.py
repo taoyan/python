@@ -5,8 +5,9 @@ from makeplan import settings
 class UserAuth(MiddlewareMixin):
 
     def process_request(self,request):
-        print(request.COOKIES)
         print(request.path)
+        if request.method == 'GET':
+            return
         if request.path in settings.AUTH_LIST:
             token = request.META.get('HTTP_AUTHORIZATION')
             if not token:

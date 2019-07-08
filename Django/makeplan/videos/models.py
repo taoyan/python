@@ -19,6 +19,7 @@ class Video(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
 
     content = models.OneToOneField(to="VideoDetail", to_field="nid", null=False)
+    content_template = models.CharField(max_length=100, null=False, blank=False, default='videos/video_detail')
 
     def to_short_dict(self):
         dict = {}
@@ -26,6 +27,7 @@ class Video(models.Model):
         dict["title"] = self.title
         dict["screenShot"] = self.screen_shot.url
         dict["resourceUrl"] = self.resource_url
+        dict["contentTemplate"] = self.content_template
         return dict
 
 
@@ -35,7 +37,6 @@ class Video(models.Model):
         dict["playCount"] = self.play_count
         dict["commentCount"] = self.comment_count
         dict["createDate"] = self.create_date
-        dict["content"] = self.content.content
         return dict
 
     def __str__(self):

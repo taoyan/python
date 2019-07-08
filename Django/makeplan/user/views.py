@@ -7,7 +7,6 @@ from .send_sms import SendSMS
 from .SMS import SendTemplateSMS
 from .models import UserInfo
 from . import my_tool
-import hashlib
 from django.core.cache import cache
 from django.views.decorators.csrf import csrf_exempt
 
@@ -56,9 +55,9 @@ def register(request):
             return my_tool.json_response(outcome=1, message="密码不能为空")
         try:
             if avatar:
-                user = UserInfo(mobile=mobile, password=password, username=name, avatar=avatar)
+                user = UserInfo(mobile=mobile, password=my_tool.pwd_string(password), username=name, avatar=avatar)
             else:
-                user = UserInfo(mobile=mobile, password=password, username=name)
+                user = UserInfo(mobile=mobile, password=my_tool.pwd_string(password), username=name)
         except Exception as e:
             return my_tool.json_response(outcome=1, message=str(e))
 
@@ -97,7 +96,7 @@ def login(request):
             if not password:
                 return my_tool.json_response(outcome=1, message="请先输入登录密码")
 
-            user = UserInfo.objects.filter(mobile=mobile, password=password).first()
+            user = UserInfo.objects.filter(mobile=mobile, password__exact=my_tool.pwd_string(password)).first()
             if not user:
                 return my_tool.json_response(outcome=1, message="用户名或密码错误")
 
@@ -131,8 +130,7 @@ def send_sms_regist(request):
             code = my_tool.get_verification()
             # sms = SendSMS()
             # dict = sms.send_sms(code, mobile)
-            # result = SendTemplateSMS.sendTemplateSMS(mobile, {code,'10'}, 1)
-            result = True
+            result = SendTemplateSMS.sendTemplateSMS(mobile, {'10', code}, 1)
             if result == True:
                 cache.set(mobile, code, 60 * 10)
                 return my_tool.json_response(data={"code": code})
@@ -151,8 +149,7 @@ def send_sms_login(request):
             code = my_tool.get_verification()
             # sms = SendSMS()
             # dict = sms.send_sms(code, mobile)
-            # result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
-            result = True
+            result = SendTemplateSMS.sendTemplateSMS(mobile, {'10', code}, 1)
             if result == True:
                 cache.set(mobile, code, 60 * 10)
                 return my_tool.json_response(data={"code": code})
@@ -166,8 +163,7 @@ def send_sms(request):
         code = my_tool.get_verification()
         # sms = SendSMS()
         # dict = sms.send_sms(code, mobile)
-        # result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
-        result = True
+        result = SendTemplateSMS.sendTemplateSMS(mobile, {'10', code}, 1)
         if result == True:
             cache.set(mobile, code, 60 * 10)
             return my_tool.json_response(data={"code": code})
@@ -197,7 +193,7 @@ def modify_userinfo(request):
         if mobile != None:
             user.mobile = mobile
         if password != None:
-            user.password = password
+            user.password = my_tool.pwd_string(password)
         if avatar != None:
             user.avatar = avatar
         if username != None:

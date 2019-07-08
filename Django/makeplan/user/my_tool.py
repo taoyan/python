@@ -23,6 +23,15 @@ def get_token(user, max_age):
     return '-'.join(L)
 
 
+
+def pwd_string(password):
+    sha1_passwd = '%s:%s' % ('YANT1234', password)
+    new_password = hashlib.sha1(sha1_passwd.encode('utf-8')).hexdigest()
+    return new_password
+
+
+
+
 def get_jwt_token(user):
     payload = {
         "userId":user.nid,

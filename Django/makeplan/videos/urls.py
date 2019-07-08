@@ -6,7 +6,7 @@ app_name = 'videos'
 urlpatterns = [
     url('^index/$',views.videos),
     url('^videos$',views.videos),
-    url('^detail/(\d+)/$',views.detail),
+    url('^detail/(\d+).html$',views.detail),
     url('^detail$',views.detail2),
 
 

@@ -52,7 +52,7 @@ def videos(request):
 def detail(request, video_id):
     if request.method == 'GET':
         video = get_object_or_404(Video, pk = video_id)
-        return render(request, 'videos/detail.html', {'video': video})
+        return render(request, video.content_template, {'video': video})
 
 
 
