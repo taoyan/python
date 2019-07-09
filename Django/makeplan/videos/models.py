@@ -19,7 +19,7 @@ class Video(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
 
     content = models.OneToOneField(to="VideoDetail", to_field="nid", null=False)
-    content_template = models.CharField(max_length=100, null=False, blank=False, default='videos/video_detail')
+    content_template = models.CharField(max_length=100, null=False, blank=False, default='videos/video_detail.html')
 
     def to_short_dict(self):
         dict = {}
