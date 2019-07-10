@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'app.apps.AppConfig',
     'videos.apps.VideosConfig',
     'user.apps.UserConfig',
     'my_todos.apps.MyTodosConfig',
@@ -53,7 +55,6 @@ MIDDLEWARE = [
     'user.middleware.user_auth_middleware.UserAuth',
 ]
 
-# from django.contrib.auth.middleware import AuthenticationMiddleware
 ROOT_URLCONF = 'makeplan.urls'
 
 TEMPLATES = [

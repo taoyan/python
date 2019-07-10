@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from django.views.static import serve
 from django.conf import settings
-
+from app import views
 
 urlpatterns = [
     url('^admin/', admin.site.urls),
@@ -27,4 +27,6 @@ urlpatterns = [
     url('^user/', include('user.urls')),
     url('^videos/',include('videos.urls')),
     url('^todo_goal/',include('my_todos.urls')),
+
+    url('^checkVersion$', views.check_version),
 ]
