@@ -38,9 +38,7 @@ class Todo(models.Model):
 class Goal(models.Model):
     ident = models.CharField(max_length=50, primary_key=True)
     title = models.CharField(max_length=500)
-    start_date = models.DateField(blank=False)
-    end_date = models.DateField(blank=False)
-    content = models.TextField(blank=True, default="")
+    content = models.TextField(null=True, default="")
     status = models.IntegerField(default=0)
 
     last_modified = models.DateTimeField(blank=False, auto_now=True)
@@ -50,8 +48,6 @@ class Goal(models.Model):
         dict = {}
         dict["ident"] = self.ident
         dict["title"] = self.title
-        dict["startDate"] = self.start_date
-        dict["endDate"] = self.end_date
         dict["content"] = self.content
         dict["status"] = self.status
         dict["lastModified"] = self.last_modified

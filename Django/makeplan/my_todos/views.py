@@ -63,12 +63,10 @@ def synchronize(request):
             for goal_dict in goal_list:
                 ident = goal_dict["ident"]
                 title = goal_dict["title"]
-                start_date = goal_dict["startDate"]
-                end_date = goal_dict["endDate"]
                 content = goal_dict["content"]
                 status = goal_dict["status"]
 
-                goal = Goal(ident, title, start_date, end_date, content,
+                goal = Goal(ident, title, content,
                             status, user_id=current_user_id)
                 goal.save()
 
