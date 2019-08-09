@@ -11,7 +11,7 @@ import django.utils.timezone as timezone
 class Video(models.Model):
     nid = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
-    screen_shot = models.FileField(upload_to="screen_shot/", default="screen_shot/default.png", verbose_name="缩略图")
+    screen_shot = models.FileField(upload_to="screen_shot/", default="/screen_shot/default.png", verbose_name="缩略图")
     resource_url = models.CharField(max_length=500, null=False, blank=False)
     up_count = models.IntegerField(default=0)
     play_count = models.IntegerField(default=0)
@@ -27,7 +27,7 @@ class Video(models.Model):
         dict["title"] = self.title
         dict["screenShot"] = self.screen_shot.url
         dict["resourceUrl"] = self.resource_url
-        dict["contentTemplate"] = self.content_template
+        # dict["contentTemplate"] = self.content_template
         return dict
 
 
