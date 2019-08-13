@@ -41,7 +41,9 @@ def sendTemplateSMS(to,datas,tempId):
     
     result = rest.sendTemplateSMS(to,datas,tempId)
     print(result)
-    return True if(result['statusCode'] == '000000') else False
+    if 'statusCode' in result.keys():
+        return True if(result['statusCode'] == '000000') else False
+    return False
 
     # for k,v in result.iteritems():
     #
