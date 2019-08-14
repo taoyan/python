@@ -211,9 +211,10 @@ import time
 def upload_file(request):
     if request.method == 'POST':
         file = request.FILES.get('file')
-        file_name = str(int(time.time() * 10))+"."+ file.name.split(".")[1]
+        mobile = request.mobile;
+        file_name = mobile + '_' + str(int(time.time() * 10))+"."+ file.name.split(".")[1]
         filePath = os.path.join("media/avatars", file_name)
         with open(filePath, 'wb+') as destination:
             for chunk in file.chunks():
                 destination.write(chunk)
-        return my_tool.json_response(data={"url":filePath})
+        return my_tool.json_response(data={"url":'/'+filePath})
