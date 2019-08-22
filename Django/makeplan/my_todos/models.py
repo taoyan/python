@@ -9,7 +9,7 @@ class Todo(models.Model):
     schedule_date = models.DateField(blank=False)
     finish_date = models.DateField(null=True)
     remind_type = models.IntegerField(default=0)
-    remind_date = models.TimeField(null=True)
+    remind_date = models.DateTimeField(null=True)
     icon_index = models.IntegerField(default=0)
     status = models.IntegerField(default=0)
 
