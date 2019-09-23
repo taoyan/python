@@ -42,7 +42,7 @@ def videos(request):
         dict = {}
         video_list = []
         for video in videos_page.object_list:
-            video_list.append(video.to_short_dict())
+            video_list.append(video.to_dict())
         dict['videos'] = video_list
         dict['total'] = videos.count()
         return my_tool.json_response(data=dict)
@@ -63,6 +63,9 @@ def detail2(request):
         video = Video.objects.filter(pk=video_id).first()
         if not video:
             return my_tool.json_response(outcome=1, message="没有所请求的内容")
+
+        video.play_count += 1
+        video.save()
 
         bookmark = VideoBookmark.objects.filter(user_id=request.user_id,video=video).first()
         is_bookmark = False
@@ -109,7 +112,7 @@ def my_bookmarks(request):
         data_dict = {}
         video_list = []
         for bookmark in bookmarks_page.object_list:
-            video_list.append(bookmark.video.to_short_dict())
+            video_list.append(bookmark.video.to_dict())
         data_dict["videos"] = video_list
         data_dict['total'] = bookmarks.count()
         return my_tool.json_response(data=data_dict)

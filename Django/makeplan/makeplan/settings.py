@@ -163,4 +163,5 @@ AUTH_LIST = [
     "/user/bindNewMobile",
     "/user/uploadFile",
     "/videos/detail",
+    "/videos/bookmark",
 ]
