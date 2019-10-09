@@ -223,7 +223,7 @@ import os
 from bbs import settings
 def upload(request):
     file = request.FILES.get("upload_img")
-    path = os.path.join(settings.MEDIA_ROOT,"add_article_img", file.name)
+    path = os.path.join(settings.MEDIA_ROOT,"extraadd_article_img", file.name)
     with open(path, 'wb') as f:
         for line in file:
             f.write(line)

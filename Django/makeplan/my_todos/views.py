@@ -45,7 +45,7 @@ def synchronize(request):
         #返回所有lastmodified大于参数lastmodified的数据
         todos = []
         if todo_last_modified == None:
-            todos_queryset = Todo.objects.filter(user_id=current_user_id)
+            todos_queryset = Todo.objects.filter(user_id=current_user_id).order_by('-last_modified')[:3000]
             todos = list(todos_queryset)
         else:
             todos_queryset = Todo.objects.filter(user_id=current_user_id, last_modified__gt=todo_last_modified)

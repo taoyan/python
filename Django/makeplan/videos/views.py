@@ -14,7 +14,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def videos(request):
     per_page_count = 6
-    videos = Video.objects.all().order_by('-create_date')
+    videos = Video.objects.filter(published=True).order_by('-order')
     if request.method == 'GET':
         if not videos:
             return HttpResponse("sorry, no videos available")
@@ -42,7 +42,10 @@ def videos(request):
         dict = {}
         video_list = []
         for video in videos_page.object_list:
-            video_list.append(video.to_dict())
+            video_dict = video.to_dict()
+            tags_qs = Video2Tag.objects.filter(video = video).values('tag__title').distinct()
+            video_dict['tags'] = list(tags_qs.all())
+            video_list.append(video_dict)
         dict['videos'] = video_list
         dict['total'] = videos.count()
         return my_tool.json_response(data=dict)
@@ -99,7 +102,7 @@ def my_bookmarks(request):
         per_page_count = 6
         page = json.loads(request.body).get('page')
 
-        bookmarks = VideoBookmark.objects.filter(user_id=request.user_id, is_bookmark=True).order_by('-create_time')
+        bookmarks = VideoBookmark.objects.filter(user_id=request.user_id, is_bookmark=True).order_by('-modified_date')
         paginator = Paginator(bookmarks, per_page_count)
         try:
             bookmarks_page = paginator.page(page)
@@ -111,8 +114,11 @@ def my_bookmarks(request):
 
         data_dict = {}
         video_list = []
-        for bookmark in bookmarks_page.object_list:
-            video_list.append(bookmark.video.to_dict())
+        for video_bookmark in bookmarks_page.object_list:
+            video_dict = video_bookmark.video.to_dict()
+            tags_qs = Video2Tag.objects.filter(video=video_bookmark.video).values('tag__title').distinct()
+            video_dict['tags'] = list(tags_qs.all())
+            video_list.append(video_dict)
         data_dict["videos"] = video_list
         data_dict['total'] = bookmarks.count()
         return my_tool.json_response(data=data_dict)
