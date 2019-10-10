@@ -38,7 +38,10 @@ def sendTemplateSMS(to,datas,tempId):
     rest = REST(serverIP,serverPort,softVersion)
     rest.setAccount(accountSid,accountToken)
     rest.setAppId(appId)
-    
+
+    # 先使用统一模版
+    tempId = 479135
+
     result = rest.sendTemplateSMS(to,datas,tempId)
     print(result)
     if 'statusCode' in result.keys():

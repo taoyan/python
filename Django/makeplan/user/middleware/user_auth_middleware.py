@@ -17,6 +17,10 @@ class UserAuth(MiddlewareMixin):
                 print(payload)
                 request.user_id = payload["userId"]
                 request.mobile = payload["mobile"]
+                # 同一账户，后登陆的踢出先登录的
+
+
+
                 return
             else:
                 return my_tool.json_response(outcome=2, message="请重新登录")
