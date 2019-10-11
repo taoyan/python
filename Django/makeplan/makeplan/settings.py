@@ -161,7 +161,6 @@ AUTH_LIST = [
     "/user/send_sms",
     "/user/modifyUserInfo",
     "/user/bindNewMobile",
-    "/user/uploadFile",
     "/videos/detail",
     "/videos/bookmark",
 ]

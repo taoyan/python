@@ -130,7 +130,7 @@ def send_sms_regist(request):
             code = my_tool.get_verification()
             # sms = SendSMS()
             # dict = sms.send_sms(code, mobile)
-            result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
+            result = SendTemplateSMS.sendTemplateSMS(mobile, [code, '10'], 1)
             if result == True:
                 cache.set(mobile, code, 60 * 10)
                 return my_tool.json_response()
@@ -149,7 +149,7 @@ def send_sms_login(request):
             code = my_tool.get_verification()
             # sms = SendSMS()
             # dict = sms.send_sms(code, mobile)
-            result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
+            result = SendTemplateSMS.sendTemplateSMS(mobile, [code, '10'], 1)
             if result == True:
                 cache.set(mobile, code, 60 * 10)
                 return my_tool.json_response()
@@ -163,7 +163,7 @@ def send_sms(request):
         code = my_tool.get_verification()
         # sms = SendSMS()
         # dict = sms.send_sms(code, mobile)
-        result = SendTemplateSMS.sendTemplateSMS(mobile, {code, '10'}, 1)
+        result = SendTemplateSMS.sendTemplateSMS(mobile, [code, '10'], 1)
         if result == True:
             cache.set(mobile, code, 60 * 10)
             return my_tool.json_response()
@@ -211,7 +211,7 @@ import time
 def upload_file(request):
     if request.method == 'POST':
         file = request.FILES.get('file')
-        mobile = request.mobile;
+        mobile = file.name.split(".")[0];
         file_name = mobile + '_' + str(int(time.time() * 10))+"."+ file.name.split(".")[1]
         filePath = os.path.join("media/avatars", file_name)
         with open(filePath, 'wb+') as destination:

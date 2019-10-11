@@ -42,6 +42,7 @@ def sendTemplateSMS(to,datas,tempId):
     # 先使用统一模版
     tempId = 479135
 
+    print('=======' , datas)
     result = rest.sendTemplateSMS(to,datas,tempId)
     print(result)
     if 'statusCode' in result.keys():
