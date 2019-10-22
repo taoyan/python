@@ -10,7 +10,7 @@ class Todo(models.Model):
     finish_date = models.DateField(null=True)
     remind_type = models.IntegerField(default=0)
     remind_date = models.DateTimeField(null=True)
-    icon_index = models.IntegerField(default=0)
+    icon_type = models.IntegerField(default=0)
     status = models.IntegerField(default=0)
 
     user = models.ForeignKey(to=UserInfo, to_field="nid")
@@ -25,7 +25,7 @@ class Todo(models.Model):
         dict["finishDate"] = self.finish_date
         dict["remindType"] = self.remind_type
         dict["remindDate"] = self.remind_date
-        dict["iconIndex"] = self.icon_index
+        dict["iconType"] = self.icon_type
         dict["status"] = self.status
         dict["lastModified"] = self.last_modified
         return dict

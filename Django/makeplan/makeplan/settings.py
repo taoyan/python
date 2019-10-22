@@ -160,6 +160,7 @@ AUTH_LIST = [
     "/todo_goal/synchronize",
     "/user/send_sms",
     "/user/modifyUserInfo",
+    "/user/userInfo",
     "/user/bindNewMobile",
     "/videos/detail",
     "/videos/bookmark",

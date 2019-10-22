@@ -13,9 +13,13 @@ class VideoAdmin(admin.ModelAdmin):
     list_display = ["title", "order", "published", "show_all_tags", "play_count"]
 
 
+class VideoDetailAdmin(admin.ModelAdmin):
+
+    list_display = ["content"]
+
 
 admin.site.register(models.Video, VideoAdmin)
-admin.site.register(models.VideoDetail)
+admin.site.register(models.VideoDetail, VideoDetailAdmin)
 admin.site.register(models.Comment)
 admin.site.register(models.VideoThumbsUp)
 admin.site.register(models.VideoPlay)

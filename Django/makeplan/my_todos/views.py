@@ -35,11 +35,11 @@ def synchronize(request):
                 finish_date = todo_dict["finishDate"]
                 remind_type = todo_dict["remindType"]
                 remind_date = todo_dict["remindDate"]
-                icon_index = todo_dict["iconIndex"]
+                icon_type = todo_dict["iconType"]
                 status = todo_dict["status"]
 
                 todo = Todo(ident, desc, group, schedule_date, finish_date, remind_type,
-                            remind_date, icon_index, status, user_id=current_user_id)
+                            remind_date, icon_type, status, user_id=current_user_id)
                 todo.save()
 
         #返回所有lastmodified大于参数lastmodified的数据

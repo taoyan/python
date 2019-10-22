@@ -4,4 +4,10 @@ from django.contrib import admin
 
 from . import models
 
-admin.site.register(models.UserInfo)
+
+class UserInfoAdmin(admin.ModelAdmin):
+
+    list_display = ["mobile", "username", "date_joined", "last_login"]
+
+
+admin.site.register(models.UserInfo, UserInfoAdmin)
