@@ -18,11 +18,15 @@ class VideoDetailAdmin(admin.ModelAdmin):
     list_display = ["content"]
 
 
+class VideoBookmarkAdmin(admin.ModelAdmin):
+
+    list_display = ["video", "user"]
+
 admin.site.register(models.Video, VideoAdmin)
 admin.site.register(models.VideoDetail, VideoDetailAdmin)
 admin.site.register(models.Comment)
 admin.site.register(models.VideoThumbsUp)
 admin.site.register(models.VideoPlay)
-admin.site.register(models.VideoBookmark)
+admin.site.register(models.VideoBookmark, VideoBookmarkAdmin)
 admin.site.register(models.Tag)
 admin.site.register(models.Video2Tag)

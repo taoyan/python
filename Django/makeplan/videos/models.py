@@ -44,6 +44,9 @@ class Video(models.Model):
         through_fields=("video", "tag"),  # 注意顺序
     )
 
+    def __str__(self):
+        return self.title
+
 
     def to_short_dict(self):
         dict = {}

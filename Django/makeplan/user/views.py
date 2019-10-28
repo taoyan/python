@@ -100,6 +100,8 @@ def login(request):
             if not user:
                 return my_tool.json_response(outcome=1, message="用户名或密码错误")
 
+        user.last_login = datetime.datetime.today()
+        user.save()
 
         data_dict = user.to_dict()
         data_dict["token"] = my_tool.get_jwt_token(user)
@@ -170,11 +172,14 @@ def send_sms(request):
         else:
             return my_tool.json_response(outcome=1,message="验证码发送失败，请稍后再试")
 
-
+import datetime
 def userinfo(request):
     if request.method == 'POST':
         user_id = request.user_id
         user = UserInfo.objects.filter(nid=user_id).first()
+
+        user.last_login = datetime.datetime.today()
+        user.save()
 
         data_dict = user.to_dict()
         return my_tool.json_response(data=data_dict)

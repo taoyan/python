@@ -5,7 +5,7 @@ from .models import Goal, TimeRecord, Todo
 
 class TodoAdmin(admin.ModelAdmin):
 
-    list_display = ["desc", "schedule_date", "finish_date", "remind_type", "remind_date", "icon_type", "status"]
+    list_display = ["desc", "schedule_date", "finish_date", "remind_type", "remind_date", "icon_type", "status", "user"]
 
 
 admin.site.register(Goal)
